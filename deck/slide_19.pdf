@@ -1,0 +1,80 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 4 0 R 
+            /Resources << /Font << /FB 5 0 R /FR 6 0 R /FM 7 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2952 >>
+stream
+0.973 0.980 0.988 rg 0 0 842 595 re f
+BT /FR 9 Tf 0.450 0.500 0.580 rg 48.0 36.0 Td (Visual Identity Guidelines) Tj ET
+BT /FB 26 Tf 0.039 0.067 0.157 rg 48.0 525.0 Td (CLI & Terminal) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 380.0 536.0 Td (Broadsage is a Developer Platform Engineering) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 380.0 526.0 Td (\(DPE\) initiative built to deliver panoramic vision) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 380.0 516.0 Td (and wise guidance, bridging open-source innovation) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 380.0 506.0 Td (with hardened, resilient enterprise architectures.) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 575.0 536.0 Td (All marks, color ratios, and typography) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 575.0 526.0 Td (specifications in this manual are locked) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 575.0 516.0 Td (to preserve universal consistency. Never distort,) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 575.0 506.0 Td (alter, or disassemble these core identity assets.) Tj ET
+BT /FR 9 Tf 0.400 0.460 0.560 rg 785.0 536.0 Td (2026) Tj ET
+0.020 0.030 0.070 rg
+0.118 0.161 0.231 RG 1 w
+48.0 80.0 746.0 380.0 re
+b
+0.060 0.090 0.160 rg
+48.0 425.0 746.0 35.0 re
+f
+0.937 0.267 0.267 rg
+73.00 442.00 m 73.00 444.76 70.76 447.00 68.00 447.00 c 65.24 447.00 63.00 444.76 63.00 442.00 c 63.00 439.24 65.24 437.00 68.00 437.00 c 70.76 437.00 73.00 439.24 73.00 442.00 c 
+f
+0.961 0.620 0.043 rg
+89.00 442.00 m 89.00 444.76 86.76 447.00 84.00 447.00 c 81.24 447.00 79.00 444.76 79.00 442.00 c 79.00 439.24 81.24 437.00 84.00 437.00 c 86.76 437.00 89.00 439.24 89.00 442.00 c 
+f
+0.063 0.725 0.506 rg
+105.00 442.00 m 105.00 444.76 102.76 447.00 100.00 447.00 c 97.24 447.00 95.00 444.76 95.00 442.00 c 95.00 439.24 97.24 437.00 100.00 437.00 c 102.76 437.00 105.00 439.24 105.00 442.00 c 
+f
+BT /FM 10 Tf 0.580 0.640 0.720 rg 125.0 437.0 Td (bash -- broadsage init -- DPE Runtime Engine) Tj ET
+BT /FM 12 Tf 0.008 0.518 0.780 rg 68.0 385.0 Td (   /\\_/\\        BROADSAGE v1.0.0) Tj ET
+BT /FM 12 Tf 0.961 0.620 0.043 rg 68.0 359.0 Td (  \( o.o \)       Broad Vision, Sage Guidance -- Open to Everyone.) Tj ET
+BT /FM 12 Tf 0.961 0.620 0.043 rg 68.0 333.0 Td (  /\(   \)\\       [x] Guidance Shield: ACTIVE) Tj ET
+BT /FM 12 Tf 0.063 0.725 0.506 rg 68.0 307.0 Td (    ^ ^         [OK] DPE Architecture Mesh Synchronized) Tj ET
+BT /FM 12 Tf 1.000 1.000 1.000 rg 68.0 281.0 Td () Tj ET
+BT /FM 12 Tf 0.580 0.640 0.720 rg 68.0 255.0 Td ([info] Connecting to Broadsage Distributed Platform Mesh...) Tj ET
+BT /FM 12 Tf 0.580 0.640 0.720 rg 68.0 229.0 Td ([info] Mounting Open-Source Runtime, Agentic Workflows, and Telemetry...) Tj ET
+BT /FM 12 Tf 0.063 0.725 0.506 rg 68.0 203.0 Td ([success] Broadsage environment ready. 0 errors, 100% telemetry online.) Tj ET
+BT /FM 12 Tf 1.000 1.000 1.000 rg 68.0 177.0 Td () Tj ET
+BT /FM 12 Tf 1.000 1.000 1.000 rg 68.0 151.0 Td ($ broadsage agent run --profile enterprise) Tj ET
+
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000003278 00000 n 
+0000003353 00000 n 
+0000003423 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+3491
+%%EOF

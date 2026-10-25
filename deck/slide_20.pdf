@@ -1,0 +1,81 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 4 0 R 
+            /Resources << /Font << /FB 5 0 R /FR 6 0 R /FM 7 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 3774 >>
+stream
+0.973 0.980 0.988 rg 0 0 842 595 re f
+BT /FR 9 Tf 0.450 0.500 0.580 rg 48.0 36.0 Td (Visual Identity Guidelines) Tj ET
+BT /FB 26 Tf 0.039 0.067 0.157 rg 48.0 525.0 Td (The DPE Initiative) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 380.0 536.0 Td (Broadsage is a Developer Platform Engineering) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 380.0 526.0 Td (\(DPE\) initiative built to deliver panoramic vision) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 380.0 516.0 Td (and wise guidance, bridging open-source innovation) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 380.0 506.0 Td (with hardened, resilient enterprise architectures.) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 575.0 536.0 Td (All marks, color ratios, and typography) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 575.0 526.0 Td (specifications in this manual are locked) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 575.0 516.0 Td (to preserve universal consistency. Never distort,) Tj ET
+BT /FR 6.8 Tf 0.400 0.460 0.560 rg 575.0 506.0 Td (alter, or disassemble these core identity assets.) Tj ET
+BT /FR 9 Tf 0.400 0.460 0.560 rg 785.0 536.0 Td (2026) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 1 w 48.0 280.0 360.0 180.0 re b
+0.039 0.067 0.157 rg 48.0 420.0 360.0 40.0 re f
+BT /FB 14 Tf 1.000 1.000 1.000 rg 64.0 432.0 Td (Open-Source Hardening & Governance) Tj ET
+BT /FB 10.5 Tf 0.008 0.518 0.780 rg 64.0 385.0 Td (Upstream Innovation -> Enterprise-Grade Resilience) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 64.0 360.0 Td (Curating, auditing, and hardening distributed open-source stacks.) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 64.0 342.0 Td (Eliminating security vulnerabilities and compliance liabilities so) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 64.0 324.0 Td (enterprises can build freely without vendor lock-in.) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 1 w 434.0 280.0 360.0 180.0 re b
+0.961 0.620 0.043 rg 434.0 420.0 360.0 40.0 re f
+BT /FB 14 Tf 0.039 0.067 0.157 rg 450.0 432.0 Td (Autonomous Agentic Workflows) Tj ET
+BT /FB 10.5 Tf 0.961 0.620 0.043 rg 450.0 385.0 Td (Intelligent Developer Loops & Multi-Agent Swarms) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 450.0 360.0 Td (Embedding autonomous AI review agents, LLM reasoning meshes,) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 450.0 342.0 Td (and automated migration assistants directly into developer CI/CD) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 450.0 324.0 Td (pipelines to accelerate engineering velocity.) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 1 w 48.0 80.0 360.0 180.0 re b
+0.063 0.725 0.506 rg 48.0 220.0 360.0 40.0 re f
+BT /FB 14 Tf 1.000 1.000 1.000 rg 64.0 232.0 Td (Unified Telemetry & Lakehouse) Tj ET
+BT /FB 10.5 Tf 0.063 0.725 0.506 rg 64.0 185.0 Td (Real-Time Developer & System Observability) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 64.0 160.0 Td (ClickHouse-powered high-throughput metrics and trace streaming.) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 64.0 142.0 Td (Tracking DORA metrics, build latencies, and platform health) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 64.0 124.0 Td (across the entire distributed developer lifecycle.) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 1 w 434.0 80.0 360.0 180.0 re b
+0.008 0.518 0.780 rg 434.0 220.0 360.0 40.0 re f
+BT /FB 14 Tf 1.000 1.000 1.000 rg 450.0 232.0 Td (Paved Roads & Developer Toolchains) Tj ET
+BT /FB 10.5 Tf 0.008 0.518 0.780 rg 450.0 185.0 Td (Frictionless Self-Service & Local Runtimes) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 450.0 160.0 Td (Open-source developer CLI runtimes, standardized project scaffolds,) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 450.0 142.0 Td (and self-service cloud environments that eliminate cognitive load) Tj ET
+BT /FR 9.5 Tf 0.400 0.460 0.560 rg 450.0 124.0 Td (and establish trusted golden paths for every team.) Tj ET
+
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000004100 00000 n 
+0000004175 00000 n 
+0000004245 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+4313
+%%EOF

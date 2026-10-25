@@ -1,0 +1,28 @@
+{
+  "name": "@broadsage/brand-kit",
+  "version": "1.0.0",
+  "description": "Official Brand Guidelines, Vector Assets, and Design Tokens for Broadsage",
+  "main": "tokens/colors.json",
+  "scripts": {
+    "serve": "npx serve . -p 3000",
+    "preview": "open index.html",
+    "build:pdf": "python3 scripts/generate_brand_kit_pdf.py"
+  },
+  "keywords": [
+    "broadsage",
+    "brand-kit",
+    "design-system",
+    "design-tokens",
+    "logos",
+    "ollie-owl",
+    "agentic-ai",
+    "dpe"
+  ],
+  "author": "Broadsage Platform Architecture Team",
+  "license": "Proprietary",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/broadsage/brand-kit"
+  }
+}
+

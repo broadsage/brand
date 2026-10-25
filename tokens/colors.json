@@ -1,0 +1,89 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "Broadsage Official Brand Tokens",
+  "version": "1.0.0",
+  "color": {
+    "primary": {
+      "midnight": {
+        "value": "#0A1128",
+        "type": "color",
+        "description": "Primary foundation canvas, enterprise uptime, terminal base",
+        "rgb": { "r": 10, "g": 17, "b": 40 },
+        "cmyk": { "c": 75, "m": 58, "y": 0, "k": 84 },
+        "pantone": "282 C"
+      },
+      "gold": {
+        "value": "#F59E0B",
+        "type": "color",
+        "description": "The Sage Guidance Beacon, core focal point, active state",
+        "rgb": { "r": 245, "g": 158, "b": 11 },
+        "cmyk": { "c": 0, "m": 35, "y": 96, "k": 4 },
+        "pantone": "130 C"
+      }
+    },
+    "secondary": {
+      "gold-light": {
+        "value": "#FCD34D",
+        "type": "color",
+        "description": "Wisdom lens irises, glints, alert highlights",
+        "rgb": { "r": 252, "g": 211, "b": 77 },
+        "cmyk": { "c": 0, "m": 16, "y": 69, "k": 1 },
+        "pantone": "120 C"
+      },
+      "azure": {
+        "value": "#0284C7",
+        "type": "color",
+        "description": "Broad Vision crest, cloud telemetry, open-source horizon",
+        "rgb": { "r": 2, "g": 132, "b": 199 },
+        "cmyk": { "c": 99, "m": 34, "y": 0, "k": 22 },
+        "pantone": "2174 C"
+      },
+      "azure-hover": {
+        "value": "#0369A1",
+        "type": "color",
+        "description": "Deep azure wing shading",
+        "rgb": { "r": 3, "g": 105, "b": 161 }
+      },
+      "amber-dark": {
+        "value": "#B45309",
+        "type": "color",
+        "description": "Deep amber right wing shadow",
+        "rgb": { "r": 180, "g": 83, "b": 9 }
+      }
+    },
+    "neutral": {
+      "white": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Headings, eyeglass bridge, chevron code marks",
+        "rgb": { "r": 255, "g": 255, "b": 255 }
+      },
+      "slate-900": {
+        "value": "#050814",
+        "type": "color",
+        "description": "Deepest canvas background"
+      },
+      "slate-800": {
+        "value": "#101B3B",
+        "type": "color",
+        "description": "Elevated card background"
+      },
+      "slate-700": {
+        "value": "#1E293B",
+        "type": "color",
+        "description": "Borders, dividers, strokes"
+      },
+      "slate-400": {
+        "value": "#94A3B8",
+        "type": "color",
+        "description": "Secondary typography, subtitles"
+      },
+      "slate-500": {
+        "value": "#64748B",
+        "type": "color",
+        "description": "Muted metadata, timestamps"
+      }
+    }
+  }
+}
+

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hlNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0A1128"/>
+    </linearGradient>
+    <linearGradient id="hlGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Container for Light Mode -->
+  <rect width="440" height="120" rx="24" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  
+  <!-- Mini Mascot Icon (Optically Centered) -->
+  <g transform="translate(72, 58) scale(0.65)">
+    <polygon points="-48,-66 -22,-32 -54,-32" fill="#0284C7"/>
+    <polygon points="48,-66 22,-32 54,-32" fill="#F59E0B"/>
+    <ellipse cx="0" cy="8" rx="56" ry="62" fill="url(#hlNavy)"/>
+    <path d="M-56,2 C-66,24 -52,58 -32,66 C-42,44 -46,20 -56,2 Z" fill="#0369A1"/>
+    <path d="M56,2 C66,24 52,58 32,66 C42,44 46,20 56,2 Z" fill="#B45309"/>
+    <ellipse cx="0" cy="22" rx="32" ry="40" fill="url(#hlGold)"/>
+    <path d="M-12,12 L0,20 L12,12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M-14,26 L0,34 L14,26" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="-22" cy="-18" r="19" fill="#082F49" stroke="#0284C7" stroke-width="4"/>
+    <circle cx="-22" cy="-18" r="12" fill="#F59E0B"/>
+    <circle cx="-25" cy="-21" r="4.5" fill="#FFFFFF"/>
+    <circle cx="22" cy="-18" r="19" fill="#451A03" stroke="#F59E0B" stroke-width="4"/>
+    <circle cx="22" cy="-18" r="12" fill="#F59E0B"/>
+    <circle cx="19" cy="-21" r="4.5" fill="#FFFFFF"/>
+    <rect x="-6" y="-20" width="12" height="4" rx="2" fill="#FFFFFF"/>
+    <polygon points="0,-6 7,8 0,14 -7,8" fill="#FDE68A"/>
+    <ellipse cx="-16" cy="70" rx="7" ry="4" fill="#FBBF24"/>
+    <ellipse cx="16" cy="70" rx="7" ry="4" fill="#FBBF24"/>
+  </g>
+
+  <!-- Typography: BROADSAGE (Dark Navy + Gold) -->
+  <text x="136" y="63" fill="#0A1128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="-0.5">BROAD<tspan fill="#D97706">SAGE</tspan></text>
+  <text x="137" y="85" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="500" letter-spacing="0.2">Broad Vision, Sage Guidance — Open to Everyone.</text>
+</svg>

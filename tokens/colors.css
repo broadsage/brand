@@ -1,0 +1,41 @@
+/**
+ * Broadsage Brand Design Tokens
+ * Version 1.0.0
+ * Licensed for Broadsage Enterprise & Community Projects
+ */
+
+:root {
+  /* Primary Foundation */
+  --broadsage-navy-950: #050814;
+  --broadsage-navy-900: #0A1128;
+  --broadsage-navy-800: #101B3B;
+  --broadsage-navy-700: #1E293B;
+
+  /* Sage Guidance Beacon */
+  --broadsage-gold-500: #F59E0B;
+  --broadsage-gold-400: #FBBF24;
+  --broadsage-gold-300: #FCD34D;
+  --broadsage-gold-600: #D97706;
+  --broadsage-gold-700: #B45309;
+
+  /* Broad Vision Azure */
+  --broadsage-azure-600: #0369A1;
+  --broadsage-azure-500: #0284C7;
+  --broadsage-azure-400: #38BDF8;
+
+  /* Neutrals & Text */
+  --broadsage-white: #FFFFFF;
+  --broadsage-text-primary: #FFFFFF;
+  --broadsage-text-muted: #94A3B8;
+  --broadsage-text-subtle: #64748B;
+  --broadsage-border: #1E293B;
+
+  /* Status Tokens */
+  --broadsage-success: #10B981;
+  --broadsage-error: #EF4444;
+
+  /* Typography Stacks */
+  --broadsage-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --broadsage-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
