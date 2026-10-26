@@ -1,16 +1,17 @@
 {
-  "name": "@broadsage/brand-kit",
+  "name": "@broadsage/brand",
   "version": "1.0.0",
   "description": "Official Brand Guidelines, Vector Assets, and Design Tokens for Broadsage",
   "main": "tokens/colors.json",
   "scripts": {
-    "serve": "npx serve . -p 3000",
-    "preview": "open index.html",
-    "build:pdf": "python3 scripts/generate_brand_kit_pdf.py"
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "astro preview",
+    "serve": "astro preview"
   },
   "keywords": [
     "broadsage",
-    "brand-kit",
+    "brand",
     "design-system",
     "design-tokens",
     "logos",
@@ -18,11 +19,21 @@
     "agentic-ai",
     "dpe"
   ],
-  "author": "Broadsage Platform Architecture Team",
+  "author": "Broadsage",
   "license": "Proprietary",
   "repository": {
     "type": "git",
-    "url": "https://github.com/broadsage/brand-kit"
+    "url": "https://github.com/broadsage/brand"
+  },
+  "devDependencies": {
+    "@astrojs/react": "^7.1.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "astro": "^7.4.2",
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.3"
   }
 }
-

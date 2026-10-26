@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Narrative from '../components/Narrative.astro';
+import AssetStudio from '../islands/AssetStudio';
+import ColorPaletteMatrix from '../islands/ColorPaletteMatrix';
+import BannerHub from '../islands/BannerHub';
+import TypographySpecimens from '../components/TypographySpecimens.astro';
+import ClearspaceGuide from '../components/ClearspaceGuide.astro';
+import GovernanceRules from '../components/GovernanceRules.astro';
+import CliTerminal from '../components/CliTerminal.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Header />
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-20 sm:space-y-28 w-full flex-1">
+    {/* Hero Section */}
+    <Hero />
+
+    {/* Brand Narrative & Semantic Anatomy */}
+    <Narrative />
+
+    {/* Logo System & Interactive Studio */}
+    <section id="emblems" class="space-y-8 scroll-mt-24">
+      <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Official Marks &amp; Asset Studio
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Download vector SVGs, inspect against multiple canvas surfaces, or rasterize high-res PNGs
+          </p>
+        </div>
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
+          Official Production Marks
+        </span>
+      </div>
+
+      <AssetStudio client:visible />
+    </section>
+
+    {/* Color System & WCAG */}
+    <section id="colors" class="space-y-8 scroll-mt-24">
+      <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Official Color System &amp; Accessibility
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            Click any token value to copy to clipboard. Standardized for digital screens, IDE themes, and CMYK print.
+          </p>
+        </div>
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
+          Color Palette
+        </span>
+      </div>
+
+      <ColorPaletteMatrix client:visible />
+    </section>
+
+    {/* Repository Banners */}
+    <section id="banners" class="space-y-8 scroll-mt-24">
+      <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Repository &amp; Ecosystem Status Banners
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            One-click Markdown badges for GitHub Organization headers, status indicators, and community repos
+          </p>
+        </div>
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
+          Official Banners
+        </span>
+      </div>
+
+      <BannerHub client:visible />
+    </section>
+
+    {/* Typography Specimen */}
+    <TypographySpecimens />
+
+    {/* Clearspace & Layout Geometry */}
+    <ClearspaceGuide />
+
+    {/* Brand Governance & Usage Rules */}
+    <GovernanceRules />
+
+    {/* CLI & Developer Touchpoints */}
+    <CliTerminal />
+  </main>
+
+  <Footer />
+</BaseLayout>

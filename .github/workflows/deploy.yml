@@ -25,14 +25,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: 20
+          cache: 'npm'
 
-      - name: Build Brand Kit Presentation Deck PDF
-        run: |
-          python3 scripts/generate_brand_kit_pdf.py
+      - name: Install Node Dependencies
+        run: npm ci
+
+      - name: Build Astro Static Site
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -40,9 +43,8 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

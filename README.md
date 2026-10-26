@@ -34,25 +34,28 @@ broadsage-brand-kit/
 │   └── workflows/
 │       └── deploy.yml                  # Automated GitHub Pages CI/CD deployment workflow
 ├── .nojekyll                           # Bypasses Jekyll processing on GitHub Pages
-├── README.md                           # This master documentation
-├── index.html                          # Interactive Brand Kit Web Portal (with SVG/PNG exporter)
-├── broadsage_brand_kit.pdf             # Official 23-Slide Executive Widescreen Brand Presentation Deck (Agency Deck)
-├── package.json                        # NPM package configuration and preview scripts
-├── deck/                               # Individual slide vector PDFs and slide preview PNGs (1-23)
-├── scripts/
-│   └── generate_brand_kit_pdf.py       # Deterministic Python PDF compiler (`npm run build:pdf`)
-├── logos/
-│   ├── vector/
-│   │   ├── broadsage_logo_primary.svg            # 200×200 Primary Square Emblem
-│   │   ├── broadsage_logo_horizontal.svg         # 440×120 Horizontal Wordmark (Dark Theme)
-│   │   ├── broadsage_logo_horizontal_light.svg   # 440×120 Horizontal Wordmark (Light Theme)
-│   │   ├── broadsage_logo_avatar.svg             # 160×160 Circular Git & Slack Avatar
-│   │   ├── broadsage_logo_light.svg              # 200×200 Square Emblem (Light Theme)
-│   │   ├── broadsage_logo_monochrome.svg         # Single-Tone / Laser-Engraving Edition
-│   │   ├── broadsage_logo_ai_edition.svg         # AI & Autonomous Agentic Mesh Edition
-│   │   └── broadsage_favicon.svg                 # 32×32 Web Favicon
-│   ├── banner.txt                                # ANSI-colored terminal startup banner
-│   └── banner_plain.txt                          # Plain ASCII terminal banner
+├── README.md                           # Master documentation
+├── astro.config.mjs                    # Astro 7.4 configuration (Tailwind v4, React 19)
+├── package.json                        # NPM package configuration and scripts
+├── tsconfig.json                       # TypeScript configuration
+├── public/                             # Static downloadable assets & deployment root
+│   ├── CNAME                           # Custom domain configuration (brand.broadsage.com)
+│   ├── banners/                        # Repository & social status banners
+│   └── logos/
+│       ├── vector/                     # Master production vector marks
+│       │   ├── broadsage_logo_primary.svg            # 200×200 Primary Square Emblem
+│       │   ├── broadsage_logo_horizontal.svg         # 440×120 Horizontal Wordmark (Dark Theme)
+│       │   ├── broadsage_logo_horizontal_light.svg   # 440×120 Horizontal Wordmark (Light Theme)
+│       │   ├── broadsage_logo_avatar.svg             # 160×160 Circular Git & Slack Avatar
+│       │   └── broadsage_favicon.svg                 # 32×32 Web Favicon
+│       ├── banner.txt                                # ANSI-colored terminal startup banner
+│       └── banner_plain.txt                          # Plain ASCII terminal banner
+├── src/                                # Astro + React application source code
+│   ├── components/                     # Static .astro components (Header, Hero, Narrative, Specs, CLI)
+│   ├── islands/                        # Interactive React 19 islands (AssetStudio, ColorPalette, BannerHub)
+│   ├── layouts/                        # BaseLayout with ClientRouter view transitions
+│   ├── pages/                          # Astro page routes (index.astro)
+│   └── styles/                         # Global CSS & Tailwind v4 theme definitions
 ├── tokens/
 │   ├── colors.json                     # W3C Standard Design Tokens (JSON)
 │   ├── colors.css                      # CSS Custom Properties (:root variables)
@@ -69,18 +72,20 @@ broadsage-brand-kit/
 
 ## 🚀 Quick Start
 
-### 1. Open the Interactive Brand Portal
-Open `index.html` in any web browser to view the interactive brand guidelines, copy hex codes with one click, and export logos directly as SVG or high-resolution PNG:
+### Run the Interactive Brand Portal (Astro 7.4 + React 19)
 ```bash
-# On macOS:
-open index.html
+# Install dependencies:
+npm install
 
-# Or run a local HTTP server:
-npx serve .
+# Start local development server with hot module reload:
+npm run dev
+
+# Build the production static site:
+npm run build
+
+# Preview the production static build locally:
+npm run preview
 ```
-
-### 2. Access the Official PDF Presentation Deck
-The official 23-slide widescreen agency presentation deck is located at [`broadsage_brand_kit.pdf`](./broadsage_brand_kit.pdf). It strictly mirrors modern visual identity standards (16:9 widescreen layout, chapter dividers, 5 vertical color bands, safezone clearspace, typography specimens, digital touchpoints, and stationery mockups).
 
 ---
 
@@ -132,12 +137,12 @@ module.exports = {
 
 ## 🚀 Live Brand Portal & GitHub Pages Deployment
 
-The interactive brand manual ([`index.html`](./index.html)) is pre-configured for automated zero-downtime deployment to **GitHub Pages** via GitHub Actions:
+The interactive brand portal is pre-configured for automated zero-downtime deployment to **GitHub Pages** via GitHub Actions:
 
 * **Workflow:** [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)
 * **Trigger:** Automatically builds on push to `main` (or manual dispatch).
-* **Build Step:** Compiles `broadsage_brand_kit.pdf` deterministically via `python3 scripts/generate_brand_kit_pdf.py` so the downloadable manual is always fresh.
-* **Artifact:** Publishes the static portal directly to `https://<org>.github.io/<repo>/` with automated HTTPS and `.nojekyll` protection.
+* **Build Step:** Compiles static web portal deterministically via `npm run build` with Astro 7.4 + React 19.
+* **Artifact:** Publishes the static portal directly to `https://brand.broadsage.com` with automated HTTPS and `.nojekyll` protection.
 
 ### Enabling GitHub Pages on GitHub:
 1. Navigate to **Settings** → **Pages** in your repository.
@@ -148,5 +153,5 @@ The interactive brand manual ([`index.html`](./index.html)) is pre-configured fo
 
 ## 📞 Support & Brand Governance
 
-For questions regarding logo usage, co-branding partnerships, or trademark guidelines, please visit [broadsage.com](https://broadsage.com) or reach out to the Broadsage Platform Architecture Team.
+For questions regarding logo usage, co-branding partnerships, or trademark guidelines, please visit [broadsage.com](https://broadsage.com) or reach out to Broadsage.
 

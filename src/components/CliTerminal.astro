@@ -1,0 +1,105 @@
+---
+import { Terminal, Download } from 'lucide-react';
+---
+
+<section id="deployment" class="space-y-8 scroll-mt-24">
+  {/* Section Header */}
+  <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+    <div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        CLI Terminal &amp; Startup Banner
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+        Official Ollie startup banner implementation for developer tools, terminal CLIs, and CI/CD pipelines
+      </p>
+    </div>
+    <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
+      CLI Architecture
+    </span>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    {/* Left / Main: Terminal Window Box */}
+    <div class="lg:col-span-8 glass-panel overflow-hidden rounded-2xl border border-slate-800 shadow-2xl bg-[#050814]">
+      {/* Terminal Title Bar */}
+      <div class="px-4 py-3 bg-[#0A1128] border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+          <span class="text-xs font-mono text-slate-400 ml-2">bash — broadsage init</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] font-mono text-slate-500 px-2 py-0.5 rounded bg-slate-900 border border-slate-800">
+            VT100 / UTF-8
+          </span>
+        </div>
+      </div>
+
+      {/* Terminal Code Body */}
+      <div class="p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto selection:bg-amber-500 selection:text-slate-950 space-y-1">
+        <div class="whitespace-pre"><span class="text-sky-400">   /\_/\</span>      <span class="text-white font-extrabold">BROAD</span><span class="text-amber-500 font-extrabold">SAGE</span> <span class="text-slate-500">v1.0.0</span></div>
+        <div class="whitespace-pre"><span class="text-sky-400">  (</span><span class="text-amber-400 font-bold">o</span><span class="text-white">.</span><span class="text-amber-400 font-bold">o</span><span class="text-sky-400">)</span>     <span class="text-slate-400">Broad Vision, Sage Guidance — Open to Everyone</span></div>
+        <div class="whitespace-pre"><span class="text-slate-600">  /</span><span class="text-amber-500">(   )\</span>    <span class="text-amber-400">● Sage Guidance Shield: ACTIVE</span></div>
+        <div class="whitespace-pre"><span class="text-slate-600">    ^ ^</span>      <span class="text-emerald-400">✔ Enterprise Agentic Mesh Connected</span></div>
+        <div class="py-2"><div class="border-b border-slate-800/80"></div></div>
+        <div class="whitespace-pre"><span class="text-slate-500">[14:32:01]</span> <span class="text-sky-400 font-semibold">INFO</span>  Initializing Broadsage DPE Agentic Mesh...</div>
+        <div class="whitespace-pre"><span class="text-slate-500">[14:32:02]</span> <span class="text-emerald-400 font-semibold">PASS</span>  Audited 42 open-source supply chain dependencies.</div>
+        <div class="whitespace-pre"><span class="text-slate-500">[14:32:03]</span> <span class="text-emerald-400 font-semibold">DONE</span>  Ollie runtime synchronized. Golden paths verified.</div>
+      </div>
+    </div>
+
+    {/* Right: CLI Banner Integration Specifications */}
+    <div class="lg:col-span-4 glass-panel p-6 sm:p-7 rounded-2xl border border-slate-800 space-y-6 flex flex-col justify-between">
+      <div class="space-y-4">
+        <h4 class="text-base font-bold text-amber-400">Terminal Banner Assets</h4>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Distribute the official Ollie banner directly into developer runtimes and terminal interfaces:
+        </p>
+
+        <div class="space-y-3">
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <strong class="text-xs text-white">ANSI Color Banner</strong>
+              <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">24-bit TrueColor</span>
+            </div>
+            <code class="text-[11px] text-sky-400 block font-mono">public/logos/banner.txt</code>
+            <a
+              href="/logos/banner.txt"
+              download="banner.txt"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors"
+            >
+              <Download className="w-3.5 h-3.5 text-amber-400" />
+              Download ANSI (.txt)
+            </a>
+          </div>
+
+          <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <strong class="text-xs text-white">Plain ASCII Fallback</strong>
+              <span class="text-[10px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">NO_COLOR Safe</span>
+            </div>
+            <code class="text-[11px] text-sky-400 block font-mono">public/logos/banner_plain.txt</code>
+            <a
+              href="/logos/banner_plain.txt"
+              download="banner_plain.txt"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors"
+            >
+              <Download className="w-3.5 h-3.5 text-amber-400" />
+              Download Plain (.txt)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-slate-800 space-y-2">
+        <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block">
+          Quick Print Shell Command
+        </span>
+        <code class="text-xs font-mono text-amber-300/90 bg-slate-950 p-2.5 rounded-lg border border-slate-800 block select-all">
+          curl -sSL https://brand.broadsage.com/logos/banner.txt
+        </code>
+      </div>
+    </div>
+  </div>
+</section>

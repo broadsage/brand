@@ -36,7 +36,7 @@ Maintaining visual consistency across our global developer ecosystem is vital to
 
 ### DO:
 - **Dark Mode Native Canvas:** Ollie was born in the dark; place him on Midnight Navy (`#0A1128`), Deep Obsidian (`#050814`), or dark terminal editors.
-- **Light Mode Canvas:** For light decks or white paper, use `broadsage_logo_light.svg` or `broadsage_logo_horizontal_light.svg`.
+- **Light Mode Canvas:** For light documentation, whitepapers, or light backgrounds, use `broadsage_logo_horizontal_light.svg`.
 - **Transparent Backdrops:** Ensure adequate background contrast when embedding on transparent navigation bars.
 
 ### DON'T:

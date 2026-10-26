@@ -1,0 +1,138 @@
+---
+import OllieMascot from '../islands/OllieMascot';
+import { Check, X } from 'lucide-react';
+---
+
+<section id="rules" class="space-y-8 scroll-mt-24">
+  {/* Section Header */}
+  <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+    <div>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+        Brand Governance: Strict Do's &amp; Don'ts
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+        Preserve visual integrity across all digital, print, and community applications
+      </p>
+    </div>
+    <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
+      Brand Governance
+    </span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {/* Pair 1: Proportions */}
+    {/* DO 1 */}
+    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-emerald-500 border-slate-800 flex flex-col justify-between">
+      <div class="h-44 bg-[#080D1E] flex items-center justify-center relative p-4">
+        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider">
+          <Check className="w-3.5 h-3.5" /> DO
+        </span>
+        <div class="w-24 h-24">
+          <OllieMascot variant="primary" size="100%" client:load />
+        </div>
+      </div>
+      <div class="p-5 space-y-1 bg-[#0A1128]/95">
+        <h4 class="text-sm font-bold text-white">Use Official SVGs Without Modification</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Always render Ollie using original vector assets with correct proportional scaling and verified gradients.
+        </p>
+      </div>
+    </div>
+
+    {/* DON'T 1 */}
+    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-red-500 border-slate-800 flex flex-col justify-between">
+      <div class="h-44 bg-[#080D1E] flex items-center justify-center relative p-4">
+        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-red-500/20 text-red-400 border border-red-500/40 text-[11px] font-bold uppercase tracking-wider">
+          <X className="w-3.5 h-3.5" /> DON'T
+        </span>
+        <div class="w-36 h-16 transform scale-y-50">
+          <OllieMascot variant="primary" size="100%" client:load />
+        </div>
+      </div>
+      <div class="p-5 space-y-1 bg-[#0A1128]/95">
+        <h4 class="text-sm font-bold text-white">Never Stretch or Distort Aspect Ratio</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Do not skew, squash, or non-uniformly stretch the emblem. Scale with locked 1:1 aspect ratio at all times.
+        </p>
+      </div>
+    </div>
+
+    {/* Pair 2: Wordmark & Typography */}
+    {/* DO 2 */}
+    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-emerald-500 border-slate-800 flex flex-col justify-between">
+      <div class="h-44 bg-[#080D1E] flex items-center justify-center relative p-4">
+        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider">
+          <Check className="w-3.5 h-3.5" /> DO
+        </span>
+        <div class="px-6 py-3 rounded-lg bg-[#0A1128] border border-slate-800 text-xl font-extrabold tracking-[-0.5px]">
+          <span class="text-white">BROAD</span><span class="text-amber-500">SAGE</span>
+        </div>
+      </div>
+      <div class="p-5 space-y-1 bg-[#0A1128]/95">
+        <h4 class="text-sm font-bold text-white">Maintain Two-Tone Wordmark Hierarchy</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Keep <code class="text-white">BROAD</code> in Crisp White and <code class="text-amber-400">SAGE</code> in Solar Gold Amber to preserve the dual vision-guidance philosophy.
+        </p>
+      </div>
+    </div>
+
+    {/* DON'T 2 */}
+    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-red-500 border-slate-800 flex flex-col justify-between">
+      <div class="h-44 bg-[#080D1E] flex items-center justify-center relative p-4">
+        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-red-500/20 text-red-400 border border-red-500/40 text-[11px] font-bold uppercase tracking-wider">
+          <X className="w-3.5 h-3.5" /> DON'T
+        </span>
+        <div class="w-24 h-24 filter hue-rotate-180 invert-[0.2]">
+          <OllieMascot variant="primary" size="100%" client:load />
+        </div>
+      </div>
+      <div class="p-5 space-y-1 bg-[#0A1128]/95">
+        <h4 class="text-sm font-bold text-white">Never Recolor with Unapproved Tints</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Do not tint Ollie with neon pink, purple, or unapproved gradients. Only official Palette 3 is authorized.
+        </p>
+      </div>
+    </div>
+
+    {/* Pair 3: Background Contrast */}
+    {/* DO 3 */}
+    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-emerald-500 border-slate-800 flex flex-col justify-between">
+      <div class="h-44 bg-[#050814] flex items-center justify-center relative p-4 gap-4">
+        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider">
+          <Check className="w-3.5 h-3.5" /> DO
+        </span>
+        <span class="px-3 py-1.5 rounded-lg bg-[#0A1128] border border-slate-800 text-xs text-slate-300 font-semibold">
+          Native Dark Mode
+        </span>
+        <span class="px-3 py-1.5 rounded-lg bg-white text-slate-950 font-bold text-xs">
+          Clean Pure White
+        </span>
+      </div>
+      <div class="p-5 space-y-1 bg-[#0A1128]/95">
+        <h4 class="text-sm font-bold text-white">Ensure High Background Contrast</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Place Ollie on Midnight Navy, solid dark surfaces (#0A1128 / #050814), or pure Crisp White for maximum contrast.
+        </p>
+      </div>
+    </div>
+
+    {/* DON'T 3 */}
+    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-red-500 border-slate-800 flex flex-col justify-between">
+      <div class="h-44 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 flex items-center justify-center relative p-4">
+        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-red-950/80 text-red-300 border border-red-500/40 text-[11px] font-bold uppercase tracking-wider">
+          <X className="w-3.5 h-3.5" /> DON'T
+        </span>
+        <div class="w-20 h-20 opacity-70">
+          <OllieMascot variant="primary" size="100%" client:load />
+        </div>
+      </div>
+      <div class="p-5 space-y-1 bg-[#0A1128]/95">
+        <h4 class="text-sm font-bold text-white">Never Place on Busy or Clashing Surfaces</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Never superimpose the mark over cluttered photography, low-contrast yellow backgrounds, or vibrating patterns.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
