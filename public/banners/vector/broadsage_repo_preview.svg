@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    
+    <!-- Background Gradients -->
+    <linearGradient id="bgNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060919"/>
+      <stop offset="50%" stop-color="#0A1128"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+
+    <radialGradient id="ambientSky" cx="15%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#0284C7" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="ambientGold" cx="85%" cy="75%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#F59E0B" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Technical Grid Pattern -->
+    <pattern id="techGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.75" stroke-opacity="0.4"/>
+      <circle cx="0" cy="0" r="1" fill="#38BDF8" fill-opacity="0.45"/>
+    </pattern>
+
+    <!-- Ollie Character Defs -->
+    <linearGradient id="heroBodyNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="45%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0A1128"/>
+    </linearGradient>
+
+    <linearGradient id="heroSolarGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+
+    <linearGradient id="heroGoldEyes" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#FDE68A"/>
+      <stop offset="85%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+
+    <!-- Ollie Full Reusable Symbol -->
+    <g id="ollieMascot">
+      <polygon points="-48,-66 -22,-32 -54,-32" fill="#0284C7"/>
+      <polygon points="48,-66 22,-32 54,-32" fill="#F59E0B"/>
+      <ellipse cx="0" cy="8" rx="56" ry="62" fill="url(#heroBodyNavy)" stroke="#1E293B" stroke-width="1.5"/>
+      <path d="M-56,2 C-66,24 -52,58 -32,66 C-42,44 -46,20 -56,2 Z" fill="#0369A1"/>
+      <path d="M56,2 C66,24 52,58 32,66 C42,44 46,20 56,2 Z" fill="#B45309"/>
+      <ellipse cx="0" cy="22" rx="32" ry="40" fill="url(#heroSolarGold)"/>
+      <path d="M-12,12 L0,20 L12,12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.95"/>
+      <path d="M-14,26 L0,34 L14,26" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.95"/>
+      <path d="M-12,40 L0,48 L12,40" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.95"/>
+      <circle cx="-22" cy="-18" r="19" fill="#082F49" stroke="#0284C7" stroke-width="4"/>
+      <circle cx="-22" cy="-18" r="12" fill="url(#heroGoldEyes)"/>
+      <circle cx="-25" cy="-21" r="4.5" fill="#FFFFFF"/>
+      <circle cx="22" cy="-18" r="19" fill="#451A03" stroke="#F59E0B" stroke-width="4"/>
+      <circle cx="22" cy="-18" r="12" fill="url(#heroGoldEyes)"/>
+      <circle cx="19" cy="-21" r="4.5" fill="#FFFFFF"/>
+      <rect x="-6" y="-20" width="12" height="4" rx="2" fill="#FFFFFF"/>
+      <polygon points="0,-6 7,8 0,14 -7,8" fill="#FDE68A"/>
+      <ellipse cx="-16" cy="70" rx="7" ry="4" fill="#FBBF24"/>
+      <ellipse cx="16" cy="70" rx="7" ry="4" fill="#FBBF24"/>
+    </g>
+
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1280" height="640" fill="url(#bgNavyGrad)"/>
+  <rect width="1280" height="640" fill="url(#techGrid)"/>
+  <rect width="1280" height="640" fill="url(#ambientSky)"/>
+  <rect width="1280" height="640" fill="url(#ambientGold)"/>
+
+  <!-- Outer Card Bezel -->
+  <rect x="24" y="24" width="1232" height="592" rx="28" fill="#0A1128" fill-opacity="0.85" stroke="#1E293B" stroke-width="2"/>
+
+  <!-- Top Header Navigation Bar inside Card -->
+  <g transform="translate(60, 68)">
+    <circle cx="10" cy="10" r="5" fill="#EF4444" opacity="0.8"/>
+    <circle cx="28" cy="10" r="5" fill="#F59E0B" opacity="0.8"/>
+    <circle cx="46" cy="10" r="5" fill="#10B981" opacity="0.8"/>
+    <rect x="74" y="0" width="240" height="22" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    <text x="86" y="15" fill="#38BDF8" font-family="ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="600" font-style="normal">github.com/broadsage</text>
+    <text x="1150" y="15" fill="#64748B" font-family="ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="11" font-style="normal" text-anchor="end">DEVELOPER PLATFORM</text>
+  </g>
+  <line x1="60" y1="104" x2="1220" y2="104" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- Mascot Feature Portal -->
+  <g transform="translate(240, 360)">
+    <circle cx="0" cy="0" r="145" fill="#060A19" stroke="#1E293B" stroke-width="2"/>
+    <circle cx="0" cy="0" r="135" fill="none" stroke="#0284C7" stroke-width="2" stroke-dasharray="8,8" opacity="0.5"/>
+    <circle cx="0" cy="0" r="122" fill="none" stroke="#F59E0B" stroke-width="1" opacity="0.4"/>
+    <g transform="scale(1.52)">
+      <use href="#ollieMascot"/>
+    </g>
+  </g>
+
+  <!-- Information Architecture Block -->
+  <g transform="translate(440, 195)">
+    <!-- Eyebrow -->
+    <text x="0" y="20" fill="#38BDF8" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="14" font-weight="700" font-style="normal" letter-spacing="2">
+      DEVELOPER PLATFORM ENGINEERING (DPE) INITIATIVE
+    </text>
+
+    <!-- Wordmark: Strict Broadsage Guidelines (Upright, ExtraBold 800, -0.5px tracking) -->
+    <text x="0" y="95" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="76" font-weight="800" font-style="normal" letter-spacing="-0.5">
+      <tspan fill="#FFFFFF">BROAD</tspan><tspan fill="#F59E0B">SAGE</tspan>
+    </text>
+
+    <!-- Mission Statement -->
+    <text x="2" y="145" fill="#E2E8F0" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="24" font-weight="600" font-style="normal">
+      Broad Vision, Sage Guidance — Open to Everyone.
+    </text>
+
+    <!-- Detailed Deck -->
+    <text x="2" y="185" fill="#94A3B8" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="16" font-weight="400" font-style="normal">
+      Empowering engineering teams with autonomous agentic workflows,
+    </text>
+    <text x="2" y="210" fill="#94A3B8" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="16" font-weight="400" font-style="normal">
+      resilient developer platform scaffolds, and open-source tooling.
+    </text>
+
+    <!-- Real Capability Badges (Free of Design-System Metadata) -->
+    <g transform="translate(0, 255)">
+      <g>
+        <rect width="170" height="36" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.2"/>
+        <circle cx="18" cy="18" r="4" fill="#10B981"/>
+        <text x="32" y="23" fill="#A7F3D0" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="12" font-weight="700" font-style="normal">TIER 1 PRODUCTION</text>
+      </g>
+      <g transform="translate(182, 0)">
+        <rect width="180" height="36" rx="8" fill="#1E293B" stroke="#0284C7" stroke-width="1.2"/>
+        <text x="90" y="23" fill="#BAE6FD" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">AGENTIC WORKFLOWS</text>
+      </g>
+      <g transform="translate(374, 0)">
+        <rect width="165" height="36" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.2"/>
+        <text x="82" y="23" fill="#FDE68A" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">OPEN PLATFORM</text>
+      </g>
+      <g transform="translate(550, 0)">
+        <rect width="150" height="36" rx="8" fill="#1E293B" stroke="#64748B" stroke-width="1.2"/>
+        <text x="75" y="23" fill="#CBD5E1" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">broadsage.com</text>
+      </g>
+    </g>
+  </g>
+</svg>

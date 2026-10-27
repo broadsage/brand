@@ -14,19 +14,59 @@ How to implement the official Broadsage brand assets across various software pla
 2. **README Hero Banner:**
    In `.github/profile/README.md` or repository READMEs:
    ```markdown
-   <p align="center">
-     <img src="https://brand.broadsage.com/logos/vector/broadsage_logo_horizontal.svg" alt="Broadsage Platform" width="480"/>
-   </p>
-
-   <p align="center">
-     <strong>Broad Vision, Sage Guidance — Open to Everyone</strong><br/>
-     Developer Platform Engineering (DPE) — The Open Source to Enterprise Bridge
-   </p>
+   [![Broadsage Platform](https://brand.broadsage.com/banners/github-welcome.png)](https://broadsage.com)
    ```
+
+3. **Repository Social Preview Card:**
+   - In GitHub Repository **Settings → General → Social preview**:
+   - Upload `public/banners/github-repo-preview.png` (or download from [brand.broadsage.com#banners](https://brand.broadsage.com#banners)).
 
 ---
 
-## 2. CLI Tooling & Terminal Startup
+## 2. Repository Lifecycle Status Badges (800 × 200)
+
+Place at the top of individual project README files to communicate repository maturity tier:
+
+```markdown
+<!-- Official Production Tier -->
+[![Tier 1 Official](https://brand.broadsage.com/banners/official.png)](https://broadsage.com)
+
+<!-- Incubator Experimental Lab -->
+[![Broadsage Incubator](https://brand.broadsage.com/banners/incubator.png)](https://broadsage.com)
+
+<!-- Community Contributed Plugin / Sidecar -->
+[![Community Contributed](https://brand.broadsage.com/banners/community.png)](https://broadsage.com)
+
+<!-- Archived / Deprecated Toolchain -->
+[![Archived Repository](https://brand.broadsage.com/banners/obsolete.png)](https://broadsage.com)
+```
+
+---
+
+## 3. Social Media Suites
+
+1. **LinkedIn Company Page:**
+   - Dimensions: `1128 × 191 px`
+   - File: `public/banners/linkedin-cover.png` (Vector: `public/banners/vector/broadsage_linkedin_cover.svg`)
+   - Calibrated safe zone leaves lower-left clearance for the circular profile avatar.
+
+2. **X / Twitter Profile:**
+   - Dimensions: `1500 × 500 px` (3:1 aspect ratio)
+   - File: `public/banners/twitter-header.png` (Vector: `public/banners/vector/broadsage_twitter_header.svg`)
+   - Safe zone provides bottom-left clearance for the circular profile picture.
+
+3. **Universal Open Graph (Web, Slack, Discord, LinkedIn Share):**
+   - Dimensions: `1200 × 630 px` (1.91:1 aspect ratio)
+   - File: `public/banners/og-share.png` (Vector: `public/banners/vector/broadsage_og_share.svg`)
+   - Add to HTML `<head>`:
+     ```html
+     <meta property="og:image" content="https://brand.broadsage.com/banners/og-share.png" />
+     <meta name="twitter:image" content="https://brand.broadsage.com/banners/og-share.png" />
+     ```
+
+---
+
+## 4. CLI Tooling & Terminal Startup
 
 To display Ollie upon CLI initialization in Node.js, Python, or Go:
 - Read `public/logos/banner.txt` and print directly to `stdout`.
