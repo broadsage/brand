@@ -35,6 +35,7 @@ export const MobileDrawer: React.FC = () => {
 
   const navLinks = [
     { href: '#narrative', icon: Compass, label: 'Story & DPE Mission' },
+    { href: '#voice', icon: ShieldCheck, label: 'Voice & Tone' },
     { href: '#emblems', icon: Layers, label: 'Marks & Asset Studio' },
     { href: '#colors', icon: Palette, label: 'Color System & WCAG' },
     { href: '#banners', icon: ImageIcon, label: 'Repository Banners' },

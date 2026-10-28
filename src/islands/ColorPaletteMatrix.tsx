@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Copy, Check, ShieldCheck, Sparkles, SlidersHorizontal } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Copy, Check, SlidersHorizontal, Code2, Terminal, FileCode, Braces } from 'lucide-react';
 
 interface ColorDefinition {
   name: string;
@@ -15,6 +15,7 @@ interface ColorDefinition {
   textLight?: boolean;
 }
 
+// Single Source of Truth for Master Colors
 const masterColors: ColorDefinition[] = [
   {
     name: 'Midnight Navy',
@@ -83,6 +84,7 @@ const masterColors: ColorDefinition[] = [
   },
 ];
 
+// Single Source of Truth for Tonal Ramps
 const tonalRamps = {
   navy: [
     { token: 'navy-950', hex: '#050814' },
@@ -105,9 +107,12 @@ const tonalRamps = {
   ],
 };
 
+type TokenTab = 'tailwind-v4' | 'tailwind-v3' | 'css' | 'json';
+
 export const ColorPaletteMatrix: React.FC = () => {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [showRamps, setShowRamps] = useState(false);
+  const [activeTokenTab, setActiveTokenTab] = useState<TokenTab>('tailwind-v4');
 
   const copyToClipboard = (text: string, key: string) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -115,6 +120,120 @@ export const ColorPaletteMatrix: React.FC = () => {
       setTimeout(() => setCopiedKey(null), 1800);
     });
   };
+
+  // Generate code token snippets dynamically from the single source of truth
+  const snippets = useMemo(() => {
+    // Tailwind v4 @theme CSS format
+    const tailwindV4 = `@theme {
+  /* Broadsage Palette 3 Tokens */
+  --color-broadsage-navy-950: #050814;
+  --color-broadsage-navy-900: #0A1128;
+  --color-broadsage-navy-800: #101B3B;
+  --color-broadsage-navy-700: #1E293B;
+
+  --color-broadsage-gold-500: #F59E0B;
+  --color-broadsage-gold-400: #FBBF24;
+  --color-broadsage-gold-300: #FCD34D;
+  --color-broadsage-gold-600: #D97706;
+
+  --color-broadsage-azure-500: #0284C7;
+  --color-broadsage-azure-400: #38BDF8;
+  --color-broadsage-azure-600: #0369A1;
+
+  --color-broadsage-white: #FFFFFF;
+}`;
+
+    // Tailwind v3 JS config format
+    const tailwindV3 = `/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        broadsage: {
+          navy: {
+            950: '#050814',
+            900: '#0A1128',
+            800: '#101B3B',
+            700: '#1E293B',
+          },
+          gold: {
+            300: '#FCD34D',
+            400: '#FBBF24',
+            500: '#F59E0B',
+            600: '#D97706',
+          },
+          azure: {
+            400: '#38BDF8',
+            500: '#0284C7',
+            600: '#0369A1',
+          },
+        },
+      },
+    },
+  },
+};`;
+
+    // Standard CSS Custom Properties
+    const cssVars = `:root {
+  /* Broadsage Foundation Canvas */
+  --broadsage-navy-950: #050814;
+  --broadsage-navy-900: #0A1128;
+  --broadsage-navy-800: #101B3B;
+  --broadsage-navy-700: #1E293B;
+
+  /* Sage Guidance Beacons */
+  --broadsage-gold-500: #F59E0B;
+  --broadsage-gold-400: #FBBF24;
+  --broadsage-gold-300: #FCD34D;
+  --broadsage-gold-600: #D97706;
+
+  /* Broad Vision Azure */
+  --broadsage-azure-500: #0284C7;
+  --broadsage-azure-400: #38BDF8;
+  --broadsage-azure-600: #0369A1;
+
+  /* Neutrals & Contrast */
+  --broadsage-white: #FFFFFF;
+  --broadsage-text-muted: #94A3B8;
+}`;
+
+    // Machine-readable JSON Design Tokens
+    const jsonTokens = JSON.stringify(
+      {
+        broadsage: {
+          navy: {
+            950: { value: '#050814', type: 'color' },
+            900: { value: '#0A1128', type: 'color' },
+            800: { value: '#101B3B', type: 'color' },
+            700: { value: '#1E293B', type: 'color' },
+          },
+          gold: {
+            300: { value: '#FCD34D', type: 'color' },
+            400: { value: '#FBBF24', type: 'color' },
+            500: { value: '#F59E0B', type: 'color' },
+            600: { value: '#D97706', type: 'color' },
+          },
+          azure: {
+            400: { value: '#38BDF8', type: 'color' },
+            500: { value: '#0284C7', type: 'color' },
+            600: { value: '#0369A1', type: 'color' },
+          },
+          white: { value: '#FFFFFF', type: 'color' },
+        },
+      },
+      null,
+      2
+    );
+
+    return {
+      'tailwind-v4': tailwindV4,
+      'tailwind-v3': tailwindV3,
+      css: cssVars,
+      json: jsonTokens,
+    };
+  }, []);
+
+  const activeSnippet = snippets[activeTokenTab];
 
   return (
     <div className="w-full space-y-8">
@@ -231,9 +350,7 @@ export const ColorPaletteMatrix: React.FC = () => {
               Full Design Token Ramps (Navy, Gold, Azure)
             </h4>
             <p className="text-xs text-slate-400 mt-0.5">
-              Extended chromatic steps defined in{' '}
-              <code className="text-amber-400">tokens/tailwind.config.js</code> and{' '}
-              <code className="text-amber-400">tokens/colors.json</code>.
+              Extended chromatic steps for dark backgrounds, interactive hover states, and borders.
             </p>
           </div>
           <button
@@ -329,9 +446,105 @@ export const ColorPaletteMatrix: React.FC = () => {
           </div>
         )}
       </div>
+
+      {/* Copyable Code Tokens Studio (Tailwind v4, Tailwind v3, CSS, JSON) */}
+      <div className="glass-panel rounded-2xl border border-slate-800 overflow-hidden">
+        {/* Code Header Bar with Tabs & Copy Button */}
+        <div className="p-4 sm:p-5 bg-slate-900/90 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <Code2 className="w-5 h-5 text-amber-400" />
+            <div>
+              <h4 className="text-sm sm:text-base font-bold text-white">
+                Copyable Code Tokens
+              </h4>
+              <p className="text-[11px] text-slate-400">
+                Instant config snippets for frontend engineers and tooling
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 flex-wrap">
+            {/* Format Selection Tabs */}
+            <div className="flex items-center gap-1 p-1 bg-slate-950/80 rounded-xl border border-slate-800 text-xs font-semibold">
+              <button
+                onClick={() => setActiveTokenTab('tailwind-v4')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  activeTokenTab === 'tailwind-v4'
+                    ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <Terminal className="w-3.5 h-3.5" />
+                <span>Tailwind v4</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTokenTab('tailwind-v3')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  activeTokenTab === 'tailwind-v3'
+                    ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <FileCode className="w-3.5 h-3.5" />
+                <span>Tailwind v3</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTokenTab('css')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  activeTokenTab === 'css'
+                    ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <Code2 className="w-3.5 h-3.5" />
+                <span>CSS Variables</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTokenTab('json')}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  activeTokenTab === 'json'
+                    ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                <Braces className="w-3.5 h-3.5" />
+                <span>JSON</span>
+              </button>
+            </div>
+
+            {/* Quick Copy Button */}
+            <button
+              onClick={() => copyToClipboard(activeSnippet, `tab-${activeTokenTab}`)}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/40 transition-colors shadow-sm"
+              title="Copy snippet to clipboard"
+            >
+              {copiedKey === `tab-${activeTokenTab}` ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="text-emerald-400">Copied Snippet!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" />
+                  <span>Copy Snippet</span>
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Code Content Container */}
+        <div className="p-4 sm:p-6 bg-[#040714] overflow-x-auto">
+          <pre className="font-mono text-xs text-slate-300 leading-relaxed">
+            <code>{activeSnippet}</code>
+          </pre>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default ColorPaletteMatrix;
-
