@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Copy, Check, SlidersHorizontal, Code2, Terminal, FileCode, Braces } from 'lucide-react';
+import { Copy, Check, SlidersHorizontal, Code2, Terminal, FileCode, Braces, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface ColorDefinition {
   name: string;
@@ -112,6 +112,7 @@ type TokenTab = 'tailwind-v4' | 'tailwind-v3' | 'css' | 'json';
 export const ColorPaletteMatrix: React.FC = () => {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [showRamps, setShowRamps] = useState(false);
+  const [showTokens, setShowTokens] = useState(false);
   const [activeTokenTab, setActiveTokenTab] = useState<TokenTab>('tailwind-v4');
 
   const copyToClipboard = (text: string, key: string) => {
@@ -448,100 +449,127 @@ module.exports = {
       </div>
 
       {/* Copyable Code Tokens Studio (Tailwind v4, Tailwind v3, CSS, JSON) */}
-      <div className="glass-panel rounded-2xl border border-slate-800 overflow-hidden">
-        {/* Code Header Bar with Tabs & Copy Button */}
-        <div className="p-4 sm:p-5 bg-slate-900/90 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Code2 className="w-5 h-5 text-amber-400" />
+      <div className="glass-panel rounded-2xl border border-slate-800 overflow-hidden transition-all">
+        {/* Code Header Bar with Expand / Collapse Toggle */}
+        <div className="p-4 sm:p-5 bg-slate-900/90 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+              <Code2 className="w-4 h-4" />
+            </div>
             <div>
-              <h4 className="text-sm sm:text-base font-bold text-white">
-                Copyable Code Tokens
-              </h4>
-              <p className="text-[11px] text-slate-400">
-                Instant config snippets for frontend engineers and tooling
+              <div className="flex items-center gap-2">
+                <h4 className="text-sm sm:text-base font-bold text-white">
+                  Copyable Code Tokens
+                </h4>
+                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-amber-400 border border-slate-700">
+                  4 Frameworks
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-400 mt-0.5">
+                Ready-to-use snippets for Tailwind v4 (@theme), Tailwind v3, CSS variables, and JSON
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-2 flex-wrap">
-            {/* Format Selection Tabs */}
-            <div className="flex items-center gap-1 p-1 bg-slate-950/80 rounded-xl border border-slate-800 text-xs font-semibold">
-              <button
-                onClick={() => setActiveTokenTab('tailwind-v4')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                  activeTokenTab === 'tailwind-v4'
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Terminal className="w-3.5 h-3.5" />
-                <span>Tailwind v4</span>
-              </button>
-
-              <button
-                onClick={() => setActiveTokenTab('tailwind-v3')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                  activeTokenTab === 'tailwind-v3'
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <FileCode className="w-3.5 h-3.5" />
-                <span>Tailwind v3</span>
-              </button>
-
-              <button
-                onClick={() => setActiveTokenTab('css')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                  activeTokenTab === 'css'
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Code2 className="w-3.5 h-3.5" />
-                <span>CSS Variables</span>
-              </button>
-
-              <button
-                onClick={() => setActiveTokenTab('json')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                  activeTokenTab === 'json'
-                    ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Braces className="w-3.5 h-3.5" />
-                <span>JSON</span>
-              </button>
-            </div>
-
-            {/* Quick Copy Button */}
             <button
-              onClick={() => copyToClipboard(activeSnippet, `tab-${activeTokenTab}`)}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/40 transition-colors shadow-sm"
-              title="Copy snippet to clipboard"
+              onClick={() => setShowTokens(!showTokens)}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition-colors"
             >
-              {copiedKey === `tab-${activeTokenTab}` ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-emerald-400">Copied Snippet!</span>
-                </>
+              <span>{showTokens ? 'Collapse Code Tokens' : 'Expand Code Tokens'}</span>
+              {showTokens ? (
+                <ChevronUp className="w-3.5 h-3.5 text-slate-400" />
               ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>Copy Snippet</span>
-                </>
+                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
               )}
             </button>
           </div>
         </div>
 
-        {/* Code Content Container */}
-        <div className="p-4 sm:p-6 bg-[#040714] overflow-x-auto">
-          <pre className="font-mono text-xs text-slate-300 leading-relaxed">
-            <code>{activeSnippet}</code>
-          </pre>
-        </div>
+        {/* Expandable Body */}
+        {showTokens && (
+          <div className="transition-all duration-300">
+            {/* Format Selection Tabs & Copy Toolbar */}
+            <div className="px-4 py-3 bg-[#060A19] border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
+              {/* Format Selection Tabs */}
+              <div className="flex items-center gap-1 p-1 bg-slate-950/80 rounded-xl border border-slate-800 text-xs font-semibold overflow-x-auto">
+                <button
+                  onClick={() => setActiveTokenTab('tailwind-v4')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                    activeTokenTab === 'tailwind-v4'
+                      ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <Terminal className="w-3.5 h-3.5" />
+                  <span>Tailwind v4</span>
+                </button>
+
+                <button
+                  onClick={() => setActiveTokenTab('tailwind-v3')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                    activeTokenTab === 'tailwind-v3'
+                      ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <FileCode className="w-3.5 h-3.5" />
+                  <span>Tailwind v3</span>
+                </button>
+
+                <button
+                  onClick={() => setActiveTokenTab('css')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                    activeTokenTab === 'css'
+                      ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <Code2 className="w-3.5 h-3.5" />
+                  <span>CSS Variables</span>
+                </button>
+
+                <button
+                  onClick={() => setActiveTokenTab('json')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                    activeTokenTab === 'json'
+                      ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  <Braces className="w-3.5 h-3.5" />
+                  <span>JSON</span>
+                </button>
+              </div>
+
+              {/* Quick Copy Button */}
+              <button
+                onClick={() => copyToClipboard(activeSnippet, `tab-${activeTokenTab}`)}
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/40 transition-colors shadow-sm"
+                title="Copy snippet to clipboard"
+              >
+                {copiedKey === `tab-${activeTokenTab}` ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="text-emerald-400">Copied Snippet!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>Copy Snippet</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Code Content Container */}
+            <div className="p-4 sm:p-6 bg-[#040714] overflow-x-auto">
+              <pre className="font-mono text-xs text-slate-300 leading-relaxed">
+                <code>{activeSnippet}</code>
+              </pre>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import React, { useState, useMemo } from 'react';
-import { Copy, Check, Download, Layers, FolderGit2, Share2, Sparkles, FileCode } from 'lucide-react';
+import { Copy, Check, Download, Layers, FolderGit2, Shield, FileCode } from 'lucide-react';
 
-export type BannerCategory = 'all' | 'github' | 'social';
+export type BannerCategory = 'all' | 'hero' | 'badges';
 
 export interface BannerItem {
   id: string;
-  category: 'github' | 'social';
+  category: 'hero' | 'badges';
   title: string;
   pngFilename: string;
   svgFilename: string;
@@ -19,10 +19,10 @@ export interface BannerItem {
 }
 
 const bannerData: BannerItem[] = [
-  // --- GITHUB ECOSYSTEM ---
+  // --- MASTER README HERO ---
   {
     id: 'github-welcome',
-    category: 'github',
+    category: 'hero',
     title: 'GitHub Organization & README Hero Banner',
     pngFilename: 'github-welcome.png',
     svgFilename: 'broadsage_github_hero.svg',
@@ -34,23 +34,11 @@ const bannerData: BannerItem[] = [
     description: 'Header hero banner for github.com/broadsage profile README and primary repository landing pages.',
     usageRecommendation: 'Place at the very top of your primary README.md file above the project heading.',
   },
-  {
-    id: 'github-repo-preview',
-    category: 'github',
-    title: 'GitHub Repository Social Preview Card',
-    pngFilename: 'github-repo-preview.png',
-    svgFilename: 'broadsage_repo_preview.svg',
-    badge: 'Repo Social Preview',
-    badgeColor: 'bg-sky-500/20 text-sky-300 border-sky-500/40',
-    platform: 'GitHub Repository Settings',
-    dimensions: '1280 × 640',
-    aspect: '2:1 OpenGraph Card',
-    description: 'Official 2:1 card for GitHub Settings → General → Social Preview image.',
-    usageRecommendation: 'Upload in GitHub Repo Settings > General > Social preview to represent the repo across GitHub & Slack.',
-  },
+
+  // --- REPOSITORY STATUS TIERS ---
   {
     id: 'official',
-    category: 'github',
+    category: 'badges',
     title: 'Tier 1 Official Broadsage Repository Badge',
     pngFilename: 'official.png',
     svgFilename: 'broadsage_status_official.svg',
@@ -64,7 +52,7 @@ const bannerData: BannerItem[] = [
   },
   {
     id: 'incubator',
-    category: 'github',
+    category: 'badges',
     title: 'Broadsage Incubator Project Badge',
     pngFilename: 'incubator.png',
     svgFilename: 'broadsage_status_incubator.svg',
@@ -78,7 +66,7 @@ const bannerData: BannerItem[] = [
   },
   {
     id: 'community',
-    category: 'github',
+    category: 'badges',
     title: 'Broadsage Ecosystem Community Contributed',
     pngFilename: 'community.png',
     svgFilename: 'broadsage_status_community.svg',
@@ -92,7 +80,7 @@ const bannerData: BannerItem[] = [
   },
   {
     id: 'obsolete',
-    category: 'github',
+    category: 'badges',
     title: 'Archived / Deprecated Repository Badge',
     pngFilename: 'obsolete.png',
     svgFilename: 'broadsage_status_obsolete.svg',
@@ -103,50 +91,6 @@ const bannerData: BannerItem[] = [
     aspect: '4:1 Status Banner',
     description: 'Designates superseded repositories, legacy toolchains, or architectures migrated to modern standards.',
     usageRecommendation: 'Use on archived or superseded repositories to direct developers to modern platforms.',
-  },
-
-  // --- SOCIAL MEDIA SUITE ---
-  {
-    id: 'linkedin-cover',
-    category: 'social',
-    title: 'LinkedIn Company Profile Cover Banner',
-    pngFilename: 'linkedin-cover.png',
-    svgFilename: 'broadsage_linkedin_cover.svg',
-    badge: 'LinkedIn Cover',
-    badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
-    platform: 'LinkedIn Company Page',
-    dimensions: '1128 × 191',
-    aspect: 'Exact Safe-Zone Spec',
-    description: 'Calibrated LinkedIn Company header banner with avatar safe-zone offset on the left.',
-    usageRecommendation: 'Upload to the Broadsage LinkedIn Company Page banner section.',
-  },
-  {
-    id: 'twitter-header',
-    category: 'social',
-    title: 'X / Twitter Profile Header Banner',
-    pngFilename: 'twitter-header.png',
-    svgFilename: 'broadsage_twitter_header.svg',
-    badge: 'X / Twitter Header',
-    badgeColor: 'bg-slate-500/20 text-slate-300 border-slate-500/40',
-    platform: 'X / Twitter Profile',
-    dimensions: '1500 × 500',
-    aspect: '3:1 Panoramic Header',
-    description: 'Official 3:1 header for X/Twitter with avatar bottom-left clearance and right-aligned typography.',
-    usageRecommendation: 'Upload as the official header on the Broadsage X / Twitter organization account.',
-  },
-  {
-    id: 'og-share',
-    category: 'social',
-    title: 'Universal Open Graph Social Preview Card',
-    pngFilename: 'og-share.png',
-    svgFilename: 'broadsage_og_share.svg',
-    badge: 'Universal OG Card',
-    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
-    platform: 'Slack, Discord, LinkedIn & Web',
-    dimensions: '1200 × 630',
-    aspect: '1.91:1 Standard OG',
-    description: 'High-contrast social share card for web meta tags (og:image / twitter:image) and unfurling.',
-    usageRecommendation: 'Reference in <meta property="og:image" /> for high-DPI link sharing across all platforms.',
   },
 ];
 
@@ -189,45 +133,52 @@ export const BannerHub: React.FC = () => {
             }`}
           >
             <Layers className="w-4 h-4" />
-            <span>All Banners ({bannerData.length})</span>
+            <span>All Marks ({bannerData.length})</span>
           </button>
 
           <button
-            onClick={() => setActiveCategory('github')}
+            onClick={() => setActiveCategory('hero')}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
-              activeCategory === 'github'
+              activeCategory === 'hero'
                 ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/20'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             <FolderGit2 className="w-4 h-4" />
-            <span>GitHub Ecosystem (6)</span>
+            <span>README Hero (1)</span>
           </button>
 
           <button
-            onClick={() => setActiveCategory('social')}
+            onClick={() => setActiveCategory('badges')}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
-              activeCategory === 'social'
-                ? 'bg-purple-500 text-slate-950 shadow-md shadow-purple-500/20'
+              activeCategory === 'badges'
+                ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
-            <Share2 className="w-4 h-4" />
-            <span>Social Media Suite (3)</span>
+            <Shield className="w-4 h-4" />
+            <span>Status Badges (4)</span>
           </button>
         </div>
 
-        {/* Global Standards Tag */}
-        <div className="hidden lg:flex items-center gap-2 text-xs text-slate-400 font-mono pr-3">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-          <span>Synced with Palette 3 (Solar Gold #F59E0B & Midnight Navy)</span>
+        {/* Helper Link for Social Profile Covers */}
+        <div className="flex items-center gap-2 text-xs text-slate-400 font-mono pr-2">
+          <span className="hidden sm:inline text-slate-500">Official Profile Covers:</span>
+          <a
+            href="/broadsage-brand-assets.zip"
+            download="broadsage-brand-assets.zip"
+            className="text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 font-semibold transition-colors"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Bundled in Brand Kit (.zip)</span>
+          </a>
         </div>
       </div>
 
       {/* Banners Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredBanners.map((banner) => {
-          const isWideHero = banner.id === 'github-welcome' || banner.id === 'github-repo-preview' || banner.id === 'twitter-header';
+          const isWideHero = banner.id === 'github-welcome';
 
           return (
             <div

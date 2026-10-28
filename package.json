@@ -8,7 +8,8 @@
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "preview": "astro preview",
     "serve": "astro preview",
-    "generate:banners": "node scripts/generate-banners.mjs"
+    "generate:banners": "node scripts/generate-banners.mjs",
+    "build:pack": "node scripts/build-asset-pack.mjs"
   },
   "keywords": [
     "broadsage",

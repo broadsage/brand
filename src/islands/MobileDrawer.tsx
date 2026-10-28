@@ -11,7 +11,6 @@ import {
   Type,
   Maximize2,
   CheckCircle2,
-  Terminal,
 } from 'lucide-react';
 
 export const MobileDrawer: React.FC = () => {
@@ -34,15 +33,14 @@ export const MobileDrawer: React.FC = () => {
   }, [isOpen]);
 
   const navLinks = [
-    { href: '#narrative', icon: Compass, label: 'Story & DPE Mission' },
-    { href: '#voice', icon: ShieldCheck, label: 'Voice & Tone' },
     { href: '#emblems', icon: Layers, label: 'Marks & Asset Studio' },
-    { href: '#colors', icon: Palette, label: 'Color System & WCAG' },
+    { href: '#colors', icon: Palette, label: 'Color Tokens & Code' },
     { href: '#banners', icon: ImageIcon, label: 'Repository Banners' },
-    { href: '#typography', icon: Type, label: 'Typography Specimen' },
+    { href: '#governance', icon: CheckCircle2, label: "Governance: Do's & Don'ts" },
     { href: '#clearspace', icon: Maximize2, label: 'Clearspace & Layout' },
-    { href: '#rules', icon: CheckCircle2, label: "Do's & Don'ts" },
-    { href: '#deployment', icon: Terminal, label: 'CLI & Touchpoints' },
+    { href: '#voice', icon: ShieldCheck, label: 'Voice & Tone Guidelines' },
+    { href: '#typography', icon: Type, label: 'Typography Specimen' },
+    { href: '#about', icon: Compass, label: 'About & Mission' },
   ];
 
   return (
