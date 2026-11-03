@@ -42,7 +42,7 @@ export const MobileDrawer: React.FC = () => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2.5 rounded-lg dark:text-slate-300 text-slate-700 hover:text-amber-500 dark:hover:text-white dark:bg-slate-900/80 bg-white border dark:border-slate-700/80 border-[#DBD1C2] focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-xs"
+        className="p-2.5 rounded-lg dark:text-slate-300 text-slate-700 hover:text-amber-500 dark:hover:text-white dark:bg-slate-900/80 bg-white border dark:border-slate-700/80 border-[#DBD1C2] outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 shadow-xs"
         aria-label="Open mobile navigation"
       >
         <Menu className="w-6 h-6 text-amber-400" />

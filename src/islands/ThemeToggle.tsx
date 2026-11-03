@@ -72,7 +72,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', compac
     <button
       onClick={toggleTheme}
       type="button"
-      className={`inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all duration-200 active:scale-95 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 ${
+      className={`inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all duration-200 active:scale-95 shadow-sm outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
         isLight
           ? 'bg-[#EFE7DC] hover:bg-[#E5DCCF] text-[#0A1128] border-[#DBD1C2]'
           : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
