@@ -92,3 +92,4 @@ export function exportSvgToPng(
     img.src = url;
   });
 }
+
