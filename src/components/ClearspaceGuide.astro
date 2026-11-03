@@ -1,26 +1,18 @@
 ---
 import OllieMascot from '../islands/OllieMascot';
+import SectionHeader from './SectionHeader.astro';
 ---
 
 <section id="clearspace" class="space-y-8 scroll-mt-24">
-  {/* Section Header */}
-  <div class="flex items-end justify-between border-b dark:border-slate-800 border-[#E6DED2] pb-4 flex-wrap gap-2">
-    <div>
-      <h2 class="text-2xl sm:text-3xl font-extrabold dark:text-white text-[#0A1128] tracking-tight">
-        Clearspace &amp; Minimum Dimensions
-      </h2>
-      <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-600 mt-1">
-        Mathematical exclusion zone and minimum rendering thresholds
-      </p>
-    </div>
-    <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md dark:bg-slate-800 bg-[#FAF8F5] text-amber-500 dark:text-amber-400 border dark:border-slate-700 border-[#DBD1C2]">
-      Precision Layout
-    </span>
-  </div>
+  <SectionHeader
+    title="Clearspace & Minimum Dimensions"
+    subtitle="Mathematical exclusion zone and minimum rendering thresholds"
+    badge="Precision Layout"
+  />
 
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
     {/* Left: Responsive Clearspace Diagram */}
-    <div class="lg:col-span-6 glass-panel p-8 sm:p-12 rounded-2xl border dark:border-slate-800 border-[#E6DED2] flex items-center justify-center dark:bg-[#050814]/90 bg-white shadow-xl">
+    <div class="lg:col-span-6 glass-panel p-8 sm:p-12 rounded-2xl border dark:border-slate-800/80 border-[#E6DED2] flex items-center justify-center dark:bg-[#050814]/90 bg-white shadow-xl">
       <div class="relative p-8 sm:p-10 border-2 border-dashed border-amber-500/70 rounded-3xl bg-amber-500/[0.03] flex items-center justify-center">
         {/* Top Marker */}
         <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded dark:bg-[#0A1128] bg-white border border-amber-500 text-[10px] font-mono font-bold text-amber-500 dark:text-amber-400 whitespace-nowrap shadow-md">
@@ -49,38 +41,38 @@ import OllieMascot from '../islands/OllieMascot';
       </div>
     </div>
 
-    {/* Right: Technical Clearspace Rule Copy */}
-    <div class="lg:col-span-6 glass-panel p-6 sm:p-8 rounded-2xl border dark:border-slate-800 border-[#E6DED2] space-y-5">
+    {/* Right: Technical Clearspace Rule Copy & Thresholds */}
+    <div class="lg:col-span-6 glass-panel p-6 sm:p-8 rounded-2xl border dark:border-slate-800/80 border-[#E6DED2] space-y-6">
       <div>
         <h3 class="text-lg font-bold text-amber-500 dark:text-amber-400">The "X" Clearspace Rule</h3>
         <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-          The exclusion zone guarantees that Ollie is never crowded by text, borders, or neighboring UI elements. The unit <strong class="text-white">X</strong> is defined mathematically as <strong class="text-white">1/4th of the mascot height (or the exact height of Ollie's eyeglass frame)</strong>.
+          The exclusion zone guarantees that Ollie is never crowded by text, borders, or neighboring UI elements. The unit <strong class="dark:text-white text-[#0A1128]">X</strong> is defined mathematically as <strong class="dark:text-white text-[#0A1128]">1/4th of the mascot height (or the exact height of Ollie's eyeglass frame)</strong>.
         </p>
       </div>
 
-      <div class="space-y-3 pt-3 border-t dark:border-slate-800 border-[#E6DED2]">
+      <div class="space-y-3 pt-4 border-t dark:border-slate-800/80 border-[#E6DED2]">
         <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">
           Minimum Rendering Thresholds
         </h4>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div class="p-3 rounded-xl dark:bg-slate-900/80 bg-[#FAF8F5] border dark:border-slate-800 border-[#DBD1C2] space-y-1 shadow-xs">
-            <span class="text-amber-500 dark:text-amber-400 font-semibold block">Digital Minimum (Emblem)</span>
-            <span class="font-mono text-white text-sm font-bold">32px × 32px</span>
+          <div class="p-3.5 rounded-xl dark:bg-slate-900/60 bg-[#FAF8F5] border dark:border-slate-800/80 border-[#DBD1C2] space-y-1 shadow-xs">
+            <span class="text-amber-500 dark:text-amber-400 font-semibold block text-[11px]">Digital Minimum (Emblem)</span>
+            <span class="font-mono dark:text-white text-[#0A1128] text-sm font-bold">32px × 32px</span>
             <span class="text-[11px] text-slate-500 block">Favicon, browser tabs, app tray</span>
           </div>
-          <div class="p-3 rounded-xl dark:bg-slate-900/80 bg-[#FAF8F5] border dark:border-slate-800 border-[#DBD1C2] space-y-1 shadow-xs">
-            <span class="text-amber-500 dark:text-amber-400 font-semibold block">Digital Minimum (Wordmark)</span>
-            <span class="font-mono text-white text-sm font-bold">140px × 32px</span>
+          <div class="p-3.5 rounded-xl dark:bg-slate-900/60 bg-[#FAF8F5] border dark:border-slate-800/80 border-[#DBD1C2] space-y-1 shadow-xs">
+            <span class="text-amber-500 dark:text-amber-400 font-semibold block text-[11px]">Digital Minimum (Wordmark)</span>
+            <span class="font-mono dark:text-white text-[#0A1128] text-sm font-bold">140px × 32px</span>
             <span class="text-[11px] text-slate-500 block">Mobile nav headers, footers</span>
           </div>
-          <div class="p-3 rounded-xl dark:bg-slate-900/80 bg-[#FAF8F5] border dark:border-slate-800 border-[#DBD1C2] space-y-1 shadow-xs">
-            <span class="text-sky-500 dark:text-sky-400 font-semibold block">Print Minimum (Emblem)</span>
-            <span class="font-mono text-white text-sm font-bold">12mm × 12mm</span>
+          <div class="p-3.5 rounded-xl dark:bg-slate-900/60 bg-[#FAF8F5] border dark:border-slate-800/80 border-[#DBD1C2] space-y-1 shadow-xs">
+            <span class="text-sky-500 dark:text-sky-400 font-semibold block text-[11px]">Print Minimum (Emblem)</span>
+            <span class="font-mono dark:text-white text-[#0A1128] text-sm font-bold">12mm × 12mm</span>
             <span class="text-[11px] text-slate-500 block">Conference badges, stickers</span>
           </div>
-          <div class="p-3 rounded-xl dark:bg-slate-900/80 bg-[#FAF8F5] border dark:border-slate-800 border-[#DBD1C2] space-y-1 shadow-xs">
-            <span class="text-sky-500 dark:text-sky-400 font-semibold block">Print Minimum (Wordmark)</span>
-            <span class="font-mono text-white text-sm font-bold">35mm Width</span>
+          <div class="p-3.5 rounded-xl dark:bg-slate-900/60 bg-[#FAF8F5] border dark:border-slate-800/80 border-[#DBD1C2] space-y-1 shadow-xs">
+            <span class="text-sky-500 dark:text-sky-400 font-semibold block text-[11px]">Print Minimum (Wordmark)</span>
+            <span class="font-mono dark:text-white text-[#0A1128] text-sm font-bold">35mm Width</span>
             <span class="text-[11px] text-slate-500 block">Stationery, apparel, swag</span>
           </div>
         </div>

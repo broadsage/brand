@@ -19,6 +19,15 @@
   --color-azure-500: #0284C7;
   --color-azure-600: #0369A1;
 
+  /* Solar Ivory Light Ground Palettes */
+  --color-ivory-50: #FAF8F5;
+  --color-ivory-100: #F5EFE6;
+  --color-ivory-200: #EFE7DC;
+  --color-ivory-300: #E5DCCF;
+  --color-ivory-400: #DBD1C2;
+  --color-ivory-500: #C4B8A5;
+  --color-ivory-border: #E6DED2;
+
   --color-broadsage-navy-950: #050814;
   --color-broadsage-navy-900: #0A1128;
   --color-broadsage-navy-800: #101B3B;

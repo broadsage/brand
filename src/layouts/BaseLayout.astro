@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title?: string;
@@ -29,28 +28,21 @@ const ogImageURL = new URL(image, Astro.site);
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Theme Initialization Script (Zero-FOUC, Defaults to Midnight Navy) -->
-    <script is:inline data-astro-rerun>
+    <script is:inline>
       (function() {
-        function applyTheme() {
-          try {
-            var stored = localStorage.getItem('broadsage_theme');
-            if (stored === 'light') {
-              document.documentElement.classList.add('light');
-              document.documentElement.classList.remove('dark');
-            } else {
-              document.documentElement.classList.add('dark');
-              document.documentElement.classList.remove('light');
-            }
-          } catch (e) {
+        try {
+          var stored = localStorage.getItem('broadsage_theme');
+          if (stored === 'light') {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+          } else {
             document.documentElement.classList.add('dark');
             document.documentElement.classList.remove('light');
           }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
         }
-
-        applyTheme();
-
-        // Restore theme on View Transitions navigation
-        document.addEventListener('astro:after-swap', applyTheme);
       })();
     </script>
 
@@ -72,9 +64,6 @@ const ogImageURL = new URL(image, Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
-
-    <!-- Astro View Transitions / Client Router -->
-    <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-slate-950">
     <slot />
@@ -93,25 +82,21 @@ const ogImageURL = new URL(image, Astro.site);
       </svg>
     </button>
 
-    <script is:inline data-astro-rerun>
+    <script is:inline>
       (function() {
-        function initFab() {
-          var fab = document.getElementById('back-to-top-fab');
-          if (!fab) return;
-          function onScroll() {
-            if (window.scrollY > 400) {
-              fab.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
-              fab.classList.add('opacity-100', 'translate-y-0');
-            } else {
-              fab.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
-              fab.classList.remove('opacity-100', 'translate-y-0');
-            }
+        var fab = document.getElementById('back-to-top-fab');
+        if (!fab) return;
+        function onScroll() {
+          if (window.scrollY > 400) {
+            fab.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+            fab.classList.add('opacity-100', 'translate-y-0');
+          } else {
+            fab.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+            fab.classList.remove('opacity-100', 'translate-y-0');
           }
-          window.addEventListener('scroll', onScroll, { passive: true });
-          onScroll();
         }
-        initFab();
-        document.addEventListener('astro:page-load', initFab);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
       })();
     </script>
   </body>

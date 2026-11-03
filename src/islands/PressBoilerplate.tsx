@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Copy, Check, FileText, Sparkles, Mail, Download } from 'lucide-react';
+import { useClipboard } from '../utils/useClipboard';
 
 const PITCH_TEXT =
   'Broadsage unites open-source innovation with hardened enterprise platform engineering — Broad Vision, Sage Guidance, Open to Everyone.';
@@ -8,14 +9,7 @@ const BOILERPLATE_TEXT =
   'Broadsage is an open-source enterprise platform bridging cloud-native innovation and agentic AI with hardened, production-grade architectures. Featuring Ollie the Sage Owl, Broadsage champions the open enterprise foundation with calm, authoritative architectural guidance and zero vendor lock-in.';
 
 export const PressBoilerplate: React.FC = () => {
-  const [copiedKey, setCopiedKey] = useState<string | null>(null);
-
-  const handleCopy = (key: string, text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedKey(key);
-      setTimeout(() => setCopiedKey(null), 2000);
-    });
-  };
+  const { copiedKey, copy } = useClipboard({ timeoutMs: 2000 });
 
   return (
     <div className="space-y-6">
@@ -40,7 +34,7 @@ export const PressBoilerplate: React.FC = () => {
 
           <div className="pt-2">
             <button
-              onClick={() => handleCopy('pitch', PITCH_TEXT)}
+              onClick={() => copy(PITCH_TEXT, 'pitch')}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl dark:bg-sky-500/10 dark:hover:bg-sky-500/20 dark:text-sky-300 dark:border-sky-500/30 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-300 font-semibold text-xs transition-all hover:scale-[1.02] active:scale-95 shadow-xs"
             >
               {copiedKey === 'pitch' ? (
@@ -77,7 +71,7 @@ export const PressBoilerplate: React.FC = () => {
 
           <div className="pt-2">
             <button
-              onClick={() => handleCopy('boilerplate', BOILERPLATE_TEXT)}
+              onClick={() => copy(BOILERPLATE_TEXT, 'boilerplate')}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl dark:bg-amber-500/10 dark:hover:bg-amber-500/20 dark:text-amber-300 dark:border-amber-500/30 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 font-semibold text-xs transition-all hover:scale-[1.02] active:scale-95 shadow-xs"
             >
               {copiedKey === 'boilerplate' ? (
@@ -110,7 +104,7 @@ export const PressBoilerplate: React.FC = () => {
           <a
             href="/logos/vector/broadsage_logo_primary.svg"
             download="broadsage_logo_primary.svg"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-[#FAF8F5] text-[#0A1128] border border-[#DBD1C2] hover:border-amber-500/40 text-[11px] font-semibold transition-all shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-ivory-50 text-navy-900 border border-ivory-400 hover:border-amber-500/40 text-[11px] font-semibold transition-all shadow-2xs"
             title="Download Primary Vector Mark (SVG)"
           >
             <Download className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
@@ -119,7 +113,7 @@ export const PressBoilerplate: React.FC = () => {
           <a
             href="/logos/vector/broadsage_logo_horizontal.svg"
             download="broadsage_logo_horizontal.svg"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-[#FAF8F5] text-[#0A1128] border border-[#DBD1C2] hover:border-sky-500/40 text-[11px] font-semibold transition-all shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-ivory-50 text-navy-900 border border-ivory-400 hover:border-sky-500/40 text-[11px] font-semibold transition-all shadow-2xs"
             title="Download Horizontal Wordmark (SVG)"
           >
             <Download className="w-3.5 h-3.5 text-sky-500 dark:text-sky-400" />
@@ -129,13 +123,13 @@ export const PressBoilerplate: React.FC = () => {
       </div>
 
       {/* Press Inquiries & Brand Governance Rules Bar */}
-      <div className="p-4 sm:p-5 rounded-2xl dark:bg-slate-950/70 bg-white border dark:border-slate-800 border-[#DBD1C2] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+      <div className="p-4 sm:p-5 rounded-2xl dark:bg-slate-950/70 bg-white border dark:border-slate-800 border-ivory-400 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 dark:text-amber-400 flex-shrink-0">
             <Mail className="w-4 h-4" />
           </div>
           <div>
-            <h4 className="text-xs sm:text-sm font-bold dark:text-white text-[#0A1128]">
+            <h4 className="text-xs sm:text-sm font-bold dark:text-white text-navy-900">
               Media, Keynotes &amp; Co-Branding Inquiries
             </h4>
             <p className="text-xs dark:text-slate-400 text-slate-600">
@@ -146,7 +140,7 @@ export const PressBoilerplate: React.FC = () => {
 
         <a
           href="mailto:brand@broadsage.com"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-slate-700 dark:text-amber-400 bg-[#FAF8F5] hover:bg-[#EFE7DC] border border-[#DBD1C2] text-amber-800 hover:border-amber-500/50 text-xs font-mono font-semibold transition-all hover:scale-105 shadow-xs whitespace-nowrap"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-slate-700 dark:text-amber-400 bg-ivory-50 hover:bg-ivory-200 border border-ivory-400 text-amber-800 hover:border-amber-500/50 text-xs font-mono font-semibold transition-all hover:scale-105 shadow-xs whitespace-nowrap"
         >
           <span>brand@broadsage.com</span>
         </a>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import OllieMascot, { type OllieMascotProps } from './OllieMascot';
 import { Download, Copy, Check, Sparkles } from 'lucide-react';
+import { useClipboard } from '../utils/useClipboard';
+import { serializeSvg, downloadSvgElement, exportSvgToPng } from '../utils/svgExport';
 
 interface LogoMarkSpec {
   id: OllieMascotProps['variant'];
@@ -72,100 +74,42 @@ const logoMarks: LogoMarkSpec[] = [
 ];
 
 export const AssetStudio: React.FC = () => {
-  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const { copiedKey, copy } = useClipboard({ timeoutMs: 2000 });
   const [exportingKey, setExportingKey] = useState<string | null>(null);
 
   const handleCopySvg = (markId: string) => {
-    const svgElem = document.getElementById(`mark-svg-${markId}`);
+    const svgElem = document.getElementById(`mark-svg-${markId}`) as SVGElement | null;
     if (!svgElem) return;
-    const serializer = new XMLSerializer();
-    let source = serializer.serializeToString(svgElem);
-    if (!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)) {
-      source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
-    }
-    navigator.clipboard.writeText(source).then(() => {
-      setCopiedKey(markId);
-      setTimeout(() => setCopiedKey(null), 2000);
-    });
+    const source = serializeSvg(svgElem);
+    copy(source, markId);
   };
 
   const handleDownloadSvg = (markId: string, filename: string) => {
-    const svgElem = document.getElementById(`mark-svg-${markId}`);
+    const svgElem = document.getElementById(`mark-svg-${markId}`) as SVGElement | null;
     if (!svgElem) return;
-    const serializer = new XMLSerializer();
-    let source = serializer.serializeToString(svgElem);
-    if (!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)) {
-      source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
-    }
-    const blob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    downloadSvgElement(svgElem, filename);
   };
 
-  const handleDownloadPng = (mark: LogoMarkSpec) => {
-    const svgElem = document.getElementById(`mark-svg-${mark.id}`);
+  const handleDownloadPng = async (mark: LogoMarkSpec) => {
+    const svgElem = document.getElementById(`mark-svg-${mark.id}`) as SVGElement | null;
     if (!svgElem) return;
     setExportingKey(mark.id);
 
-    const serializer = new XMLSerializer();
-    let source = serializer.serializeToString(svgElem);
-    if (!source.match(/^<svg[^>]+xmlns="http\:\/\/www\.w3\.org\/2000\/svg"/)) {
-      source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+    const targetWidth = mark.targetPngWidth;
+    let targetHeight = targetWidth;
+    if (mark.id === 'horizontal' || mark.id === 'horizontal-light') {
+      targetHeight = Math.round(targetWidth * (120 / 440));
     }
+    const baseName = mark.filename.replace('.svg', '');
+    const filename = `${baseName}_${targetWidth}x${targetHeight}.png`;
 
-    const svgBlob = new Blob([source], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(svgBlob);
-    const img = new Image();
-
-    img.onload = () => {
-      const targetWidth = mark.targetPngWidth;
-      let targetHeight = targetWidth;
-      if (mark.id === 'horizontal' || mark.id === 'horizontal-light') {
-        targetHeight = Math.round(targetWidth * (120 / 440));
-      }
-
-      const canvas = document.createElement('canvas');
-      canvas.width = targetWidth;
-      canvas.height = targetHeight;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) {
-        setExportingKey(null);
-        return;
-      }
-      ctx.clearRect(0, 0, targetWidth, targetHeight);
-      ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
-
-      canvas.toBlob((blob) => {
-        if (!blob) {
-          setExportingKey(null);
-          return;
-        }
-        const pngUrl = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        const baseName = mark.filename.replace('.svg', '');
-        a.href = pngUrl;
-        a.download = `${baseName}_${targetWidth}x${targetHeight}.png`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(pngUrl);
-        URL.revokeObjectURL(url);
-        setExportingKey(null);
-      }, 'image/png');
-    };
-
-    img.onerror = () => {
+    try {
+      await exportSvgToPng(svgElem, targetWidth, targetHeight, filename);
+    } catch (err) {
+      console.error('PNG export failed:', err);
+    } finally {
       setExportingKey(null);
-      URL.revokeObjectURL(url);
-    };
-
-    img.src = url;
+    }
   };
 
   return (
@@ -179,12 +123,12 @@ export const AssetStudio: React.FC = () => {
           return (
             <div
               key={mark.id}
-              className="glass-panel rounded-2xl border dark:border-slate-800/80 border-[#E6DED2] hover:border-amber-500/40 transition-all duration-300 flex flex-col overflow-hidden shadow-lg hover:shadow-xl hover:shadow-amber-500/5 group"
+              className="glass-panel rounded-2xl border dark:border-slate-800/80 border-ivory-border hover:border-amber-500/40 transition-all duration-300 flex flex-col overflow-hidden shadow-lg hover:shadow-xl hover:shadow-amber-500/5 group"
             >
               {/* Compact Card Header */}
-              <div className="px-4 py-3 border-b dark:border-slate-800/80 border-[#E6DED2] dark:bg-slate-900/60 bg-[#FAF8F5] flex items-center justify-between gap-2 flex-shrink-0">
+              <div className="px-4 py-3 border-b dark:border-slate-800/80 border-ivory-border dark:bg-slate-900/60 bg-ivory-50 flex items-center justify-between gap-2 flex-shrink-0">
                 <div className="space-y-0.5 min-w-0">
-                  <h3 className="text-sm font-bold dark:text-white text-[#0A1128] tracking-tight truncate">
+                  <h3 className="text-sm font-bold dark:text-white text-navy-900 tracking-tight truncate">
                     {mark.title}
                   </h3>
                   <p className="text-[10px] dark:text-slate-400 text-slate-500 font-mono">
@@ -197,7 +141,7 @@ export const AssetStudio: React.FC = () => {
               </div>
 
               {/* Native Contextual Canvas Viewport */}
-              <div className="flex-1 p-3.5 sm:p-4 flex flex-col items-center justify-center relative min-h-[175px] sm:min-h-[190px] dark:bg-gradient-to-b dark:from-slate-950/60 dark:to-slate-900/40 bg-gradient-to-b from-[#F5EFE6]/70 to-[#FAF8F5]/50">
+              <div className="flex-1 p-3.5 sm:p-4 flex flex-col items-center justify-center relative min-h-[175px] sm:min-h-[190px] dark:bg-gradient-to-b dark:from-slate-950/60 dark:to-slate-900/40 bg-gradient-to-b from-ivory-100/70 to-ivory-50/50">
                 {/* Surface Ground Showcase Chamber */}
                 <div className={`w-full h-full min-h-[125px] sm:min-h-[135px] p-3 sm:p-4 rounded-xl ${mark.groundClass} ${mark.id !== 'horizontal-light' ? 'preserve-dark' : ''} flex items-center justify-center transition-transform duration-300 group-hover:scale-[1.03] shadow-md relative`}>
                   <div className={mark.previewContainerClass}>
@@ -210,13 +154,13 @@ export const AssetStudio: React.FC = () => {
                 </div>
 
                 {/* Ground Pill Tag */}
-                <span className="mt-2 text-[9px] font-mono font-medium tracking-wider uppercase px-2 py-0.5 rounded-full dark:bg-slate-900/90 dark:border-slate-800 dark:text-slate-400 bg-[#FAF8F5] border border-[#DBD1C2] text-slate-700 shadow-2xs">
+                <span className="mt-2 text-[9px] font-mono font-medium tracking-wider uppercase px-2 py-0.5 rounded-full dark:bg-slate-900/90 dark:border-slate-800 dark:text-slate-400 bg-ivory-50 border border-ivory-400 text-slate-700 shadow-2xs">
                   Ground: <strong className="dark:text-slate-300 text-slate-800">{mark.groundName}</strong>
                 </span>
               </div>
 
               {/* Card Footer: Metadata & 1-Click Actions */}
-              <div className="p-3.5 sm:p-4 dark:bg-slate-900/60 bg-[#FAF8F5] border-t dark:border-slate-800/80 border-[#E6DED2] space-y-3 flex-shrink-0">
+              <div className="p-3.5 sm:p-4 dark:bg-slate-900/60 bg-ivory-50 border-t dark:border-slate-800/80 border-ivory-border space-y-3 flex-shrink-0">
                 <p className="text-[11px] dark:text-slate-300 text-slate-600 leading-snug min-h-[32px] line-clamp-2">
                   {mark.description}
                 </p>
@@ -226,7 +170,7 @@ export const AssetStudio: React.FC = () => {
                   {/* Action 1: Copy SVG */}
                   <button
                     onClick={() => handleCopySvg(mark.id)}
-                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-[#FAF8F5] text-[#0A1128] border border-[#DBD1C2] hover:border-amber-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs"
+                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-ivory-50 text-navy-900 border border-ivory-400 hover:border-amber-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs"
                     title="Copy inline SVG XML code to clipboard"
                   >
                     {isCopied ? (
@@ -245,7 +189,7 @@ export const AssetStudio: React.FC = () => {
                   {/* Action 2: Download SVG */}
                   <button
                     onClick={() => handleDownloadSvg(mark.id, mark.filename)}
-                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-[#FAF8F5] text-[#0A1128] border border-[#DBD1C2] hover:border-sky-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs"
+                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-ivory-50 text-navy-900 border border-ivory-400 hover:border-sky-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs"
                     title={`Download vector file ${mark.filename}`}
                   >
                     <Download className="w-3 h-3 text-sky-500 dark:text-sky-400" />
@@ -256,7 +200,7 @@ export const AssetStudio: React.FC = () => {
                   <button
                     onClick={() => handleDownloadPng(mark)}
                     disabled={isExporting}
-                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-[#FAF8F5] text-[#0A1128] border border-[#DBD1C2] hover:border-emerald-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs disabled:opacity-50"
+                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-ivory-50 text-navy-900 border border-ivory-400 hover:border-emerald-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs disabled:opacity-50"
                     title={`Export high-resolution raster PNG (${mark.targetPngWidth}px)`}
                   >
                     {isExporting ? (
@@ -282,7 +226,7 @@ export const AssetStudio: React.FC = () => {
             <Download className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-sm font-bold dark:text-white text-[#0A1128]">Need the Entire Brand Kit at Once?</h4>
+            <h4 className="text-sm font-bold dark:text-white text-navy-900">Need the Entire Brand Kit at Once?</h4>
             <p className="text-xs dark:text-slate-400 text-slate-600">
               Download all 4 production marks, status banners, tokens, and press guidelines in a single archive.
             </p>

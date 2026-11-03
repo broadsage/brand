@@ -42,7 +42,7 @@ export const MobileDrawer: React.FC = () => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2.5 rounded-lg dark:text-slate-300 text-slate-700 hover:text-amber-500 dark:hover:text-white dark:bg-slate-900/80 bg-white border dark:border-slate-700/80 border-[#DBD1C2] outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 shadow-xs"
+        className="p-2.5 rounded-lg dark:text-slate-300 text-slate-700 hover:text-amber-500 dark:hover:text-white dark:bg-slate-900/80 bg-white border dark:border-slate-700/80 border-ivory-400 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 shadow-xs"
         aria-label="Open mobile navigation"
       >
         <Menu className="w-6 h-6 text-amber-400" />
@@ -58,21 +58,21 @@ export const MobileDrawer: React.FC = () => {
 
       {/* Slide-out Drawer */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs dark:bg-[#0A1128] bg-[#FAF8F5] border-l dark:border-slate-800 border-[#E6DED2] shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs dark:bg-navy-900 bg-ivory-50 border-l dark:border-slate-800 border-ivory-border shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Drawer Header */}
-        <div className="p-5 border-b dark:border-slate-800/80 border-[#E6DED2] flex items-center justify-between">
+        <div className="p-5 border-b dark:border-slate-800/80 border-ivory-border flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-amber-400" />
-            <span className="font-extrabold text-sm tracking-wider text-white uppercase">
+            <span className="font-extrabold text-sm tracking-wider dark:text-white text-navy-900 uppercase">
               BROAD<span className="text-amber-500">SAGE</span>
             </span>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-lg dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800/60 text-slate-600 hover:text-[#0A1128] hover:bg-[#EFE7DC] transition-colors"
+            className="p-2 rounded-lg dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800/60 text-slate-600 hover:text-navy-900 hover:bg-ivory-200 transition-colors"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
@@ -88,7 +88,7 @@ export const MobileDrawer: React.FC = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 px-3 py-3 rounded-lg dark:text-slate-300 dark:hover:text-amber-400 dark:hover:bg-slate-900/60 text-slate-700 hover:text-amber-600 hover:bg-[#EFE7DC] transition-colors font-medium text-sm group"
+                className="flex items-center gap-3 px-3 py-3 rounded-lg dark:text-slate-300 dark:hover:text-amber-400 dark:hover:bg-slate-900/60 text-slate-700 hover:text-amber-600 hover:bg-ivory-200 transition-colors font-medium text-sm group"
               >
                 <Icon className="w-4 h-4 text-slate-500 group-hover:text-amber-400 transition-colors" />
                 <span>{item.label}</span>
@@ -98,7 +98,7 @@ export const MobileDrawer: React.FC = () => {
         </div>
 
         {/* Drawer Footer Actions */}
-        <div className="p-4 border-t dark:border-slate-800/80 border-[#E6DED2] space-y-3 dark:bg-[#050814]/80 bg-[#F5EFE6]">
+        <div className="p-4 border-t dark:border-slate-800/80 border-ivory-border space-y-3 dark:bg-navy-950/80 bg-ivory-100">
           <div className="flex items-center justify-between">
             <span className="text-xs font-mono text-slate-400">Appearance:</span>
             <ThemeToggle compact={false} />

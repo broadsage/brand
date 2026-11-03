@@ -1,5 +1,5 @@
 ---
-import { Type, Terminal, Sparkles } from 'lucide-react';
+import SectionHeader from './SectionHeader.astro';
 
 const specimens = [
   {
@@ -37,20 +37,11 @@ const specimens = [
 ---
 
 <section id="typography" class="space-y-6 scroll-mt-24">
-  {/* Section Header */}
-  <div class="flex items-end justify-between border-b dark:border-slate-800 border-[#E6DED2] pb-4 flex-wrap gap-2">
-    <div>
-      <h2 class="text-2xl sm:text-3xl font-extrabold dark:text-white text-[#0A1128] tracking-tight">
-        Typography Hierarchy &amp; Specimen
-      </h2>
-      <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-600 mt-1">
-        Engineered for high readability across IDEs, documentation, and executive keynotes
-      </p>
-    </div>
-    <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md dark:bg-slate-800 bg-[#FAF8F5] text-amber-500 dark:text-amber-400 border dark:border-slate-700 border-[#DBD1C2]">
-      Type System
-    </span>
-  </div>
+  <SectionHeader
+    title="Typography Hierarchy & Specimen"
+    subtitle="Engineered for high readability across IDEs, documentation, and executive keynotes"
+    badge="Type System"
+  />
 
   {/* Font Stack Definitions Bar */}
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -65,7 +56,7 @@ const specimens = [
         -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
       </code>
     </div>
-    <div class="p-4 rounded-xl dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-[#DBD1C2] space-y-1 shadow-xs">
+    <div class="p-4 rounded-xl dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-1 shadow-xs">
       <div class="flex items-center justify-between">
         <span class="text-xs font-mono font-bold text-amber-500 dark:text-amber-400 uppercase tracking-wider block">
           Developer Code &amp; Terminal Stack (Precision Mono)
@@ -79,9 +70,9 @@ const specimens = [
   </div>
 
   {/* Compact Hierarchy Specimen Table */}
-  <div class="glass-panel rounded-2xl border dark:border-slate-800 border-[#E6DED2] overflow-hidden divide-y dark:divide-slate-800/80 divide-[#E6DED2]">
+  <div class="glass-panel rounded-2xl border dark:border-slate-800 border-ivory-border overflow-hidden divide-y dark:divide-slate-800/80 divide-ivory-border">
     {specimens.map((item) => (
-      <div class="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 dark:hover:bg-slate-900/40 hover:bg-[#FAF8F5] transition-colors">
+      <div class="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 dark:hover:bg-slate-900/40 hover:bg-ivory-50 transition-colors">
         <div class="w-full md:w-1/3 space-y-1">
           <div class="flex items-center gap-2">
             <span class="font-bold text-amber-500 dark:text-amber-400 text-xs sm:text-sm">{item.role}</span>
@@ -93,10 +84,10 @@ const specimens = [
           </p>
         </div>
 
-        <div class="w-full md:w-2/3 p-3 rounded-xl dark:bg-[#050814]/80 bg-[#FAF8F5] border dark:border-slate-900 border-[#DBD1C2] flex items-center min-h-[48px] overflow-x-auto">
+        <div class="w-full md:w-2/3 p-3 rounded-xl dark:bg-navy-950/80 bg-ivory-50 border dark:border-slate-900 border-ivory-400 flex items-center min-h-[48px] overflow-x-auto">
           {item.previewType === 'wordmark' ? (
             <div class="text-2xl font-black tracking-[-0.5px]">
-              <span class="dark:text-white text-[#0A1128]">BROAD</span>
+              <span class="dark:text-white text-navy-900">BROAD</span>
               <span class="text-amber-500">SAGE</span>
             </div>
           ) : item.previewType === 'code' ? (

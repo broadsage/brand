@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import AssetStudio from '../islands/AssetStudio';
 import ColorPaletteMatrix from '../islands/ColorPaletteMatrix';
 import GovernanceRules from '../components/GovernanceRules.astro';
@@ -15,50 +16,34 @@ import Footer from '../components/Footer.astro';
 <BaseLayout>
   <Header />
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-20 sm:space-y-28 w-full flex-1">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16 sm:space-y-24 w-full flex-1">
     {/* 1. Hero Section */}
     <Hero />
 
     {/* 2. Official Marks & Brand Assets (Asset-First) */}
     <section id="emblems" class="space-y-8 scroll-mt-24">
-      <div class="flex items-end justify-between border-b dark:border-slate-800 border-[#E6DED2] pb-4 flex-wrap gap-3">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold dark:text-white text-[#0A1128] tracking-tight">
-            Official Production Marks
-          </h2>
-          <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-600 mt-1">
-            Master vector emblems, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds
-          </p>
-        </div>
-        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md dark:bg-slate-800 bg-[#FAF8F5] text-amber-500 dark:text-amber-400 border dark:border-slate-700 border-[#DBD1C2]">
-          Official Marks
-        </span>
-      </div>
+      <SectionHeader
+        title="Official Production Marks"
+        subtitle="Master vector emblems, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds"
+        badge="Official Marks"
+      />
 
       <AssetStudio client:visible />
     </section>
 
     {/* 3. Official Color System & Copyable Code Tokens */}
     <section id="colors" class="space-y-8 scroll-mt-24">
-      <div class="flex items-end justify-between border-b dark:border-slate-800 border-[#E6DED2] pb-4 flex-wrap gap-2">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold dark:text-white text-[#0A1128] tracking-tight">
-            Official Color System &amp; Code Tokens
-          </h2>
-          <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-600 mt-1">
-            Copyable Tailwind v4 (@theme), Tailwind v3, CSS variables, and JSON design tokens with WCAG AAA verification
-          </p>
-        </div>
-        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md dark:bg-slate-800 bg-[#FAF8F5] text-amber-500 dark:text-amber-400 border dark:border-slate-700 border-[#DBD1C2]">
-          Color Palette
-        </span>
-      </div>
+      <SectionHeader
+        title="Official Color System & Code Tokens"
+        subtitle="Copyable Tailwind v4 (@theme), Tailwind v3, CSS variables, and JSON design tokens with WCAG AAA verification"
+        badge="Color Palette"
+      />
 
       <ColorPaletteMatrix client:visible />
     </section>
 
     {/* 4. Brand Governance, Clearspace & Voice (Consolidated Standards) */}
-    <div class="space-y-20 sm:space-y-28">
+    <div class="space-y-16 sm:space-y-24">
       {/* Brand Governance & Visual Do's & Don'ts */}
       <GovernanceRules />
 

@@ -74,7 +74,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', compac
       type="button"
       className={`inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all duration-200 active:scale-95 shadow-sm outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 ${
         isLight
-          ? 'bg-[#EFE7DC] hover:bg-[#E5DCCF] text-[#0A1128] border-[#DBD1C2]'
+          ? 'bg-ivory-200 hover:bg-ivory-300 text-navy-900 border-ivory-400'
           : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
       } ${className}`}
       title={isLight ? 'Switch to Midnight Navy (Default Brand Mode)' : 'Switch to Solar Ivory (Warm Light Mode)'}
@@ -83,7 +83,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', compac
       {isLight ? (
         <>
           <Moon className="w-4 h-4 text-sky-700 transition-transform duration-300" />
-          {!compact && <span className="font-mono text-[11px] font-bold text-[#0A1128]">Midnight Navy</span>}
+          {!compact && <span className="font-mono text-[11px] font-bold text-navy-900">Midnight Navy</span>}
         </>
       ) : (
         <>

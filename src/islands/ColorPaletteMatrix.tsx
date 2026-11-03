@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Copy, Check, SlidersHorizontal, Code2, Terminal, FileCode, Braces, ChevronDown, ChevronUp } from 'lucide-react';
+import { useClipboard } from '../utils/useClipboard';
 
 interface ColorDefinition {
   name: string;
@@ -110,17 +111,10 @@ const tonalRamps = {
 type TokenTab = 'tailwind-v4' | 'tailwind-v3' | 'css' | 'json';
 
 export const ColorPaletteMatrix: React.FC = () => {
-  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const { copiedKey, copy: copyToClipboard } = useClipboard({ timeoutMs: 1800 });
   const [showRamps, setShowRamps] = useState(false);
   const [showTokens, setShowTokens] = useState(false);
   const [activeTokenTab, setActiveTokenTab] = useState<TokenTab>('tailwind-v4');
-
-  const copyToClipboard = (text: string, key: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedKey(key);
-      setTimeout(() => setCopiedKey(null), 1800);
-    });
-  };
 
   // Generate code token snippets dynamically from the single source of truth
   const snippets = useMemo(() => {
@@ -248,9 +242,10 @@ module.exports = {
             {/* Color Swatch Header Box (Click to copy HEX) */}
             <button
               onClick={() => copyToClipboard(color.hex, `${idx}-hex`)}
-              className="h-28 p-3.5 flex flex-col justify-between relative shadow-inner text-left cursor-pointer group/swatch focus:outline-none"
+              className="h-28 p-3.5 flex flex-col justify-between relative shadow-inner text-left cursor-pointer group/swatch outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
               style={{ backgroundColor: color.hex }}
-              title="Click to copy HEX code"
+              title={`Click to copy HEX code for ${color.name}`}
+              aria-label={`Copy ${color.name} HEX code ${color.hex}`}
             >
               <div className="flex items-center justify-between w-full">
                 <span
