@@ -57,6 +57,9 @@ const excludedBanners = [
   'broadsage_og_share.svg',
   'github-repo-preview.png',
   'broadsage_repo_preview.svg',
+  'broadsage_github_hero.png',
+  'obsolete.png',
+  'broadsage_status_obsolete.svg',
 ];
 
 const bannerSvgSrc = path.join(rootDir, 'public', 'banners', 'vector');
@@ -95,14 +98,22 @@ Broad Vision, Sage Guidance — Open to Everyone
 https://brand.broadsage.com
 ========================================================================
 
-1. OFFICIAL NAMING CONVENTION
+1. OFFICIAL NAMING CONVENTION & PRESS INQUIRIES
    - Correct:   Broadsage (one word, title case in prose)
    - Correct:   BROADSAGE (uppercase in official wordmark lockup)
    - Incorrect: Broad Sage (never separated)
    - Incorrect: BroadSage (never camelCase)
    - Incorrect: broadsage (never lowercase in formal text)
+   - Press & Media Inquiries: brand@broadsage.com
 
-2. CORE COLOR PALETTE (Palette 3)
+2. OFFICIAL PRESS BOILERPLATE (PRE-APPROVED COPY)
+   [One-Sentence Elevator Pitch]
+   "Broadsage unites open-source innovation with hardened enterprise platform engineering — Broad Vision, Sage Guidance, Open to Everyone."
+
+   [50-Word Standard Boilerplate]
+   "Broadsage is an open-source enterprise platform bridging cloud-native innovation and agentic AI with hardened, production-grade architectures. Featuring Ollie the Sage Owl, Broadsage champions the open enterprise foundation with calm, authoritative architectural guidance and zero vendor lock-in."
+
+3. CORE COLOR PALETTE (Palette 3)
    - Midnight Navy (Canvas Base):     #0A1128  | rgb(10, 17, 40)
    - Obsidian Slate (Deep Canvas):    #050814  | rgb(5, 8, 20)
    - Solar Gold (Sage Beacon):        #F59E0B  | rgb(245, 158, 11)  | Pantone 130 C
@@ -110,11 +121,17 @@ https://brand.broadsage.com
    - Cloud Azure (Broad Vision):      #0284C7  | rgb(2, 132, 199)   | Pantone 2174 C
    - Crisp Snow White (Headings):     #FFFFFF  | rgb(255, 255, 255)
 
-3. TYPOGRAPHY STACKS
+4. GROUND & CONTRAST RULES
+   - Native Dark Grounds: Use primary two-tone mark (#FFFFFF + #F59E0B).
+   - Crisp White Grounds:  Use dark wordmark (#0A1128 + #D97706).
+   - Solid Accent Grounds: When printing on solid Solar Gold Amber (#F59E0B) or Cloud Azure,
+     use the solid Midnight Navy (#0A1128) monochrome lockup. Never use the multi-color mark on amber.
+
+5. TYPOGRAPHY STACKS
    - UI & Prose:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
    - Code & CLI:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace
 
-4. FOLDER CONTENTS
+6. FOLDER CONTENTS
    /logos/vector-svg/   -> Infinite-resolution SVG vector marks
    /logos/high-dpi-png/ -> Transparent PNGs (1024px & 2048px)
    /banners/vector-svg/   -> GitHub hero and repository status badges (SVG)

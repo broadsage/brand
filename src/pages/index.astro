@@ -4,14 +4,12 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import AssetStudio from '../islands/AssetStudio';
 import ColorPaletteMatrix from '../islands/ColorPaletteMatrix';
-import BannerHub from '../islands/BannerHub';
 import GovernanceRules from '../components/GovernanceRules.astro';
 import ClearspaceGuide from '../components/ClearspaceGuide.astro';
 import VoiceToneGuide from '../components/VoiceToneGuide.astro';
 import TypographySpecimens from '../components/TypographySpecimens.astro';
 import Narrative from '../components/Narrative.astro';
 import Footer from '../components/Footer.astro';
-import { Layers, UserCheck, Layout, FileText } from 'lucide-react';
 ---
 
 <BaseLayout>
@@ -21,83 +19,20 @@ import { Layers, UserCheck, Layout, FileText } from 'lucide-react';
     {/* 1. Hero Section */}
     <Hero />
 
-    {/* 2. Official Marks & Interactive Studio (Asset-First) */}
+    {/* 2. Official Marks & Brand Assets (Asset-First) */}
     <section id="emblems" class="space-y-8 scroll-mt-24">
-      <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+      <div class="flex items-end justify-between border-b dark:border-slate-800 border-[#E6DED2] pb-4 flex-wrap gap-3">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Official Marks &amp; Asset Studio
+          <h2 class="text-2xl sm:text-3xl font-extrabold dark:text-white text-[#0A1128] tracking-tight">
+            Official Production Marks
           </h2>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1">
-            Download vector SVGs, inspect against multiple canvas surfaces, or rasterize high-res PNGs
+          <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-600 mt-1">
+            Master vector emblems, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds
           </p>
         </div>
-        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
-          Official Production Marks
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md dark:bg-slate-800 bg-[#FAF8F5] text-amber-500 dark:text-amber-400 border dark:border-slate-700 border-[#DBD1C2]">
+          Official Marks
         </span>
-      </div>
-
-      {/* Quick Visual Guide: When to Use Which Mark */}
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
-        <div class="glass-panel p-4 rounded-xl border border-slate-800/80 hover:border-amber-500/40 transition-all space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-white flex items-center gap-1.5">
-              <Layers className="w-3.5 h-3.5 text-amber-400" />
-              Square Emblem
-            </span>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
-              Master Mark
-            </span>
-          </div>
-          <p class="text-[11px] text-slate-400 leading-relaxed">
-            App icons, square favicons, CLI badge, product packaging, and merchandise.
-          </p>
-        </div>
-
-        <div class="glass-panel p-4 rounded-xl border border-slate-800/80 hover:border-sky-500/40 transition-all space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-white flex items-center gap-1.5">
-              <UserCheck className="w-3.5 h-3.5 text-sky-400" />
-              Circular Avatar
-            </span>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">
-              Profiles
-            </span>
-          </div>
-          <p class="text-[11px] text-slate-400 leading-relaxed">
-            GitHub Organization icon, Twitter/X profile, Discord, and Slack workspaces.
-          </p>
-        </div>
-
-        <div class="glass-panel p-4 rounded-xl border border-slate-800/80 hover:border-emerald-500/40 transition-all space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-white flex items-center gap-1.5">
-              <Layout className="w-3.5 h-3.5 text-emerald-400" />
-              Wordmark (Dark)
-            </span>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              Navigation
-            </span>
-          </div>
-          <p class="text-[11px] text-slate-400 leading-relaxed">
-            Web navigation headers, README hero banners, and dark presentation slides.
-          </p>
-        </div>
-
-        <div class="glass-panel p-4 rounded-xl border border-slate-800/80 hover:border-purple-500/40 transition-all space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-white flex items-center gap-1.5">
-              <FileText className="w-3.5 h-3.5 text-purple-400" />
-              Wordmark (Light)
-            </span>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-400 border border-purple-500/20">
-              Print &amp; Docs
-            </span>
-          </div>
-          <p class="text-[11px] text-slate-400 leading-relaxed">
-            Light documentation, whitepapers, press releases, and printed stationery.
-          </p>
-        </div>
       </div>
 
       <AssetStudio client:visible />
@@ -105,43 +40,24 @@ import { Layers, UserCheck, Layout, FileText } from 'lucide-react';
 
     {/* 3. Official Color System & Copyable Code Tokens */}
     <section id="colors" class="space-y-8 scroll-mt-24">
-      <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+      <div class="flex items-end justify-between border-b dark:border-slate-800 border-[#E6DED2] pb-4 flex-wrap gap-2">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-extrabold dark:text-white text-[#0A1128] tracking-tight">
             Official Color System &amp; Code Tokens
           </h2>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+          <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-600 mt-1">
             Copyable Tailwind v4 (@theme), Tailwind v3, CSS variables, and JSON design tokens with WCAG AAA verification
           </p>
         </div>
-        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
-          Color Palette 3
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md dark:bg-slate-800 bg-[#FAF8F5] text-amber-500 dark:text-amber-400 border dark:border-slate-700 border-[#DBD1C2]">
+          Color Palette
         </span>
       </div>
 
       <ColorPaletteMatrix client:visible />
     </section>
 
-    {/* 4. Repository & Ecosystem Banners */}
-    <section id="banners" class="space-y-8 scroll-mt-24">
-      <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Repository &amp; Ecosystem Status Badges
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-400 mt-1">
-            Standardized vector and high-DPI banners for GitHub Organization headers and production-readiness status tiers
-          </p>
-        </div>
-        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
-          5 Repository Marks
-        </span>
-      </div>
-
-      <BannerHub client:visible />
-    </section>
-
-    {/* 5. Brand Governance, Clearspace & Voice (Consolidated Standards) */}
+    {/* 4. Brand Governance, Clearspace & Voice (Consolidated Standards) */}
     <div class="space-y-20 sm:space-y-28">
       {/* Brand Governance & Visual Do's & Don'ts */}
       <GovernanceRules />
@@ -156,7 +72,7 @@ import { Layers, UserCheck, Layout, FileText } from 'lucide-react';
       <TypographySpecimens />
     </div>
 
-    {/* 6. Brand Foundation & Open-Source Mission */}
+    {/* 5. Brand Foundation, Mission & Press Kit */}
     <Narrative />
   </main>
 

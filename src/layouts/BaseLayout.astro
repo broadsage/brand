@@ -10,7 +10,7 @@ interface Props {
 
 const {
   title = 'Broadsage Brand Identity & System Guidelines',
-  description = 'Official design manual, master vector brand assets, design tokens, and developer guidelines for Broadsage — The Open Source to Enterprise DPE Bridge.',
+  description = 'Official design manual, master vector brand assets, design tokens, and guidelines for Broadsage — Broad Vision, Sage Guidance, Open to Everyone.',
   image = '/banners/github-welcome.png',
 } = Astro.props;
 
@@ -19,7 +19,7 @@ const ogImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -27,6 +27,32 @@ const ogImageURL = new URL(image, Astro.site);
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0A1128" />
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- Theme Initialization Script (Zero-FOUC, Defaults to Midnight Navy) -->
+    <script is:inline data-astro-rerun>
+      (function() {
+        function applyTheme() {
+          try {
+            var stored = localStorage.getItem('broadsage_theme');
+            if (stored === 'light') {
+              document.documentElement.classList.add('light');
+              document.documentElement.classList.remove('dark');
+            } else {
+              document.documentElement.classList.add('dark');
+              document.documentElement.classList.remove('light');
+            }
+          } catch (e) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          }
+        }
+
+        applyTheme();
+
+        // Restore theme on View Transitions navigation
+        document.addEventListener('astro:after-swap', applyTheme);
+      })();
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/logos/vector/broadsage_favicon.svg" />
@@ -52,6 +78,42 @@ const ogImageURL = new URL(image, Astro.site);
   </head>
   <body class="min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-slate-950">
     <slot />
+
+    <!-- Floating Back to Top Action Pill -->
+    <button
+      id="back-to-top-fab"
+      type="button"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Back to top"
+      title="Back to Top"
+      class="fixed bottom-6 right-6 z-30 p-2.5 rounded-full dark:bg-slate-900/90 bg-white/90 backdrop-blur-md dark:text-amber-400 text-amber-600 border dark:border-slate-800 border-[#DBD1C2] shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 pointer-events-none translate-y-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-500"
+    >
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <script is:inline data-astro-rerun>
+      (function() {
+        function initFab() {
+          var fab = document.getElementById('back-to-top-fab');
+          if (!fab) return;
+          function onScroll() {
+            if (window.scrollY > 400) {
+              fab.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+              fab.classList.add('opacity-100', 'translate-y-0');
+            } else {
+              fab.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+              fab.classList.remove('opacity-100', 'translate-y-0');
+            }
+          }
+          window.addEventListener('scroll', onScroll, { passive: true });
+          onScroll();
+        }
+        initFab();
+        document.addEventListener('astro:page-load', initFab);
+      })();
+    </script>
   </body>
 </html>
 

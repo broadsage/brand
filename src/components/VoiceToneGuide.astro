@@ -4,24 +4,24 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
 
 <section id="voice" class="space-y-8 scroll-mt-24">
   {/* Section Header */}
-  <div class="flex items-end justify-between border-b border-slate-800 pb-4 flex-wrap gap-2">
+  <div class="flex items-end justify-between border-b dark:border-slate-800 border-[#E6DED2] pb-4 flex-wrap gap-2">
     <div>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+      <h2 class="text-2xl sm:text-3xl font-extrabold dark:text-white text-[#0A1128] tracking-tight">
         Voice &amp; Tone Guidelines
       </h2>
-      <p class="text-xs sm:text-sm text-slate-400 mt-1">
+      <p class="text-xs sm:text-sm dark:text-slate-400 text-slate-600 mt-1">
         How Broadsage communicates across developer documentation, CLI tooling, PRs, and release notes
       </p>
     </div>
-    <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-slate-800 text-amber-400 border border-slate-700">
+    <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md dark:bg-slate-800 bg-[#FAF8F5] text-amber-500 dark:text-amber-400 border dark:border-slate-700 border-[#DBD1C2]">
       Communication Standards
     </span>
   </div>
 
   {/* Core Voice Persona Banner */}
-  <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-amber-500/25 bg-gradient-to-r from-slate-900/90 via-[#0A1128]/95 to-slate-950/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+  <div class="glass-panel theme-banner-gradient p-6 sm:p-8 rounded-2xl border border-amber-500/25 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
     <div class="space-y-2 max-w-3xl">
-      <div class="flex items-center gap-2 text-amber-400 text-xs font-mono font-bold tracking-wider uppercase">
+      <div class="flex items-center gap-2 text-amber-500 dark:text-amber-400 text-xs font-mono font-bold tracking-wider uppercase">
         <Compass className="w-4 h-4" />
         Core Persona &amp; Guiding Standard
       </div>
@@ -32,17 +32,17 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
         Broadsage treats developers as peers. We respect cognitive load, lead with technical truth, and provide calm guidance in both documentation and runtime errors.
       </p>
     </div>
-    <div class="flex-shrink-0 px-4 py-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-center">
+    <div class="flex-shrink-0 px-4 py-2.5 rounded-xl dark:bg-slate-800/80 bg-white border dark:border-slate-700 border-[#DBD1C2] text-center shadow-xs">
       <span class="text-[10px] font-mono uppercase text-slate-400 block">Philosophy</span>
-      <span class="text-xs font-bold text-amber-400">Zero Fluff • Code First</span>
+      <span class="text-xs font-bold text-amber-500 dark:text-amber-400">Zero Fluff • Code First</span>
     </div>
   </div>
 
   {/* 4 Pillars of Broadsage Voice */}
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
     {/* Pillar 1 */}
-    <div class="glass-panel p-5 rounded-xl border border-slate-800 hover:border-amber-500/40 transition-all space-y-2.5">
-      <div class="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+    <div class="glass-panel p-5 rounded-xl border dark:border-slate-800 border-[#E6DED2] hover:border-amber-500/40 transition-all space-y-2.5">
+      <div class="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 dark:text-amber-400">
         <MessageSquareCode className="w-4 h-4" />
       </div>
       <h4 class="text-sm font-bold text-white">1. Direct &amp; Code-First</h4>
@@ -52,8 +52,8 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
     </div>
 
     {/* Pillar 2 */}
-    <div class="glass-panel p-5 rounded-xl border border-slate-800 hover:border-sky-500/40 transition-all space-y-2.5">
-      <div class="w-9 h-9 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400">
+    <div class="glass-panel p-5 rounded-xl border dark:border-slate-800 border-[#E6DED2] hover:border-sky-500/40 transition-all space-y-2.5">
+      <div class="w-9 h-9 rounded-lg bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-500 dark:text-sky-400">
         <ShieldCheck className="w-4 h-4" />
       </div>
       <h4 class="text-sm font-bold text-white">2. Calm &amp; Authoritative</h4>
@@ -63,7 +63,7 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
     </div>
 
     {/* Pillar 3 */}
-    <div class="glass-panel p-5 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-2.5">
+    <div class="glass-panel p-5 rounded-xl border dark:border-slate-800 border-[#E6DED2] hover:border-emerald-500/40 transition-all space-y-2.5">
       <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
         <Terminal className="w-4 h-4" />
       </div>
@@ -74,7 +74,7 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
     </div>
 
     {/* Pillar 4 */}
-    <div class="glass-panel p-5 rounded-xl border border-slate-800 hover:border-purple-500/40 transition-all space-y-2.5">
+    <div class="glass-panel p-5 rounded-xl border dark:border-slate-800 border-[#E6DED2] hover:border-purple-500/40 transition-all space-y-2.5">
       <div class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
         <Compass className="w-4 h-4" />
       </div>
@@ -86,32 +86,32 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
   </div>
 
   {/* Real-World Voice Matrix: DO vs DON'T */}
-  <div class="glass-panel rounded-2xl border border-slate-800 overflow-hidden">
-    <div class="p-4 sm:p-5 bg-slate-900/80 border-b border-slate-800 flex items-center justify-between">
+  <div class="glass-panel rounded-2xl border dark:border-slate-800 border-[#E6DED2] overflow-hidden">
+    <div class="p-4 sm:p-5 dark:bg-slate-900/80 bg-[#FAF8F5] border-b dark:border-slate-800 border-[#E6DED2] flex items-center justify-between">
       <h4 class="text-sm font-bold text-white">Developer Communication Matrix</h4>
       <span class="text-xs font-mono text-slate-400">Contextual Examples</span>
     </div>
 
-    <div class="divide-y divide-slate-800/80">
+    <div class="divide-y dark:divide-slate-800/80 divide-[#E6DED2]">
       {/* Row 1: CLI & Terminal Output */}
       <div class="p-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
         <div class="md:col-span-3">
-          <span class="text-xs font-mono font-bold text-amber-400 block">CLI &amp; Terminal</span>
+          <span class="text-xs font-mono font-bold text-amber-500 dark:text-amber-400 block">CLI &amp; Terminal</span>
           <span class="text-[11px] text-slate-400">Command completions &amp; output</span>
         </div>
-        <div class="md:col-span-4 p-3 rounded-lg bg-red-950/20 border border-red-500/20 text-xs text-red-200 space-y-1">
+        <div class="md:col-span-4 p-3 rounded-lg dark:bg-red-950/20 bg-red-50/80 border dark:border-red-500/20 border-red-200 text-xs dark:text-red-200 text-red-900 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-red-400 text-[11px]">
             <X className="w-3.5 h-3.5" /> AVOID (Corporate Hype)
           </div>
-          <code class="block font-mono text-[11px] text-red-300">
+          <code class="block font-mono text-[11px] dark:text-red-300 text-red-800">
             "✨ Magic! Your awesome super-app is ready to fly!"
           </code>
         </div>
-        <div class="md:col-span-5 p-3 rounded-lg bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-200 space-y-1">
+        <div class="md:col-span-5 p-3 rounded-lg dark:bg-emerald-950/20 bg-emerald-50/80 border dark:border-emerald-500/20 border-emerald-200 text-xs dark:text-emerald-200 text-emerald-900 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-emerald-400 text-[11px]">
             <Check className="w-3.5 h-3.5" /> PREFERRED (Calm &amp; Precise)
           </div>
-          <code class="block font-mono text-[11px] text-emerald-300">
+          <code class="block font-mono text-[11px] dark:text-emerald-300 text-emerald-800">
             "✓ Platform scaffold initialized in 42ms. 3 autonomous loops ready."
           </code>
         </div>
@@ -120,22 +120,22 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
       {/* Row 2: Runtime Errors */}
       <div class="p-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
         <div class="md:col-span-3">
-          <span class="text-xs font-mono font-bold text-amber-400 block">Error &amp; Failure States</span>
+          <span class="text-xs font-mono font-bold text-amber-500 dark:text-amber-400 block">Error &amp; Failure States</span>
           <span class="text-[11px] text-slate-400">Exception logs &amp; diagnostics</span>
         </div>
-        <div class="md:col-span-4 p-3 rounded-lg bg-red-950/20 border border-red-500/20 text-xs text-red-200 space-y-1">
+        <div class="md:col-span-4 p-3 rounded-lg dark:bg-red-950/20 bg-red-50/80 border dark:border-red-500/20 border-red-200 text-xs dark:text-red-200 text-red-900 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-red-400 text-[11px]">
             <X className="w-3.5 h-3.5" /> AVOID (Vague &amp; Apologetic)
           </div>
-          <code class="block font-mono text-[11px] text-red-300">
+          <code class="block font-mono text-[11px] dark:text-red-300 text-red-800">
             "Oopsie! Something went wrong on our end :("
           </code>
         </div>
-        <div class="md:col-span-5 p-3 rounded-lg bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-200 space-y-1">
+        <div class="md:col-span-5 p-3 rounded-lg dark:bg-emerald-950/20 bg-emerald-50/80 border dark:border-emerald-500/20 border-emerald-200 text-xs dark:text-emerald-200 text-emerald-900 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-emerald-400 text-[11px]">
             <Check className="w-3.5 h-3.5" /> PREFERRED (Actionable Diagnostic)
           </div>
-          <code class="block font-mono text-[11px] text-emerald-300">
+          <code class="block font-mono text-[11px] dark:text-emerald-300 text-emerald-800">
             "Error: Cluster mesh unreachable on port 8443. Check TLS cert expiration."
           </code>
         </div>
@@ -144,10 +144,10 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
       {/* Row 3: Product Announcements */}
       <div class="p-5 grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
         <div class="md:col-span-3">
-          <span class="text-xs font-mono font-bold text-amber-400 block">Release Notes &amp; PRs</span>
+          <span class="text-xs font-mono font-bold text-amber-500 dark:text-amber-400 block">Release Notes &amp; PRs</span>
           <span class="text-[11px] text-slate-400">Change summaries &amp; updates</span>
         </div>
-        <div class="md:col-span-4 p-3 rounded-lg bg-red-950/20 border border-red-500/20 text-xs text-red-200 space-y-1">
+        <div class="md:col-span-4 p-3 rounded-lg dark:bg-red-950/20 bg-red-50/80 border dark:border-red-500/20 border-red-200 text-xs dark:text-red-200 text-red-900 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-red-400 text-[11px]">
             <X className="w-3.5 h-3.5" /> AVOID (Buzzword Inflation)
           </div>
@@ -155,7 +155,7 @@ import { MessageSquareCode, ShieldCheck, Terminal, Compass, Check, X } from 'luc
             "We leverage revolutionary paradigm shifts in hyper-scale synergistic agent automation."
           </p>
         </div>
-        <div class="md:col-span-5 p-3 rounded-lg bg-emerald-950/20 border border-emerald-500/20 text-xs text-emerald-200 space-y-1">
+        <div class="md:col-span-5 p-3 rounded-lg dark:bg-emerald-950/20 bg-emerald-50/80 border dark:border-emerald-500/20 border-emerald-200 text-xs dark:text-emerald-200 text-emerald-900 space-y-1">
           <div class="flex items-center gap-1.5 font-bold text-emerald-400 text-[11px]">
             <Check className="w-3.5 h-3.5" /> PREFERRED (Substance &amp; Clarity)
           </div>

@@ -1,63 +1,82 @@
 import React, { useState } from 'react';
 import OllieMascot, { type OllieMascotProps } from './OllieMascot';
-import { Download, Copy, Check, Eye } from 'lucide-react';
+import { Download, Copy, Check, Sparkles } from 'lucide-react';
 
-interface AssetVariant {
+interface LogoMarkSpec {
   id: OllieMascotProps['variant'];
   title: string;
   filename: string;
   badge: string;
-  description: string;
+  badgeColor: string;
+  groundName: string;
+  groundClass: string;
+  previewContainerClass: string;
   dimensions: string;
+  description: string;
+  targetPngWidth: number;
 }
 
-const variants: AssetVariant[] = [
+const logoMarks: LogoMarkSpec[] = [
   {
     id: 'primary',
-    title: 'Primary Square Emblem',
+    title: 'Master Emblem',
     filename: 'broadsage_logo_primary.svg',
-    badge: 'Master Mark',
-    description: 'Documentation landing pages, product packaging, app launcher icon.',
+    badge: 'Master',
+    badgeColor: 'dark:bg-amber-500/15 bg-amber-500/10 dark:text-amber-300 text-amber-700 dark:border-amber-500/30 border-amber-400/40',
+    groundName: 'Midnight Navy',
+    groundClass: 'bg-[#080D1E] border border-slate-800/90',
+    previewContainerClass: 'w-20 h-20 sm:w-24 sm:h-24',
     dimensions: '200 × 200 (Square)',
+    description: 'Master icon for app launchers, product packaging, and documentation landing headers.',
+    targetPngWidth: 1024,
   },
   {
     id: 'avatar',
-    title: 'Circular Avatar Badge',
+    title: 'Avatar Badge',
     filename: 'broadsage_logo_avatar.svg',
-    badge: 'Profile Standard',
-    description: 'GitHub Organization profile, Twitter/X icon, Discord, and Slack workspace.',
+    badge: 'Profile',
+    badgeColor: 'dark:bg-sky-500/15 bg-sky-500/10 dark:text-sky-300 text-sky-700 dark:border-sky-500/30 border-sky-400/40',
+    groundName: 'Obsidian Slate',
+    groundClass: 'bg-[#050814] border border-slate-800/90',
+    previewContainerClass: 'w-20 h-20 sm:w-24 sm:h-24',
     dimensions: '160 × 160 (Circular)',
+    description: 'Enclosed circular mark for GitHub Org, Twitter/X, Discord, and Slack workspaces.',
+    targetPngWidth: 1024,
   },
   {
     id: 'horizontal',
-    title: 'Horizontal Wordmark (Dark Theme)',
+    title: 'Wordmark (Dark)',
     filename: 'broadsage_logo_horizontal.svg',
-    badge: 'Navigation Standard',
-    description: 'Web navigation headers, README hero banners, and corporate presentation titles.',
+    badge: 'Dark Theme',
+    badgeColor: 'dark:bg-emerald-500/15 bg-emerald-500/10 dark:text-emerald-300 text-emerald-700 dark:border-emerald-500/30 border-emerald-400/40',
+    groundName: 'Native Dark',
+    groundClass: 'bg-[#0A1128] border border-slate-800/90',
+    previewContainerClass: 'w-full max-w-[210px] sm:max-w-[230px]',
     dimensions: '440 × 120 (Wide)',
+    description: 'Primary two-tone lockup (White + Solar Gold) for dark headers, decks, and banners.',
+    targetPngWidth: 2048,
   },
   {
     id: 'horizontal-light',
-    title: 'Horizontal Wordmark (Light Theme)',
+    title: 'Wordmark (Light)',
     filename: 'broadsage_logo_horizontal_light.svg',
-    badge: 'Light Backgrounds',
-    description: 'Light documents, whitepapers, press releases, and printed stationery.',
+    badge: 'Light Theme',
+    badgeColor: 'dark:bg-orange-500/15 bg-orange-500/10 dark:text-orange-300 text-orange-700 dark:border-orange-500/30 border-orange-400/40',
+    groundName: 'Pure White',
+    groundClass: 'bg-[#FFFFFF] border border-slate-300 shadow-inner',
+    previewContainerClass: 'w-full max-w-[210px] sm:max-w-[230px]',
     dimensions: '440 × 120 (Wide)',
+    description: 'High-contrast monochrome dark lettering for light web themes, press, and print.',
+    targetPngWidth: 2048,
   },
 ];
 
-type CanvasBg = 'navy' | 'white' | 'slate' | 'checkers';
-
 export const AssetStudio: React.FC = () => {
-  const [selectedVariant, setSelectedVariant] = useState<OllieMascotProps['variant']>('primary');
-  const [canvasBg, setCanvasBg] = useState<CanvasBg>('navy');
-  const [copiedCode, setCopiedCode] = useState(false);
-  const [exporting, setExporting] = useState<number | null>(null);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [exportingKey, setExportingKey] = useState<string | null>(null);
 
-  const currentAsset = variants.find((v) => v.id === selectedVariant) || variants[0];
-
-  const handleCopySvg = () => {
-    const svgElem = document.getElementById(`studio-svg-${selectedVariant}`);
+  const handleCopySvg = (markId: string) => {
+    const svgElem = document.getElementById(`mark-svg-${markId}`);
     if (!svgElem) return;
     const serializer = new XMLSerializer();
     let source = serializer.serializeToString(svgElem);
@@ -65,13 +84,13 @@ export const AssetStudio: React.FC = () => {
       source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
     }
     navigator.clipboard.writeText(source).then(() => {
-      setCopiedCode(true);
-      setTimeout(() => setCopiedCode(false), 2000);
+      setCopiedKey(markId);
+      setTimeout(() => setCopiedKey(null), 2000);
     });
   };
 
-  const handleDownloadSvg = () => {
-    const svgElem = document.getElementById(`studio-svg-${selectedVariant}`);
+  const handleDownloadSvg = (markId: string, filename: string) => {
+    const svgElem = document.getElementById(`mark-svg-${markId}`);
     if (!svgElem) return;
     const serializer = new XMLSerializer();
     let source = serializer.serializeToString(svgElem);
@@ -82,17 +101,17 @@ export const AssetStudio: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = currentAsset.filename;
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
 
-  const handleDownloadPng = (targetSize: number) => {
-    const svgElem = document.getElementById(`studio-svg-${selectedVariant}`);
+  const handleDownloadPng = (mark: LogoMarkSpec) => {
+    const svgElem = document.getElementById(`mark-svg-${mark.id}`);
     if (!svgElem) return;
-    setExporting(targetSize);
+    setExportingKey(mark.id);
 
     const serializer = new XMLSerializer();
     let source = serializer.serializeToString(svgElem);
@@ -105,197 +124,179 @@ export const AssetStudio: React.FC = () => {
     const img = new Image();
 
     img.onload = () => {
-      let width = targetSize;
-      let height = targetSize;
-      if (selectedVariant === 'horizontal' || selectedVariant === 'horizontal-light') {
-        height = Math.round(targetSize * (120 / 440));
+      const targetWidth = mark.targetPngWidth;
+      let targetHeight = targetWidth;
+      if (mark.id === 'horizontal' || mark.id === 'horizontal-light') {
+        targetHeight = Math.round(targetWidth * (120 / 440));
       }
 
       const canvas = document.createElement('canvas');
-      canvas.width = width;
-      canvas.height = height;
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
       const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      ctx.clearRect(0, 0, width, height);
-      ctx.drawImage(img, 0, 0, width, height);
+      if (!ctx) {
+        setExportingKey(null);
+        return;
+      }
+      ctx.clearRect(0, 0, targetWidth, targetHeight);
+      ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
 
       canvas.toBlob((blob) => {
-        if (!blob) return;
+        if (!blob) {
+          setExportingKey(null);
+          return;
+        }
         const pngUrl = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        const baseName = currentAsset.filename.replace('.svg', '');
+        const baseName = mark.filename.replace('.svg', '');
         a.href = pngUrl;
-        a.download = `${baseName}_${width}x${height}.png`;
+        a.download = `${baseName}_${targetWidth}x${targetHeight}.png`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(pngUrl);
         URL.revokeObjectURL(url);
-        setExporting(null);
+        setExportingKey(null);
       }, 'image/png');
+    };
+
+    img.onerror = () => {
+      setExportingKey(null);
+      URL.revokeObjectURL(url);
     };
 
     img.src = url;
   };
 
-  const getCanvasBgClass = () => {
-    switch (canvasBg) {
-      case 'white':
-        return 'bg-white border-slate-300';
-      case 'slate':
-        return 'bg-[#1E293B] border-slate-700';
-      case 'checkers':
-        return 'bg-[#0f172a] bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] border-slate-800';
-      case 'navy':
-      default:
-        return 'bg-[#0A1128] border-slate-800';
-    }
-  };
-
   return (
-    <div className="w-full space-y-6">
-      {/* Variant Selector Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-        {variants.map((v) => {
-          const isActive = selectedVariant === v.id;
+    <div className="space-y-6">
+      {/* 4-Column Responsive Contextual Logo Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
+        {logoMarks.map((mark) => {
+          const isCopied = copiedKey === mark.id;
+          const isExporting = exportingKey === mark.id;
+
           return (
-            <button
-              key={v.id}
-              onClick={() => setSelectedVariant(v.id)}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border ${
-                isActive
-                  ? 'bg-amber-500/20 text-amber-300 border-amber-500/60 shadow-lg shadow-amber-500/10'
-                  : 'bg-slate-900/60 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'
-              }`}
+            <div
+              key={mark.id}
+              className="glass-panel rounded-2xl border dark:border-slate-800/80 border-[#E6DED2] hover:border-amber-500/40 transition-all duration-300 flex flex-col overflow-hidden shadow-lg hover:shadow-xl hover:shadow-amber-500/5 group"
             >
-              <span>{v.title}</span>
-              <span
-                className={`text-[10px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider ${
-                  isActive ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-400'
-                }`}
-              >
-                {v.badge}
-              </span>
-            </button>
+              {/* Compact Card Header */}
+              <div className="px-4 py-3 border-b dark:border-slate-800/80 border-[#E6DED2] dark:bg-slate-900/60 bg-[#FAF8F5] flex items-center justify-between gap-2 flex-shrink-0">
+                <div className="space-y-0.5 min-w-0">
+                  <h3 className="text-sm font-bold dark:text-white text-[#0A1128] tracking-tight truncate">
+                    {mark.title}
+                  </h3>
+                  <p className="text-[10px] dark:text-slate-400 text-slate-500 font-mono">
+                    {mark.dimensions}
+                  </p>
+                </div>
+                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider border flex-shrink-0 ${mark.badgeColor}`}>
+                  {mark.badge}
+                </span>
+              </div>
+
+              {/* Native Contextual Canvas Viewport */}
+              <div className="flex-1 p-3.5 sm:p-4 flex flex-col items-center justify-center relative min-h-[175px] sm:min-h-[190px] dark:bg-gradient-to-b dark:from-slate-950/60 dark:to-slate-900/40 bg-gradient-to-b from-[#F5EFE6]/70 to-[#FAF8F5]/50">
+                {/* Surface Ground Showcase Chamber */}
+                <div className={`w-full h-full min-h-[125px] sm:min-h-[135px] p-3 sm:p-4 rounded-xl ${mark.groundClass} ${mark.id !== 'horizontal-light' ? 'preserve-dark' : ''} flex items-center justify-center transition-transform duration-300 group-hover:scale-[1.03] shadow-md relative`}>
+                  <div className={mark.previewContainerClass}>
+                    <OllieMascot
+                      id={`mark-svg-${mark.id}`}
+                      variant={mark.id}
+                      size="100%"
+                    />
+                  </div>
+                </div>
+
+                {/* Ground Pill Tag */}
+                <span className="mt-2 text-[9px] font-mono font-medium tracking-wider uppercase px-2 py-0.5 rounded-full dark:bg-slate-900/90 dark:border-slate-800 dark:text-slate-400 bg-[#FAF8F5] border border-[#DBD1C2] text-slate-700 shadow-2xs">
+                  Ground: <strong className="dark:text-slate-300 text-slate-800">{mark.groundName}</strong>
+                </span>
+              </div>
+
+              {/* Card Footer: Metadata & 1-Click Actions */}
+              <div className="p-3.5 sm:p-4 dark:bg-slate-900/60 bg-[#FAF8F5] border-t dark:border-slate-800/80 border-[#E6DED2] space-y-3 flex-shrink-0">
+                <p className="text-[11px] dark:text-slate-300 text-slate-600 leading-snug min-h-[32px] line-clamp-2">
+                  {mark.description}
+                </p>
+
+                {/* Action Buttons Row */}
+                <div className="grid grid-cols-3 gap-1.5 pt-0.5">
+                  {/* Action 1: Copy SVG */}
+                  <button
+                    onClick={() => handleCopySvg(mark.id)}
+                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-[#FAF8F5] text-[#0A1128] border border-[#DBD1C2] hover:border-amber-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs"
+                    title="Copy inline SVG XML code to clipboard"
+                  >
+                    {isCopied ? (
+                      <>
+                        <Check className="w-3 h-3 text-emerald-400" />
+                        <span className="text-emerald-400 font-bold">Copied</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3 text-amber-500 dark:text-amber-400" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+
+                  {/* Action 2: Download SVG */}
+                  <button
+                    onClick={() => handleDownloadSvg(mark.id, mark.filename)}
+                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-[#FAF8F5] text-[#0A1128] border border-[#DBD1C2] hover:border-sky-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs"
+                    title={`Download vector file ${mark.filename}`}
+                  >
+                    <Download className="w-3 h-3 text-sky-500 dark:text-sky-400" />
+                    <span>SVG</span>
+                  </button>
+
+                  {/* Action 3: Download High-DPI PNG */}
+                  <button
+                    onClick={() => handleDownloadPng(mark)}
+                    disabled={isExporting}
+                    className="inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700 bg-white hover:bg-[#FAF8F5] text-[#0A1128] border border-[#DBD1C2] hover:border-emerald-500/40 font-semibold text-[11px] transition-all active:scale-95 shadow-2xs disabled:opacity-50"
+                    title={`Export high-resolution raster PNG (${mark.targetPngWidth}px)`}
+                  >
+                    {isExporting ? (
+                      <span className="text-emerald-400 font-mono text-[10px] animate-pulse">...</span>
+                    ) : (
+                      <>
+                        <Sparkles className="w-3 h-3 text-emerald-500 dark:text-emerald-400" />
+                        <span>PNG</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
           );
         })}
       </div>
 
-      {/* Main Studio Card */}
-      <div className="glass-panel overflow-hidden rounded-2xl border border-amber-500/20 bg-gradient-to-b from-slate-900/90 to-[#0A1128]/95 shadow-2xl">
-        {/* Studio Canvas Stage */}
-        <div className="relative p-6 sm:p-12 flex items-center justify-center min-h-[300px] sm:min-h-[360px] overflow-hidden">
-          {/* Background Contrast Bar Controls */}
-          <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-slate-950/80 backdrop-blur-md p-1.5 rounded-xl border border-slate-800">
-            <span className="text-[11px] font-semibold text-slate-400 px-2 flex items-center gap-1">
-              <Eye className="w-3.5 h-3.5 text-amber-400" /> Canvas:
-            </span>
-            <button
-              onClick={() => setCanvasBg('navy')}
-              className={`w-6 h-6 rounded-lg bg-[#0A1128] border transition-transform ${
-                canvasBg === 'navy' ? 'border-amber-400 scale-110 shadow-sm' : 'border-slate-700'
-              }`}
-              title="Midnight Navy (#0A1128)"
-            />
-            <button
-              onClick={() => setCanvasBg('white')}
-              className={`w-6 h-6 rounded-lg bg-white border transition-transform ${
-                canvasBg === 'white' ? 'border-amber-400 scale-110 shadow-sm' : 'border-slate-400'
-              }`}
-              title="Crisp Snow White (#FFFFFF)"
-            />
-            <button
-              onClick={() => setCanvasBg('slate')}
-              className={`w-6 h-6 rounded-lg bg-[#1E293B] border transition-transform ${
-                canvasBg === 'slate' ? 'border-amber-400 scale-110 shadow-sm' : 'border-slate-700'
-              }`}
-              title="Terminal Slate (#1E293B)"
-            />
-            <button
-              onClick={() => setCanvasBg('checkers')}
-              className={`w-6 h-6 rounded-lg bg-slate-800 border bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:6px_6px] transition-transform ${
-                canvasBg === 'checkers' ? 'border-amber-400 scale-110 shadow-sm' : 'border-slate-700'
-              }`}
-              title="Transparent Grid"
-            />
+      {/* 1-Click Brand Kit Banner */}
+      <div className="p-4 sm:p-5 rounded-2xl theme-banner-gradient border border-amber-500/25 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+        <div className="flex items-center gap-3 text-center sm:text-left">
+          <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0">
+            <Download className="w-5 h-5" />
           </div>
-
-          {/* Dynamic Interactive SVG Canvas */}
-          <div
-            className={`w-full max-w-lg p-6 sm:p-10 rounded-2xl border transition-colors flex items-center justify-center shadow-inner ${getCanvasBgClass()}`}
-          >
-            <div className="w-full max-w-[340px] drop-shadow-2xl">
-              <OllieMascot
-                id={`studio-svg-${selectedVariant}`}
-                variant={selectedVariant}
-                size="100%"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Studio Info & Action Bar */}
-        <div className="p-5 sm:p-6 bg-slate-950/80 border-t border-slate-800/80 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
           <div>
-            <div className="flex items-center gap-2.5">
-              <h4 className="text-base sm:text-lg font-bold text-white">{currentAsset.title}</h4>
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-amber-400 border border-slate-700">
-                {currentAsset.dimensions}
-              </span>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
-              {currentAsset.description}
+            <h4 className="text-sm font-bold dark:text-white text-[#0A1128]">Need the Entire Brand Kit at Once?</h4>
+            <p className="text-xs dark:text-slate-400 text-slate-600">
+              Download all 4 production marks, status banners, tokens, and press guidelines in a single archive.
             </p>
           </div>
-
-          {/* Export Action Controls */}
-          <div className="flex flex-wrap items-center gap-2">
-            {/* Copy SVG XML Button */}
-            <button
-              onClick={handleCopySvg}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-800/90 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-700 transition-all hover:border-amber-500/50"
-            >
-              {copiedCode ? (
-                <>
-                  <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400 font-bold">Copied XML!</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4 text-slate-400" />
-                  <span>Copy SVG Code</span>
-                </>
-              )}
-            </button>
-
-            {/* Direct Vector SVG Download */}
-            <button
-              onClick={handleDownloadSvg}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-sky-950/60 hover:bg-sky-900/80 text-sky-300 text-xs font-bold border border-sky-800/80 transition-all"
-            >
-              <Download className="w-4 h-4 text-sky-400" />
-              <span>SVG Vector</span>
-            </button>
-
-            {/* PNG Multi-Resolution Rasterizer Dropdown Buttons */}
-            <div className="flex items-center gap-1 bg-slate-900 p-1 rounded-lg border border-slate-800">
-              <span className="text-[10px] font-bold text-slate-500 px-1 uppercase tracking-wider">
-                PNG:
-              </span>
-              {[256, 512, 1024, 2048].map((px) => (
-                <button
-                  key={px}
-                  onClick={() => handleDownloadPng(px)}
-                  disabled={exporting !== null}
-                  className="px-2 py-1 rounded bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-300 text-[11px] font-mono font-semibold transition-colors disabled:opacity-50"
-                  title={`Download high-resolution rasterized PNG at ${px}px width`}
-                >
-                  {exporting === px ? '...' : `${px}`}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
+
+        <a
+          href="/broadsage-brand-assets.zip"
+          download="broadsage-brand-assets.zip"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all hover:scale-105 whitespace-nowrap"
+        >
+          <span>Download Brand Kit (ZIP)</span>
+          <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-950/20">1.10 MB</span>
+        </a>
       </div>
     </div>
   );

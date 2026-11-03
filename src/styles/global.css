@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-navy-950: #050814;
   --color-navy-900: #0A1128;
@@ -90,6 +92,15 @@ body {
   border-radius: 14px;
 }
 
+/* Reusable Dynamic Theme Gradients */
+.theme-card-gradient {
+  background-image: linear-gradient(to bottom right, rgba(15, 23, 42, 0.9), rgba(10, 17, 40, 0.95), rgba(5, 8, 20, 0.9));
+}
+
+.theme-banner-gradient {
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(10, 17, 40, 0.95), rgba(5, 8, 20, 0.9));
+}
+
 /* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
@@ -107,5 +118,136 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #F59E0B;
+}
+
+/* ==========================================================================
+   Broadsage Dual Theme System:
+   Default Brand Ground: Midnight Navy (#0A1128 / #050814)
+   Light Ground: Solar Ivory (#FAF8F5) inspired by YouSpot's Ivory (#f7efe9)
+   ========================================================================== */
+
+/* Dark Mode (Default) */
+html.dark, html:not(.light) {
+  color-scheme: dark;
+}
+
+/* Light Mode: Solar Ivory Ground */
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #FAF8F5;
+  background-image: 
+    radial-gradient(circle at 15% 10%, rgba(2, 132, 199, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(245, 158, 11, 0.09) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(2, 132, 199, 0.05) 0%, transparent 60%),
+    linear-gradient(to bottom, #FAF8F5, #F5EFE6 40%, #FAF8F5 100%);
+  color: #0A1128;
+}
+
+/* Glass Panels in Light Mode */
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(217, 119, 6, 0.22);
+  box-shadow: 0 10px 25px -5px rgba(10, 17, 40, 0.05), 0 8px 10px -6px rgba(10, 17, 40, 0.03);
+}
+
+html.light .glass-panel-subtle {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(10, 17, 40, 0.08);
+  box-shadow: 0 4px 6px -1px rgba(10, 17, 40, 0.04);
+}
+
+/* Gradients in Light Mode */
+html.light .theme-card-gradient {
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.98), rgba(250, 248, 245, 0.95), rgba(245, 239, 230, 0.92));
+}
+
+html.light .theme-banner-gradient {
+  background-image: linear-gradient(to right, rgba(255, 251, 235, 0.95), rgba(255, 255, 255, 0.95), rgba(254, 243, 199, 0.6));
+}
+
+/* Typography Inversion in Light Mode (Midnight Navy replaces generic black) */
+html.light .text-white:not(.preserve-white, .preserve-white *, .preserve-dark, .preserve-dark *, pre *, code *) {
+  color: #0A1128;
+}
+
+html.light .text-slate-100:not(.preserve-dark, .preserve-dark *),
+html.light .text-slate-200:not(.preserve-dark, .preserve-dark *),
+html.light .text-slate-300:not(.preserve-dark, .preserve-dark *) {
+  color: #1E293B;
+}
+
+html.light .text-slate-400:not(.preserve-dark, .preserve-dark *) {
+  color: #475569;
+}
+
+html.light .text-slate-500:not(.preserve-dark, .preserve-dark *) {
+  color: #64748B;
+}
+
+/* Containers and Borders in Light Mode */
+html.light .border-slate-800:not(.preserve-dark, .preserve-dark *),
+html.light .border-slate-800\/80:not(.preserve-dark, .preserve-dark *),
+html.light .border-slate-800\/90:not(.preserve-dark, .preserve-dark *) {
+  border-color: #E6DED2;
+}
+
+html.light .border-slate-700:not(.preserve-dark, .preserve-dark *),
+html.light .border-slate-700\/80:not(.preserve-dark, .preserve-dark *) {
+  border-color: #DBD1C2;
+}
+
+html.light .bg-slate-900:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-900\/50:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-900\/60:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-900\/70:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-900\/80:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-900\/90:not(.preserve-dark, .preserve-dark *) {
+  background-color: rgba(245, 240, 232, 0.85);
+}
+
+html.light .bg-slate-950:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-950\/60:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-950\/70:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-950\/80:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-950\/90:not(.preserve-dark, .preserve-dark *) {
+  background-color: rgba(238, 231, 220, 0.9);
+}
+
+html.light .bg-slate-800:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-800\/60:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-800\/80:not(.preserve-dark, .preserve-dark *),
+html.light .bg-slate-800\/90:not(.preserve-dark, .preserve-dark *) {
+  background-color: #EFE8DC;
+}
+
+/* Header & Footer in Light Mode */
+html.light header {
+  background-color: rgba(250, 248, 245, 0.94) !important;
+  border-color: #E6DED2 !important;
+}
+
+html.light footer {
+  background-color: #EFE7DB !important;
+  border-color: #E6DED2 !important;
+}
+
+html.light footer .text-slate-500 {
+  color: #475569;
+}
+
+/* Scrollbars in Light Mode */
+html.light ::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #DBD1C2;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #D97706;
 }
 

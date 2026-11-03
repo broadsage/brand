@@ -100,7 +100,7 @@ const banners = [
   {
     id: 'github-welcome',
     svgFile: 'broadsage_github_hero.svg',
-    pngFiles: ['github-welcome.png', 'broadsage_github_hero.png'],
+    pngFiles: ['github-welcome.png'],
     width: 1280,
     height: 400,
     generateSvg: () => `<?xml version="1.0" encoding="UTF-8"?>
@@ -147,9 +147,9 @@ const banners = [
   <g transform="translate(370, 75)">
     <!-- Kicker Eyebrow Badge -->
     <g transform="translate(0, 20)">
-      <rect width="320" height="26" rx="13" fill="#0F172A" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.4"/>
+      <rect width="275" height="26" rx="13" fill="#0F172A" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.4"/>
       <circle cx="14" cy="13" r="4" fill="#F59E0B"/>
-      <text x="26" y="17" fill="#38BDF8" font-family="${FONT_SANS}" font-size="11" font-weight="700" font-style="normal" letter-spacing="1.5">DPE INITIATIVE &amp; AGENTIC AI</text>
+      <text x="26" y="17" fill="#38BDF8" font-family="${FONT_SANS}" font-size="11" font-weight="700" font-style="normal" letter-spacing="1.5">OPEN ENTERPRISE FOUNDATION</text>
     </g>
 
     <!-- Main Wordmark: Strict Broadsage Guidelines (Upright, ExtraBold 800, -0.5px tracking) -->
@@ -158,8 +158,8 @@ const banners = [
     </text>
 
     <!-- Subtitle / Initiative Line -->
-    <text x="2" y="138" fill="#94A3B8" font-family="${FONT_SANS}" font-size="15" font-weight="700" font-style="normal" letter-spacing="1.5">
-      DEVELOPER PLATFORM ENGINEERING (DPE) INITIATIVE &amp; MISSION
+    <text x="2" y="138" fill="#94A3B8" font-family="${FONT_SANS}" font-size="14" font-weight="600" font-style="normal" letter-spacing="1.5">
+      ENTERPRISE CLOUD ARCHITECTURE &amp; AGENTIC MESH
     </text>
 
     <!-- Philosophy Tagline (Upright, Normal Style) -->
@@ -191,100 +191,7 @@ const banners = [
 `,
   },
 
-  // 2. GitHub Repository Social Preview Card (1280 × 640)
-  {
-    id: 'github-repo-preview',
-    svgFile: 'broadsage_repo_preview.svg',
-    pngFiles: ['github-repo-preview.png'],
-    width: 1280,
-    height: 640,
-    generateSvg: () => `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
-  <defs>
-    ${commonDefs}
-  </defs>
-
-  <!-- Background Base -->
-  <rect width="1280" height="640" fill="url(#bgNavyGrad)"/>
-  <rect width="1280" height="640" fill="url(#techGrid)"/>
-  <rect width="1280" height="640" fill="url(#ambientSky)"/>
-  <rect width="1280" height="640" fill="url(#ambientGold)"/>
-
-  <!-- Outer Card Bezel -->
-  <rect x="24" y="24" width="1232" height="592" rx="28" fill="#0A1128" fill-opacity="0.85" stroke="#1E293B" stroke-width="2"/>
-
-  <!-- Top Header Navigation Bar inside Card -->
-  <g transform="translate(60, 68)">
-    <circle cx="10" cy="10" r="5" fill="#EF4444" opacity="0.8"/>
-    <circle cx="28" cy="10" r="5" fill="#F59E0B" opacity="0.8"/>
-    <circle cx="46" cy="10" r="5" fill="#10B981" opacity="0.8"/>
-    <rect x="74" y="0" width="240" height="22" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
-    <text x="86" y="15" fill="#38BDF8" font-family="${FONT_MONO}" font-size="11" font-weight="600" font-style="normal">github.com/broadsage</text>
-    <text x="1150" y="15" fill="#64748B" font-family="${FONT_MONO}" font-size="11" font-style="normal" text-anchor="end">DEVELOPER PLATFORM</text>
-  </g>
-  <line x1="60" y1="104" x2="1220" y2="104" stroke="#1E293B" stroke-width="1.5"/>
-
-  <!-- Mascot Feature Portal -->
-  <g transform="translate(240, 360)">
-    <circle cx="0" cy="0" r="145" fill="#060A19" stroke="#1E293B" stroke-width="2"/>
-    <circle cx="0" cy="0" r="135" fill="none" stroke="#0284C7" stroke-width="2" stroke-dasharray="8,8" opacity="0.5"/>
-    <circle cx="0" cy="0" r="122" fill="none" stroke="#F59E0B" stroke-width="1" opacity="0.4"/>
-    <g transform="scale(1.52)">
-      <use href="#ollieMascot"/>
-    </g>
-  </g>
-
-  <!-- Information Architecture Block -->
-  <g transform="translate(440, 195)">
-    <!-- Eyebrow -->
-    <text x="0" y="20" fill="#38BDF8" font-family="${FONT_SANS}" font-size="14" font-weight="700" font-style="normal" letter-spacing="2">
-      DEVELOPER PLATFORM ENGINEERING (DPE) INITIATIVE
-    </text>
-
-    <!-- Wordmark: Strict Broadsage Guidelines (Upright, ExtraBold 800, -0.5px tracking) -->
-    <text x="0" y="95" font-family="${FONT_SANS}" font-size="76" font-weight="800" font-style="normal" letter-spacing="-0.5">
-      <tspan fill="#FFFFFF">BROAD</tspan><tspan fill="#F59E0B">SAGE</tspan>
-    </text>
-
-    <!-- Mission Statement -->
-    <text x="2" y="145" fill="#E2E8F0" font-family="${FONT_SANS}" font-size="24" font-weight="600" font-style="normal">
-      Broad Vision, Sage Guidance — Open to Everyone.
-    </text>
-
-    <!-- Detailed Deck -->
-    <text x="2" y="185" fill="#94A3B8" font-family="${FONT_SANS}" font-size="16" font-weight="400" font-style="normal">
-      Empowering engineering teams with autonomous agentic workflows,
-    </text>
-    <text x="2" y="210" fill="#94A3B8" font-family="${FONT_SANS}" font-size="16" font-weight="400" font-style="normal">
-      resilient developer platform scaffolds, and open-source tooling.
-    </text>
-
-    <!-- Real Capability Badges (Free of Design-System Metadata) -->
-    <g transform="translate(0, 255)">
-      <g>
-        <rect width="170" height="36" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.2"/>
-        <circle cx="18" cy="18" r="4" fill="#10B981"/>
-        <text x="32" y="23" fill="#A7F3D0" font-family="${FONT_SANS}" font-size="12" font-weight="700" font-style="normal">TIER 1 PRODUCTION</text>
-      </g>
-      <g transform="translate(182, 0)">
-        <rect width="180" height="36" rx="8" fill="#1E293B" stroke="#0284C7" stroke-width="1.2"/>
-        <text x="90" y="23" fill="#BAE6FD" font-family="${FONT_SANS}" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">AGENTIC WORKFLOWS</text>
-      </g>
-      <g transform="translate(374, 0)">
-        <rect width="165" height="36" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.2"/>
-        <text x="82" y="23" fill="#FDE68A" font-family="${FONT_SANS}" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">OPEN PLATFORM</text>
-      </g>
-      <g transform="translate(550, 0)">
-        <rect width="150" height="36" rx="8" fill="#1E293B" stroke="#64748B" stroke-width="1.2"/>
-        <text x="75" y="23" fill="#CBD5E1" font-family="${FONT_SANS}" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">broadsage.com</text>
-      </g>
-    </g>
-  </g>
-</svg>
-`,
-  },
-
-  // 3. Status Badge: Official Production (800 × 200)
+  // 2. Status Badge: Official Production (800 × 200)
   {
     id: 'official',
     svgFile: 'broadsage_status_official.svg',
@@ -329,7 +236,7 @@ const banners = [
 
     <!-- Subtitle -->
     <text x="2" y="104" fill="#94A3B8" font-family="${FONT_SANS}" font-size="15" font-weight="500" font-style="normal">
-      Enterprise-Hardened &amp; Maintained under the DPE Initiative
+      Enterprise-Hardened &amp; Maintained by Broadsage
     </text>
   </g>
 
@@ -460,67 +367,7 @@ const banners = [
 `,
   },
 
-  // 6. Status Badge: Obsolete / Archived (800 × 200)
-  {
-    id: 'obsolete',
-    svgFile: 'broadsage_status_obsolete.svg',
-    pngFiles: ['obsolete.png'],
-    width: 800,
-    height: 200,
-    generateSvg: () => `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
-  <defs>
-    ${commonDefs}
-  </defs>
-
-  <!-- Container -->
-  <rect width="800" height="200" rx="16" fill="url(#bgNavyGrad)"/>
-  <rect width="800" height="200" rx="16" fill="url(#techGrid)"/>
-  <rect width="800" height="200" rx="16" fill="none" stroke="#EF4444" stroke-width="2" stroke-opacity="0.7"/>
-
-  <!-- Left Accent Bar -->
-  <path d="M 0 16 Q 0 0 16 0 L 24 0 L 24 200 L 16 200 Q 0 200 0 184 Z" fill="#EF4444"/>
-
-  <!-- Mascot Crest (Muted grayscale) -->
-  <g transform="translate(105, 100)">
-    <circle cx="0" cy="0" r="62" fill="#060A19" stroke="#EF4444" stroke-width="1.8"/>
-    <g transform="scale(0.72)" opacity="0.65">
-      <use href="#ollieMascot"/>
-    </g>
-  </g>
-
-  <!-- Content Block: Centered & Spacious Without Bottom Specs Bar -->
-  <g transform="translate(195, 46)">
-    <!-- Pill Status -->
-    <rect width="186" height="22" rx="5" fill="#7F1D1D" stroke="#EF4444" stroke-width="1"/>
-    <circle cx="12" cy="11" r="3.5" fill="#F87171"/>
-    <text x="24" y="15" fill="#FECACA" font-family="${FONT_SANS}" font-size="10.5" font-weight="800" font-style="normal" letter-spacing="1">ARCHIVED / RETIRED</text>
-
-    <!-- Main Wordmark + Status Lockup (Strict Two-Tone Upright Wordmark + Upright Divider) -->
-    <text x="0" y="72" font-family="${FONT_SANS}" font-size="34" font-weight="800" font-style="normal" letter-spacing="-0.5">
-      <tspan fill="#FFFFFF">BROAD</tspan><tspan fill="#F59E0B">SAGE</tspan>
-      <tspan fill="#475569" font-weight="400"> | </tspan>
-      <tspan fill="#F87171">ARCHIVED</tspan>
-    </text>
-
-    <!-- Subtitle -->
-    <text x="2" y="104" fill="#94A3B8" font-family="${FONT_SANS}" font-size="15" font-weight="500" font-style="normal">
-      Historical Reference Only — Superseded by Modern Architecture
-    </text>
-  </g>
-
-  <!-- Right Warning Triangle Icon -->
-  <g transform="translate(740, 100)" opacity="0.9">
-    <circle cx="0" cy="0" r="24" fill="#7F1D1D" stroke="#EF4444" stroke-width="1.5"/>
-    <path d="M0,-10 L10,8 L-10,8 Z" fill="none" stroke="#F87171" stroke-width="2" stroke-linejoin="round"/>
-    <line x1="0" y1="-3" x2="0" y2="1" stroke="#F87171" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="0" cy="5" r="1" fill="#F87171"/>
-  </g>
-</svg>
-`,
-  },
-
-  // 7. LinkedIn Company Cover Banner (1128 × 191)
+  // 6. LinkedIn Company Cover Banner (1128 × 191)
   {
     id: 'linkedin-cover',
     svgFile: 'broadsage_linkedin_cover.svg',
@@ -636,7 +483,7 @@ const banners = [
   <g transform="translate(700, 110)">
     <!-- Eyebrow -->
     <text x="0" y="24" fill="#F59E0B" font-family="${FONT_SANS}" font-size="14" font-weight="700" font-style="normal" letter-spacing="3">
-      DEVELOPER PLATFORM ENGINEERING (DPE) INITIATIVE
+      OPEN ENTERPRISE FOUNDATION
     </text>
 
     <!-- Wordmark: Strict Broadsage Guidelines (Upright, ExtraBold 800, -0.5px tracking) -->
@@ -667,92 +514,6 @@ const banners = [
       <g transform="translate(422, 0)">
         <rect width="180" height="38" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.2"/>
         <text x="90" y="24" fill="#A7F3D0" font-family="${FONT_SANS}" font-size="12.5" font-weight="700" font-style="normal" text-anchor="middle">broadsage.com</text>
-      </g>
-    </g>
-  </g>
-</svg>
-`,
-  },
-
-  // 9. Universal Open Graph Share Card (1200 × 630)
-  {
-    id: 'og-share',
-    svgFile: 'broadsage_og_share.svg',
-    pngFiles: ['og-share.png'],
-    width: 1200,
-    height: 630,
-    generateSvg: () => `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    ${commonDefs}
-  </defs>
-
-  <!-- Background Base -->
-  <rect width="1200" height="630" fill="url(#bgNavyGrad)"/>
-  <rect width="1200" height="630" fill="url(#techGrid)"/>
-  <rect width="1200" height="630" fill="url(#ambientSky)"/>
-  <rect width="1200" height="630" fill="url(#ambientGold)"/>
-
-  <!-- Glowing Enclosure Frame -->
-  <rect x="20" y="20" width="1160" height="590" rx="24" fill="#0A1128" fill-opacity="0.85" stroke="#1E293B" stroke-width="2"/>
-
-  <!-- Top Bar -->
-  <g transform="translate(55, 60)">
-    <rect width="240" height="28" rx="6" fill="#0F172A" stroke="#0284C7" stroke-width="1" stroke-opacity="0.5"/>
-    <circle cx="16" cy="14" r="4" fill="#F59E0B"/>
-    <text x="30" y="18" fill="#38BDF8" font-family="${FONT_SANS}" font-size="11.5" font-weight="700" font-style="normal" letter-spacing="1">OPEN SOURCE TO ENTERPRISE</text>
-    <text x="1090" y="18" fill="#64748B" font-family="${FONT_MONO}" font-size="12" font-style="normal" text-anchor="end">broadsage.com</text>
-  </g>
-  <line x1="55" y1="102" x2="1145" y2="102" stroke="#1E293B" stroke-width="1.5"/>
-
-  <!-- Mascot Crest (Left) -->
-  <g transform="translate(230, 360)">
-    <circle cx="0" cy="0" r="145" fill="#060A19" stroke="#1E293B" stroke-width="2"/>
-    <circle cx="0" cy="0" r="132" fill="none" stroke="#0284C7" stroke-width="2" stroke-dasharray="6,8" opacity="0.6"/>
-    <circle cx="0" cy="0" r="118" fill="none" stroke="#F59E0B" stroke-width="1.2" opacity="0.4"/>
-    <g transform="scale(1.52)">
-      <use href="#ollieMascot"/>
-    </g>
-  </g>
-
-  <!-- Content Block (Right) -->
-  <g transform="translate(425, 190)">
-    <!-- Eyebrow -->
-    <text x="0" y="20" fill="#38BDF8" font-family="${FONT_SANS}" font-size="14" font-weight="700" font-style="normal" letter-spacing="2">
-      DEVELOPER PLATFORM ENGINEERING (DPE) INITIATIVE &amp; MISSION
-    </text>
-
-    <!-- Wordmark: Strict Broadsage Guidelines (Upright, ExtraBold 800, -0.5px tracking) -->
-    <text x="0" y="95" font-family="${FONT_SANS}" font-size="76" font-weight="800" font-style="normal" letter-spacing="-0.5">
-      <tspan fill="#FFFFFF">BROAD</tspan><tspan fill="#F59E0B">SAGE</tspan>
-    </text>
-
-    <!-- Tagline (Upright, Normal Style) -->
-    <text x="2" y="145" fill="#F8FAFC" font-family="${FONT_SANS}" font-size="22" font-weight="600" font-style="normal">
-      Broad Vision, Sage Guidance — Open to Everyone.
-    </text>
-
-    <!-- Subtitle (Pure Value Proposition, No Design Token Trivia) -->
-    <text x="2" y="185" fill="#94A3B8" font-family="${FONT_SANS}" font-size="16" font-weight="400" font-style="normal">
-      Accelerating engineering velocity with autonomous agentic AI workflows,
-    </text>
-    <text x="2" y="210" fill="#94A3B8" font-family="${FONT_SANS}" font-size="16" font-weight="400" font-style="normal">
-      resilient developer platform engineering, and open-source tooling.
-    </text>
-
-    <!-- Feature Row (Real Product Capabilities) -->
-    <g transform="translate(0, 255)">
-      <g>
-        <rect width="160" height="36" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.2"/>
-        <text x="80" y="23" fill="#FDE68A" font-family="${FONT_SANS}" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">AGENTIC AI</text>
-      </g>
-      <g transform="translate(172, 0)">
-        <rect width="210" height="36" rx="8" fill="#1E293B" stroke="#0284C7" stroke-width="1.2"/>
-        <text x="105" y="23" fill="#BAE6FD" font-family="${FONT_SANS}" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">DEVELOPER PLATFORMS</text>
-      </g>
-      <g transform="translate(394, 0)">
-        <rect width="165" height="36" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.2"/>
-        <text x="82" y="23" fill="#A7F3D0" font-family="${FONT_SANS}" font-size="12" font-weight="700" font-style="normal" text-anchor="middle">OPEN ECOSYSTEM</text>
       </g>
     </g>
   </g>
@@ -792,7 +553,7 @@ async function generateAll() {
     }
   }
 
-  console.log('--- All 9 Banner Assets Generated Successfully without Metadata Clutter! ---');
+  console.log(`--- All ${banners.length} Active Banner Assets Generated Successfully! ---`);
 }
 
 generateAll().catch((err) => {

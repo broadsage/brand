@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 import {
   Menu,
   X,
@@ -7,9 +8,6 @@ import {
   Compass,
   Layers,
   Palette,
-  Image as ImageIcon,
-  Type,
-  Maximize2,
   CheckCircle2,
 } from 'lucide-react';
 
@@ -33,14 +31,10 @@ export const MobileDrawer: React.FC = () => {
   }, [isOpen]);
 
   const navLinks = [
-    { href: '#emblems', icon: Layers, label: 'Marks & Asset Studio' },
+    { href: '#emblems', icon: Layers, label: 'Official Marks' },
     { href: '#colors', icon: Palette, label: 'Color Tokens & Code' },
-    { href: '#banners', icon: ImageIcon, label: 'Repository Banners' },
-    { href: '#governance', icon: CheckCircle2, label: "Governance: Do's & Don'ts" },
-    { href: '#clearspace', icon: Maximize2, label: 'Clearspace & Layout' },
-    { href: '#voice', icon: ShieldCheck, label: 'Voice & Tone Guidelines' },
-    { href: '#typography', icon: Type, label: 'Typography Specimen' },
-    { href: '#about', icon: Compass, label: 'About & Mission' },
+    { href: '#governance', icon: CheckCircle2, label: 'Governance & Voice' },
+    { href: '#about', icon: Compass, label: 'Press Kit & Mission' },
   ];
 
   return (
@@ -48,7 +42,7 @@ export const MobileDrawer: React.FC = () => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2.5 rounded-lg text-slate-300 hover:text-white bg-slate-900/80 border border-slate-700/80 focus:outline-none focus:ring-2 focus:ring-amber-500"
+        className="p-2.5 rounded-lg dark:text-slate-300 text-slate-700 hover:text-amber-500 dark:hover:text-white dark:bg-slate-900/80 bg-white border dark:border-slate-700/80 border-[#DBD1C2] focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-xs"
         aria-label="Open mobile navigation"
       >
         <Menu className="w-6 h-6 text-amber-400" />
@@ -64,12 +58,12 @@ export const MobileDrawer: React.FC = () => {
 
       {/* Slide-out Drawer */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs bg-[#0A1128] border-l border-slate-800 shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-xs dark:bg-[#0A1128] bg-[#FAF8F5] border-l dark:border-slate-800 border-[#E6DED2] shadow-2xl flex flex-col transform transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Drawer Header */}
-        <div className="p-5 border-b border-slate-800/80 flex items-center justify-between">
+        <div className="p-5 border-b dark:border-slate-800/80 border-[#E6DED2] flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-5 h-5 text-amber-400" />
             <span className="font-extrabold text-sm tracking-wider text-white uppercase">
@@ -78,7 +72,7 @@ export const MobileDrawer: React.FC = () => {
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60"
+            className="p-2 rounded-lg dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800/60 text-slate-600 hover:text-[#0A1128] hover:bg-[#EFE7DC] transition-colors"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />
@@ -94,7 +88,7 @@ export const MobileDrawer: React.FC = () => {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-300 hover:text-amber-400 hover:bg-slate-900/60 transition-colors font-medium text-sm group"
+                className="flex items-center gap-3 px-3 py-3 rounded-lg dark:text-slate-300 dark:hover:text-amber-400 dark:hover:bg-slate-900/60 text-slate-700 hover:text-amber-600 hover:bg-[#EFE7DC] transition-colors font-medium text-sm group"
               >
                 <Icon className="w-4 h-4 text-slate-500 group-hover:text-amber-400 transition-colors" />
                 <span>{item.label}</span>
@@ -104,7 +98,12 @@ export const MobileDrawer: React.FC = () => {
         </div>
 
         {/* Drawer Footer Actions */}
-        <div className="p-4 border-t border-slate-800/80 space-y-2 bg-[#050814]/80">
+        <div className="p-4 border-t dark:border-slate-800/80 border-[#E6DED2] space-y-3 dark:bg-[#050814]/80 bg-[#F5EFE6]">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-mono text-slate-400">Appearance:</span>
+            <ThemeToggle compact={false} />
+          </div>
+
           <a
             href="https://github.com/broadsage"
             target="_blank"

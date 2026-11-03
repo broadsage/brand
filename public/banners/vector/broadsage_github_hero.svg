@@ -110,9 +110,9 @@
   <g transform="translate(370, 75)">
     <!-- Kicker Eyebrow Badge -->
     <g transform="translate(0, 20)">
-      <rect width="320" height="26" rx="13" fill="#0F172A" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.4"/>
+      <rect width="275" height="26" rx="13" fill="#0F172A" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.4"/>
       <circle cx="14" cy="13" r="4" fill="#F59E0B"/>
-      <text x="26" y="17" fill="#38BDF8" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="11" font-weight="700" font-style="normal" letter-spacing="1.5">DPE INITIATIVE &amp; AGENTIC AI</text>
+      <text x="26" y="17" fill="#38BDF8" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="11" font-weight="700" font-style="normal" letter-spacing="1.5">OPEN ENTERPRISE FOUNDATION</text>
     </g>
 
     <!-- Main Wordmark: Strict Broadsage Guidelines (Upright, ExtraBold 800, -0.5px tracking) -->
@@ -121,8 +121,8 @@
     </text>
 
     <!-- Subtitle / Initiative Line -->
-    <text x="2" y="138" fill="#94A3B8" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="15" font-weight="700" font-style="normal" letter-spacing="1.5">
-      DEVELOPER PLATFORM ENGINEERING (DPE) INITIATIVE &amp; MISSION
+    <text x="2" y="138" fill="#94A3B8" font-family="'Helvetica Neue', Helvetica, Arial, -apple-system, sans-serif" font-size="14" font-weight="600" font-style="normal" letter-spacing="1.5">
+      ENTERPRISE CLOUD ARCHITECTURE &amp; AGENTIC MESH
     </text>
 
     <!-- Philosophy Tagline (Upright, Normal Style) -->
