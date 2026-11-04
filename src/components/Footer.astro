@@ -52,26 +52,26 @@ const socialLinks = [
 ];
 ---
 
-<footer class="mt-20 border-t dark:border-slate-800 border-ivory-400 dark:bg-navy-950 bg-ivory-200 pt-12 pb-8 px-4 sm:px-8 text-xs dark:text-slate-400 text-slate-600 transition-colors">
-  <div class="max-w-7xl mx-auto space-y-10">
+<footer class="mt-12 sm:mt-14 border-t dark:border-slate-800 border-ivory-400 dark:bg-navy-950 bg-ivory-200 pt-8 sm:pt-10 pb-6 px-4 sm:px-8 text-xs dark:text-slate-400 text-slate-600 transition-colors">
+  <div class="max-w-7xl mx-auto space-y-6 sm:space-y-7">
 
     {/* Top Utility Bar: Brand Seal & Back to Top */}
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b dark:border-slate-800/80 border-ivory-300">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3.5 sm:pb-4 border-b dark:border-slate-800/80 border-ivory-300">
       <a
         href="#"
         onclick="event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); this.blur();"
-        class="inline-flex items-center gap-3 group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 rounded-xl transition-all"
+        class="inline-flex items-center gap-2.5 group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 rounded-xl transition-all"
         aria-label="Broadsage Brand Portal - Return to Top"
       >
-        <div class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform shadow-xs">
-          <OllieMascot variant="primary" size={32} client:load />
+        <div class="w-7 h-7 rounded-lg overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+          <OllieMascot variant="primary" size={28} client:load />
         </div>
         <span class="text-base font-black tracking-tight dark:text-white text-navy-900">
           BROAD<span class="text-amber-500">SAGE</span>
         </span>
       </a>
 
-      <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+      <div class="flex items-center gap-2.5 w-full sm:w-auto justify-between sm:justify-end">
         {/* Release Status Badge */}
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full dark:bg-emerald-500/10 bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 dark:text-emerald-300 text-[11px] font-semibold">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -92,12 +92,12 @@ const socialLinks = [
     </div>
 
     {/* Middle Main Zone: Brand Hub on Left + Ollie Mascot Stage on Right */}
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
 
       {/* Left Column: Brand Governance, Ecosystem & Actions (8 cols on lg) */}
-      <div class="lg:col-span-7 xl:col-span-8 flex flex-col justify-between space-y-7">
+      <div class="lg:col-span-7 xl:col-span-8 flex flex-col justify-between space-y-4 sm:space-y-5">
         {/* Mission & Stewardship Block */}
-        <div class="space-y-3">
+        <div class="space-y-2">
           <p class="text-sm sm:text-base font-bold text-amber-500 dark:text-amber-400/95 italic">
             “Broad Vision, Sage Guidance — Open to Everyone”
           </p>
@@ -112,7 +112,7 @@ const socialLinks = [
         </div>
 
         {/* Quick Brand Kit Download Bar */}
-        <div class="p-3.5 rounded-xl dark:bg-slate-900/60 bg-white/70 border dark:border-slate-800 border-ivory-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+        <div class="p-3 rounded-lg dark:bg-slate-900/60 bg-white/70 border dark:border-slate-800 border-ivory-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 shadow-2xs">
           <div>
             <p class="text-xs font-bold dark:text-white text-navy-900">Official Brand Assets Pack</p>
             <p class="text-[11px] dark:text-slate-400 text-slate-500">Vector SVG marks, lockups, palette specs, and copy guidelines.</p>
@@ -120,7 +120,7 @@ const socialLinks = [
           <a
             href="/broadsage-brand-assets.zip"
             download="broadsage-brand-assets.zip"
-            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-xs hover:shadow-md hover:scale-[1.02] flex-shrink-0 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50"
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-xs hover:shadow-md hover:scale-[1.02] flex-shrink-0 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Download ZIP</span>
@@ -129,13 +129,13 @@ const socialLinks = [
         </div>
 
         {/* Digital Touchpoints & Open-Source Colophon */}
-        <div class="space-y-4 pt-2">
+        <div class="space-y-3 pt-1">
           {/* Outbound Social Channels */}
           <div>
-            <p class="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2.5 font-bold">
+            <p class="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2 font-bold">
               Digital Touchpoints &amp; Community
             </p>
-            <div class="flex items-center gap-2.5 flex-wrap">
+            <div class="flex items-center gap-2 flex-wrap">
               {socialLinks.map((link) => (
                 <a
                   href={link.href}
@@ -143,16 +143,16 @@ const socialLinks = [
                   rel="noopener noreferrer"
                   aria-label={link.title}
                   title={link.title}
-                  class="w-9 h-9 rounded-xl dark:bg-slate-900/90 bg-white border dark:border-slate-800 border-ivory-400 hover:border-amber-500/50 flex items-center justify-center dark:text-slate-400 text-slate-700 hover:text-amber-500 dark:hover:text-amber-400 dark:hover:bg-slate-800/90 hover:bg-ivory-50 transition-all hover:scale-105 shadow-xs outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
+                  class="w-8 h-8 rounded-lg dark:bg-slate-900/90 bg-white border dark:border-slate-800 border-ivory-400 hover:border-amber-500/50 flex items-center justify-center dark:text-slate-400 text-slate-700 hover:text-amber-500 dark:hover:text-amber-400 dark:hover:bg-slate-800/90 hover:bg-ivory-50 transition-all hover:scale-105 shadow-2xs outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
                 >
                   {link.type === 'globe' ? (
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                       <circle cx="12" cy="12" r="10" />
                       <line x1="2" y1="12" x2="22" y2="12" />
                       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                     </svg>
                   ) : (
-                    <svg class="w-4 h-4" viewBox={link.viewBox} fill="currentColor" aria-hidden="true">
+                    <svg class="w-3.5 h-3.5" viewBox={link.viewBox} fill="currentColor" aria-hidden="true">
                       <path d={link.path} />
                     </svg>
                   )}
@@ -162,7 +162,7 @@ const socialLinks = [
           </div>
 
           {/* Open Source Badges */}
-          <div class="flex items-center gap-2 flex-wrap pt-1">
+          <div class="flex items-center gap-2 flex-wrap pt-0.5">
             <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mr-1 font-bold">
               Engineered With Open Source:
             </span>
@@ -173,7 +173,7 @@ const socialLinks = [
               target="_blank"
               rel="noopener noreferrer"
               title="Astro — Next-Gen Island Architecture Web Framework"
-              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-orange-500/50 dark:text-slate-400 text-slate-700 hover:text-orange-500 hover:bg-orange-500/10 transition-all text-[11px] font-semibold group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/40 shadow-xs"
+              class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-orange-500/50 dark:text-slate-400 text-slate-700 hover:text-orange-500 hover:bg-orange-500/10 transition-all text-[11px] font-semibold group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/40 shadow-2xs"
             >
               <svg class="w-3.5 h-3.5 transition-transform group-hover:scale-110" viewBox="0 0 85 107" fill="none" aria-hidden="true">
                 <path fill="url(#astro-flame-footer-new)" d="M27.6 91.1c-4.8-4.4-6.3-13.7-4.2-20.4 3.5 4.2 8.3 5.6 13.3 6.3 7.7 1.2 15.3.8 22.5-2.8l2.5-1.4c.7 2 .9 3.9.6 5.9-.6 4.9-3 8.7-6.9 11.5-1.5 1.2-3.2 2.2-4.8 3.3-4.9 3.3-6.2 7.2-4.4 12.9l.2.6a13 13 0 0 1-5.7-5 13.8 13.8 0 0 1-2.2-7.4c0-1.3 0-2.7-.2-4-.5-3.1-2-4.6-4.8-4.7a5.5 5.5 0 0 0-5.7 4.6l-.2.6Z" />
@@ -194,7 +194,7 @@ const socialLinks = [
               target="_blank"
               rel="noopener noreferrer"
               title="React — The Library for Web and Native User Interfaces"
-              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-sky-400/50 dark:text-slate-400 text-slate-700 hover:text-sky-500 hover:bg-sky-400/10 transition-all text-[11px] font-semibold group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40 shadow-xs"
+              class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-sky-400/50 dark:text-slate-400 text-slate-700 hover:text-sky-500 hover:bg-sky-400/10 transition-all text-[11px] font-semibold group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40 shadow-2xs"
             >
               <svg class="w-3.5 h-3.5 transition-transform group-hover:scale-110" viewBox="-11.5 -10.23174 23 20.46348" fill="none" aria-hidden="true">
                 <circle cx="0" cy="0" r="2.05" fill="currentColor" />
@@ -212,7 +212,7 @@ const socialLinks = [
 
       {/* Right Column: Ollie Mascot Stage (5 cols on lg, 4 cols on xl) */}
       <div class="lg:col-span-5 xl:col-span-4 flex flex-col justify-center">
-        <div class="relative overflow-hidden rounded-2xl dark:bg-slate-900/70 bg-ivory-100/90 border dark:border-slate-800 border-ivory-300 p-6 sm:p-7 flex flex-col items-center text-center shadow-xs group transition-all duration-300 hover:border-amber-500/40">
+        <div class="relative overflow-hidden rounded-xl dark:bg-slate-900/70 bg-ivory-100/90 border dark:border-slate-800 border-ivory-300 p-5 sm:p-6 flex flex-col items-center text-center shadow-2xs group transition-all duration-300 hover:border-amber-500/40">
 
           {/* Ambient Radial Brand Glow */}
           <div
@@ -221,13 +221,13 @@ const socialLinks = [
           ></div>
 
           {/* Ollie Mascot Emblem with subtle hover lift */}
-          <div class="w-28 h-28 sm:w-32 sm:h-32 mb-4 relative z-10 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 mb-3 relative z-10 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1">
             <OllieMascot variant="primary" size="100%" client:load />
           </div>
 
           {/* Mascot Identity Block */}
-          <div class="relative z-10 space-y-1.5">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full dark:bg-amber-500/10 bg-amber-500/15 border border-amber-500/30 text-amber-500 dark:text-amber-400 text-[10px] font-mono font-bold uppercase tracking-wider">
+          <div class="relative z-10 space-y-1">
+            <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full dark:bg-amber-500/10 bg-amber-500/15 border border-amber-500/30 text-amber-500 dark:text-amber-400 text-[10px] font-mono font-bold uppercase tracking-wider">
               <span>Ollie the Sage Owl</span>
             </div>
             <h3 class="text-sm font-bold dark:text-white text-navy-900">
@@ -243,7 +243,20 @@ const socialLinks = [
     </div>
 
     {/* Bottom Legal & Colophon Bar */}
-    <div class="pt-6 border-t dark:border-slate-800/80 border-ivory-300 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+    <div class="pt-4 border-t dark:border-slate-800/80 border-ivory-300 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <p class="text-[11px] text-slate-500 dark:text-slate-400 order-2 sm:order-1 text-center sm:text-left">
+        Copyright &copy; 2026 Broadsage. All rights reserved. Brand marks &amp; guidelines licensed under <span class="font-medium dark:text-slate-300 text-slate-700">Creative Commons CC BY-ND 4.0</span>.
+      </p>
+
+      <div class="order-1 sm:order-2 flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        <span>EDITION 2026</span>
+        <span>•</span>
+        <span class="text-amber-500 dark:text-amber-400 font-bold">OFFICIALLY SEALED</span>
+      </div>
+    </div>
+
+  </div>
+</footer>
       <p class="text-[11px] text-slate-500 dark:text-slate-400 order-2 sm:order-1 text-center sm:text-left">
         Copyright &copy; 2026 Broadsage. All rights reserved. Brand marks &amp; guidelines licensed under <span class="font-medium dark:text-slate-300 text-slate-700">Creative Commons CC BY-ND 4.0</span>.
       </p>

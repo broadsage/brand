@@ -17,28 +17,26 @@ import Footer from '../components/Footer.astro';
 <BaseLayout>
   <Header />
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16 sm:space-y-24 w-full flex-1">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10 sm:space-y-12 w-full flex-1">
     {/* 1. Hero Section */}
     <Hero />
 
     {/* 2. Official Marks & Brand Assets (Asset-First) */}
-    <section id="emblems" class="space-y-6 sm:space-y-8 scroll-mt-24">
-      <div class="space-y-6 sm:space-y-8">
-        <SectionHeader
-          title="Official Production Marks"
-          subtitle="Master vector emblems, OS app launchers, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds"
-          badge="Official Marks"
-        />
+    <section id="emblems" class="space-y-5 sm:space-y-6 scroll-mt-24">
+      <SectionHeader
+        title="Official Production Marks"
+        subtitle="Master vector emblems, OS app launchers, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds"
+        badge="Official Marks"
+      />
 
-        <AssetStudio client:visible />
-      </div>
+      <AssetStudio client:visible />
 
       {/* Enterprise Application Sub-Brand Lockup Studio */}
       <AppSubBrandStudio client:visible />
     </section>
 
     {/* 3. Official Color System & Copyable Code Tokens */}
-    <section id="colors" class="space-y-8 scroll-mt-24">
+    <section id="colors" class="space-y-4 sm:space-y-5 scroll-mt-24">
       <SectionHeader
         title="Official Color System & Code Tokens"
         subtitle="Copyable Tailwind v4 (@theme), Tailwind v3, CSS variables, and JSON design tokens with WCAG AAA verification"
@@ -49,7 +47,7 @@ import Footer from '../components/Footer.astro';
     </section>
 
     {/* 4. Brand Governance, Clearspace & Voice (Consolidated Standards) */}
-    <div class="space-y-16 sm:space-y-24">
+    <div class="space-y-10 sm:space-y-12">
       {/* Brand Governance & Visual Do's & Don'ts */}
       <GovernanceRules />
 

@@ -165,9 +165,9 @@ export const AssetStudio: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-5">
       {/* 4-Column Responsive Contextual Logo Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
         {logoMarks.map((mark) => {
           const isCopied = copiedKey === mark.id;
           const isExporting = exportingKey === mark.id;
@@ -175,10 +175,10 @@ export const AssetStudio: React.FC = () => {
           return (
             <div
               key={mark.id}
-              className="glass-panel rounded-2xl border dark:border-slate-800/80 border-ivory-border hover:border-amber-500/40 transition-all duration-300 flex flex-col overflow-hidden shadow-lg hover:shadow-xl hover:shadow-amber-500/5 group"
+              className="glass-panel rounded-xl border dark:border-slate-800/80 border-ivory-border hover:border-amber-500/40 transition-all duration-300 flex flex-col overflow-hidden shadow-md hover:shadow-lg hover:shadow-amber-500/5 group"
             >
               {/* Compact Card Header */}
-              <div className="px-4 py-3 border-b dark:border-slate-800/80 border-ivory-border dark:bg-slate-900/60 bg-ivory-50 flex items-center justify-between gap-2 flex-shrink-0">
+              <div className="px-3.5 py-2.5 border-b dark:border-slate-800/80 border-ivory-border dark:bg-slate-900/60 bg-ivory-50 flex items-center justify-between gap-2 flex-shrink-0">
                 <div className="space-y-0.5 min-w-0">
                   <h3 className="text-sm font-bold dark:text-white text-navy-900 tracking-tight truncate">
                     {mark.title}
@@ -193,9 +193,9 @@ export const AssetStudio: React.FC = () => {
               </div>
 
               {/* Native Contextual Canvas Viewport */}
-              <div className="flex-1 p-3.5 sm:p-4 flex flex-col items-center justify-center relative min-h-[175px] sm:min-h-[190px] dark:bg-gradient-to-b dark:from-slate-950/60 dark:to-slate-900/40 bg-gradient-to-b from-ivory-100/70 to-ivory-50/50">
+              <div className="flex-1 p-3 sm:p-3.5 flex flex-col items-center justify-center relative min-h-[155px] sm:min-h-[165px] dark:bg-gradient-to-b dark:from-slate-950/60 dark:to-slate-900/40 bg-gradient-to-b from-ivory-100/70 to-ivory-50/50">
                 {/* Surface Ground Showcase Chamber */}
-                <div className={`w-full h-full min-h-[125px] sm:min-h-[135px] p-3 sm:p-4 rounded-xl ${mark.groundClass} ${mark.id !== 'horizontal-light' ? 'preserve-dark' : ''} flex items-center justify-center transition-transform duration-300 group-hover:scale-[1.03] shadow-md relative`}>
+                <div className={`w-full h-full min-h-[110px] sm:min-h-[118px] p-2 sm:p-3 rounded-lg ${mark.groundClass} ${mark.id !== 'horizontal-light' ? 'preserve-dark' : ''} flex items-center justify-center transition-transform duration-300 group-hover:scale-[1.02] shadow-xs relative`}>
                   <div className={mark.previewContainerClass}>
                     <OllieMascot
                       id={`mark-svg-${mark.id}`}
@@ -206,14 +206,14 @@ export const AssetStudio: React.FC = () => {
                 </div>
 
                 {/* Ground Pill Tag */}
-                <span className="mt-2 text-[9px] font-mono font-medium tracking-wider uppercase px-2 py-0.5 rounded-full dark:bg-slate-900/90 dark:border-slate-800 dark:text-slate-400 bg-ivory-50 border border-ivory-400 text-slate-700 shadow-2xs">
+                <span className="mt-1.5 text-[9px] font-mono font-medium tracking-wider uppercase px-2 py-0.5 rounded-full dark:bg-slate-900/90 dark:border-slate-800 dark:text-slate-400 bg-ivory-50 border border-ivory-400 text-slate-700 shadow-2xs">
                   Ground: <strong className="dark:text-slate-300 text-slate-800">{mark.groundName}</strong>
                 </span>
               </div>
 
               {/* Card Footer: Metadata & 1-Click Actions */}
-              <div className="p-3.5 sm:p-4 dark:bg-slate-900/60 bg-ivory-50 border-t dark:border-slate-800/80 border-ivory-border space-y-3 flex-shrink-0">
-                <p className="text-[11px] dark:text-slate-300 text-slate-600 leading-snug min-h-[32px] line-clamp-2">
+              <div className="p-3 sm:p-3.5 dark:bg-slate-900/60 bg-ivory-50 border-t dark:border-slate-800/80 border-ivory-border space-y-2.5 flex-shrink-0">
+                <p className="text-[11px] dark:text-slate-300 text-slate-600 leading-snug min-h-[30px] line-clamp-2">
                   {mark.description}
                 </p>
 
@@ -272,10 +272,10 @@ export const AssetStudio: React.FC = () => {
       </div>
 
       {/* 1-Click Brand Kit Banner */}
-      <div className="p-4 sm:p-5 rounded-2xl theme-banner-gradient border border-amber-500/25 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+      <div className="p-3.5 sm:p-4 rounded-xl theme-banner-gradient border border-amber-500/25 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 shadow-md">
         <div className="flex items-center gap-3 text-center sm:text-left">
-          <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0">
-            <Download className="w-5 h-5" />
+          <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 dark:text-amber-400 flex-shrink-0">
+            <Download className="w-4 h-4" />
           </div>
           <div>
             <h4 className="text-sm font-bold dark:text-white text-navy-900">Need the Entire Brand Kit at Once?</h4>
@@ -288,7 +288,7 @@ export const AssetStudio: React.FC = () => {
         <a
           href="/broadsage-brand-assets.zip"
           download="broadsage-brand-assets.zip"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all hover:scale-105 whitespace-nowrap"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all hover:scale-105 whitespace-nowrap"
         >
           <span>Download Brand Kit (ZIP)</span>
           <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-950/20">1.69 MB</span>

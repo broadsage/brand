@@ -99,9 +99,9 @@ export const AppSubBrandStudio: React.FC = () => {
   };
 
   return (
-    <div className="glass-panel theme-card-gradient p-6 sm:p-8 rounded-2xl border border-sky-500/25 shadow-xl space-y-6">
+    <div className="glass-panel theme-card-gradient p-4 sm:p-6 rounded-2xl border border-sky-500/25 shadow-xl space-y-4 sm:space-y-5">
       {/* Studio Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b dark:border-slate-800/80 border-ivory-border">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b dark:border-slate-800/80 border-ivory-border">
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full dark:bg-sky-500/10 bg-sky-50 dark:text-sky-400 text-sky-800 border dark:border-sky-500/30 border-sky-300 text-[10px] font-mono font-bold uppercase tracking-wider">
@@ -120,7 +120,7 @@ export const AppSubBrandStudio: React.FC = () => {
       </div>
 
       {/* Main Interactive Lockup Stage */}
-      <div className="p-6 sm:p-8 rounded-2xl bg-[#080D1E] border border-slate-800 flex flex-col items-center justify-center relative overflow-hidden shadow-inner">
+      <div className="p-4 sm:p-6 rounded-xl bg-[#080D1E] border border-slate-800 flex flex-col items-center justify-center relative overflow-hidden shadow-inner">
         {/* Ambient subtle glow */}
         <div
           className="absolute inset-0 pointer-events-none opacity-30 transition-all duration-500"
@@ -190,12 +190,12 @@ export const AppSubBrandStudio: React.FC = () => {
         </svg>
 
         {/* Lockup Actions Bar (Download PNG, Download SVG, Copy SVG) */}
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 relative z-10">
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 relative z-10">
           {/* Download 2160px High-DPI PNG */}
           <button
             onClick={handleDownloadPng}
             disabled={isExportingPng}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50"
             title={`Download ${activeAppName} Lockup as 2160×400 High-DPI PNG`}
           >
             <Download className="w-3.5 h-3.5" />
@@ -205,7 +205,7 @@ export const AppSubBrandStudio: React.FC = () => {
           {/* Download Vector SVG */}
           <button
             onClick={handleDownloadSvg}
-            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl dark:bg-slate-800 dark:hover:bg-slate-700 bg-white hover:bg-ivory-50 text-navy-900 dark:text-slate-200 border dark:border-slate-700 border-ivory-400 text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 shadow-xs"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 bg-white hover:bg-ivory-50 text-navy-900 dark:text-slate-200 border dark:border-slate-700 border-ivory-400 text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 shadow-xs"
             title={`Download ${activeAppName} Vector Lockup (SVG)`}
           >
             <Download className="w-3.5 h-3.5 text-sky-500 dark:text-sky-400" />
@@ -215,7 +215,7 @@ export const AppSubBrandStudio: React.FC = () => {
           {/* Copy SVG Markup */}
           <button
             onClick={handleCopySvg}
-            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl dark:bg-slate-800 dark:hover:bg-slate-700 bg-white hover:bg-ivory-50 text-navy-900 dark:text-slate-200 border dark:border-slate-700 border-ivory-400 text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 shadow-xs"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg dark:bg-slate-800 dark:hover:bg-slate-700 bg-white hover:bg-ivory-50 text-navy-900 dark:text-slate-200 border dark:border-slate-700 border-ivory-400 text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 shadow-xs"
             title="Copy SVG markup to clipboard"
           >
             {copiedKey === 'app-lockup' ? (
@@ -234,7 +234,7 @@ export const AppSubBrandStudio: React.FC = () => {
       </div>
 
       {/* Application Selector Tabs */}
-      <div className="space-y-3">
+      <div className="space-y-2">
         <p className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-bold">
           Select Broadsage Application Suite:
         </p>
@@ -251,7 +251,7 @@ export const AppSubBrandStudio: React.FC = () => {
                   setSelectedApp(app);
                   setCustomName('');
                 }}
-                className={`p-3 rounded-xl border text-left transition-all ${
+                className={`p-2.5 rounded-lg border text-left transition-all ${
                   isSelected
                     ? 'dark:bg-slate-800 bg-white border-amber-500 shadow-md scale-[1.02]'
                     : 'dark:bg-slate-900/60 bg-ivory-50 border-ivory-border dark:border-slate-800/80 hover:border-amber-500/40'
@@ -276,7 +276,7 @@ export const AppSubBrandStudio: React.FC = () => {
       </div>
 
       {/* Custom Application Name Input & Live Dynamic Preview */}
-      <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 text-xs dark:text-slate-400 text-slate-600 bg-ivory-100/60 dark:bg-slate-900/40 p-4 rounded-xl border dark:border-slate-800 border-ivory-border">
+      <div className="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 text-xs dark:text-slate-400 text-slate-600 bg-ivory-100/60 dark:bg-slate-900/40 p-3 sm:p-3.5 rounded-xl border dark:border-slate-800 border-ivory-border">
         <div className="space-y-0.5">
           <p className="font-bold dark:text-slate-200 text-navy-900">Test Custom Application Name:</p>
           <p className="text-[11px] text-slate-500">

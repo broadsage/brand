@@ -231,32 +231,32 @@ module.exports = {
   const activeSnippet = snippets[activeTokenTab];
 
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full space-y-4 sm:space-y-5">
       {/* 5 Master Palette Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 sm:gap-4">
         {masterColors.map((color, idx) => (
           <div
             key={color.hex}
-            className="glass-panel overflow-hidden rounded-2xl border border-slate-800 hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between group shadow-lg"
+            className="glass-panel overflow-hidden rounded-xl border border-slate-800 hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between group shadow-md hover:shadow-lg"
           >
             {/* Color Swatch Header Box (Click to copy HEX) */}
             <button
               onClick={() => copyToClipboard(color.hex, `${idx}-hex`)}
-              className="h-28 p-3.5 flex flex-col justify-between relative shadow-inner text-left cursor-pointer group/swatch outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+              className="h-24 p-3 flex flex-col justify-between relative shadow-inner text-left cursor-pointer group/swatch outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
               style={{ backgroundColor: color.hex }}
               title={`Click to copy HEX code for ${color.name}`}
               aria-label={`Copy ${color.name} HEX code ${color.hex}`}
             >
               <div className="flex items-center justify-between w-full">
                 <span
-                  className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded backdrop-blur-md ${
+                  className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded backdrop-blur-md ${
                     color.textLight ? 'bg-black/40 text-white' : 'bg-white/80 text-slate-900'
                   }`}
                 >
                   {color.wcagBadge}
                 </span>
                 <span
-                  className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded backdrop-blur-md opacity-0 group-hover/swatch:opacity-100 transition-opacity ${
+                  className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded backdrop-blur-md opacity-0 group-hover/swatch:opacity-100 transition-opacity ${
                     color.textLight ? 'bg-black/40 text-white' : 'bg-white/80 text-slate-900'
                   }`}
                 >
@@ -264,7 +264,7 @@ module.exports = {
                 </span>
               </div>
               <span
-                className={`text-xs font-extrabold uppercase tracking-wider ${
+                className={`text-[11px] font-extrabold uppercase tracking-wider ${
                   color.textLight ? 'text-white' : 'text-slate-950'
                 }`}
               >
@@ -273,18 +273,18 @@ module.exports = {
             </button>
 
             {/* Details & Copy Rows */}
-            <div className="p-4 space-y-3 dark:bg-[#0A1128]/95 bg-white border-t dark:border-slate-800/80 border-[#E6DED2] flex-1 flex flex-col justify-between">
+            <div className="p-3 sm:p-3.5 space-y-2 dark:bg-[#0A1128]/95 bg-white border-t dark:border-slate-800/80 border-[#E6DED2] flex-1 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center justify-between mb-1.5">
                   <h4 className="text-sm font-bold text-white">{color.name}</h4>
                   <span className="text-[10px] font-mono text-slate-500">{color.pantone}</span>
                 </div>
 
-                <div className="space-y-1.5 font-mono text-xs">
+                <div className="space-y-1 font-mono text-xs">
                   {/* HEX Copy Row */}
                   <button
                     onClick={() => copyToClipboard(color.hex, `${idx}-hex`)}
-                    className="w-full flex items-center justify-between p-1.5 rounded-lg dark:hover:bg-slate-800/80 hover:bg-[#FAF8F5] dark:text-slate-300 text-slate-700 hover:text-amber-600 dark:hover:text-amber-400 transition-colors group/row"
+                    className="w-full flex items-center justify-between p-1.5 rounded-md dark:hover:bg-slate-800/80 hover:bg-[#FAF8F5] dark:text-slate-300 text-slate-700 hover:text-amber-600 dark:hover:text-amber-400 transition-colors group/row"
                   >
                     <span className="text-[11px] text-slate-500 uppercase font-sans">HEX</span>
                     <span className="font-semibold flex items-center gap-1.5">
@@ -305,7 +305,7 @@ module.exports = {
                   {/* RGB Copy Row */}
                   <button
                     onClick={() => copyToClipboard(`rgb(${color.rgb})`, `${idx}-rgb`)}
-                    className="w-full flex items-center justify-between p-1.5 rounded-lg dark:hover:bg-slate-800/80 hover:bg-[#FAF8F5] dark:text-slate-300 text-slate-700 hover:text-amber-600 dark:hover:text-amber-400 transition-colors group/row"
+                    className="w-full flex items-center justify-between p-1.5 rounded-md dark:hover:bg-slate-800/80 hover:bg-[#FAF8F5] dark:text-slate-300 text-slate-700 hover:text-amber-600 dark:hover:text-amber-400 transition-colors group/row"
                   >
                     <span className="text-[11px] text-slate-500 uppercase font-sans">RGB</span>
                     <span className="flex items-center gap-1.5">
@@ -319,7 +319,7 @@ module.exports = {
                 </div>
               </div>
 
-              <p className="text-[11px] dark:text-slate-400 text-slate-600 pt-2 border-t dark:border-slate-800/80 border-[#E6DED2] leading-relaxed">
+              <p className="text-[11px] dark:text-slate-400 text-slate-600 pt-1.5 border-t dark:border-slate-800/80 border-[#E6DED2] leading-relaxed">
                 {color.usage}
               </p>
             </div>
@@ -328,10 +328,10 @@ module.exports = {
       </div>
 
       {/* Tonal Ramps Toggle Section */}
-      <div className="glass-panel p-6 rounded-2xl border border-slate-800">
-        <div className="flex items-center justify-between flex-wrap gap-4 mb-4">
+      <div className="glass-panel p-4 sm:p-5 rounded-xl border border-slate-800">
+        <div className="flex items-center justify-between flex-wrap gap-3 mb-3">
           <div>
-            <h4 className="text-base font-bold text-white flex items-center gap-2">
+            <h4 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
               <SlidersHorizontal className="w-4 h-4 text-amber-400" />
               Full Design Token Ramps (Navy, Gold, Azure)
             </h4>
@@ -341,16 +341,16 @@ module.exports = {
           </div>
           <button
             onClick={() => setShowRamps(!showRamps)}
-            className="px-3.5 py-1.5 rounded-lg dark:bg-slate-800 bg-white hover:bg-[#FAF8F5] dark:hover:bg-slate-700 text-xs font-semibold dark:text-slate-200 text-[#0A1128] border dark:border-slate-700 border-[#DBD1C2] transition-colors shadow-xs"
+            className="px-3 py-1.5 rounded-lg dark:bg-slate-800 bg-white hover:bg-[#FAF8F5] dark:hover:bg-slate-700 text-xs font-semibold dark:text-slate-200 text-[#0A1128] border dark:border-slate-700 border-[#DBD1C2] transition-colors shadow-xs"
           >
             {showRamps ? 'Hide Ramps' : 'Expand Full Ramps'}
           </button>
         </div>
 
         {showRamps && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t dark:border-slate-800/80 border-[#E6DED2]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 pt-3.5 border-t dark:border-slate-800/80 border-[#E6DED2]">
             {/* Navy Ramp */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <h5 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
                 Navy Scale (Dark Foundation)
               </h5>
@@ -377,7 +377,7 @@ module.exports = {
             </div>
 
             {/* Gold Ramp */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <h5 className="text-xs font-bold text-amber-500 dark:text-amber-400 uppercase tracking-wider">
                 Gold Scale (Sage Guidance)
               </h5>
@@ -404,7 +404,7 @@ module.exports = {
             </div>
 
             {/* Azure Ramp */}
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <h5 className="text-xs font-bold text-sky-500 dark:text-sky-400 uppercase tracking-wider">
                 Azure Scale (Broad Vision)
               </h5>
@@ -434,16 +434,16 @@ module.exports = {
       </div>
 
       {/* Copyable Code Tokens Studio (Tailwind v4, Tailwind v3, CSS, JSON) */}
-      <div className="glass-panel rounded-2xl border dark:border-slate-800 border-[#E6DED2] overflow-hidden transition-all">
+      <div className="glass-panel rounded-xl border dark:border-slate-800 border-[#E6DED2] overflow-hidden transition-all">
         {/* Code Header Bar with Expand / Collapse Toggle */}
-        <div className="p-4 sm:p-5 dark:bg-slate-900/90 bg-[#FAF8F5] border-b dark:border-slate-800/80 border-[#E6DED2] flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 dark:text-amber-400 shrink-0">
+        <div className="p-3.5 sm:p-4 dark:bg-slate-900/90 bg-[#FAF8F5] border-b dark:border-slate-800/80 border-[#E6DED2] flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 dark:text-amber-400 shrink-0">
               <Code2 className="w-4 h-4" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h4 className="text-sm sm:text-base font-bold text-white">
+                <h4 className="text-sm font-bold text-white">
                   Copyable Code Tokens
                 </h4>
                 <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-amber-500 dark:text-amber-400 border border-slate-700">
@@ -459,7 +459,7 @@ module.exports = {
           <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={() => setShowTokens(!showTokens)}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg dark:bg-slate-800 bg-white hover:bg-[#FAF8F5] dark:hover:bg-slate-700 dark:text-slate-200 text-[#0A1128] text-xs font-semibold border dark:border-slate-700 border-[#DBD1C2] transition-colors shadow-xs"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg dark:bg-slate-800 bg-white hover:bg-[#FAF8F5] dark:hover:bg-slate-700 dark:text-slate-200 text-[#0A1128] text-xs font-semibold border dark:border-slate-700 border-[#DBD1C2] transition-colors shadow-xs"
             >
               <span>{showTokens ? 'Collapse Code Tokens' : 'Expand Code Tokens'}</span>
               {showTokens ? (
@@ -475,12 +475,12 @@ module.exports = {
         {showTokens && (
           <div className="transition-all duration-300">
             {/* Format Selection Tabs & Copy Toolbar */}
-            <div className="px-4 py-3 dark:bg-[#060A19] bg-[#EFE8DC] border-b dark:border-slate-800/80 border-[#DBD1C2] flex flex-wrap items-center justify-between gap-3">
+            <div className="px-3.5 py-2.5 dark:bg-[#060A19] bg-[#EFE8DC] border-b dark:border-slate-800/80 border-[#DBD1C2] flex flex-wrap items-center justify-between gap-2.5">
               {/* Format Selection Tabs */}
-              <div className="flex items-center gap-1 p-1 dark:bg-slate-950/80 bg-white rounded-xl border dark:border-slate-800 border-[#DBD1C2] text-xs font-semibold overflow-x-auto shadow-xs">
+              <div className="flex items-center gap-1 p-1 dark:bg-slate-950/80 bg-white rounded-lg border dark:border-slate-800 border-[#DBD1C2] text-xs font-semibold overflow-x-auto shadow-xs">
                 <button
                   onClick={() => setActiveTokenTab('tailwind-v4')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-all ${
                     activeTokenTab === 'tailwind-v4'
                       ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
                       : 'dark:text-slate-400 text-slate-600 dark:hover:text-white hover:text-[#0A1128]'
@@ -492,7 +492,7 @@ module.exports = {
 
                 <button
                   onClick={() => setActiveTokenTab('tailwind-v3')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-all ${
                     activeTokenTab === 'tailwind-v3'
                       ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
                       : 'dark:text-slate-400 text-slate-600 dark:hover:text-white hover:text-[#0A1128]'
@@ -504,7 +504,7 @@ module.exports = {
 
                 <button
                   onClick={() => setActiveTokenTab('css')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-all ${
                     activeTokenTab === 'css'
                       ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
                       : 'dark:text-slate-400 text-slate-600 dark:hover:text-white hover:text-[#0A1128]'
@@ -516,7 +516,7 @@ module.exports = {
 
                 <button
                   onClick={() => setActiveTokenTab('json')}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-all ${
                     activeTokenTab === 'json'
                       ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
                       : 'dark:text-slate-400 text-slate-600 dark:hover:text-white hover:text-[#0A1128]'
@@ -530,7 +530,7 @@ module.exports = {
               {/* Quick Copy Button */}
               <button
                 onClick={() => copyToClipboard(activeSnippet, `tab-${activeTokenTab}`)}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-500 dark:text-amber-300 text-xs font-bold border border-amber-500/40 transition-colors shadow-sm"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-500 dark:text-amber-300 text-xs font-bold border border-amber-500/40 transition-colors shadow-sm"
                 title="Copy snippet to clipboard"
               >
                 {copiedKey === `tab-${activeTokenTab}` ? (
@@ -548,7 +548,7 @@ module.exports = {
             </div>
 
             {/* Code Content Container */}
-            <div className="p-4 sm:p-6 bg-[#040714] overflow-x-auto preserve-dark">
+            <div className="p-3.5 sm:p-4 bg-[#040714] overflow-x-auto preserve-dark">
               <pre className="font-mono text-xs text-slate-300 leading-relaxed">
                 <code>{activeSnippet}</code>
               </pre>

@@ -4,26 +4,26 @@ import SectionHeader from './SectionHeader.astro';
 import { Check, X } from 'lucide-react';
 ---
 
-<section id="governance" class="space-y-8 scroll-mt-24">
+<section id="governance" class="space-y-5 scroll-mt-24">
   <SectionHeader
     title="Brand Governance: Strict Do's & Don'ts"
     subtitle="Preserve visual integrity across all digital, print, and community applications"
     badge="Brand Governance"
   />
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {/* Pair 1: Proportions */}
     {/* DO 1 */}
-    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-emerald-500 dark:border-slate-800 border-[#E6DED2] flex flex-col justify-between">
-      <div class="h-44 bg-[#080D1E] flex items-center justify-center relative p-4 preserve-dark">
-        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider">
-          <Check className="w-3.5 h-3.5" /> DO
+    <div class="glass-panel overflow-hidden rounded-xl border-t-4 border-t-emerald-500 dark:border-slate-800 border-[#E6DED2] flex flex-col justify-between">
+      <div class="h-36 sm:h-40 bg-[#080D1E] flex items-center justify-center relative p-3 preserve-dark">
+        <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-bold uppercase tracking-wider">
+          <Check className="w-3 h-3" /> DO
         </span>
-        <div class="w-24 h-24">
+        <div class="w-20 h-20 sm:w-24 sm:h-24">
           <OllieMascot variant="primary" size="100%" client:load />
         </div>
       </div>
-      <div class="p-5 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
+      <div class="p-3.5 sm:p-4 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
         <h4 class="text-sm font-bold dark:text-white text-navy-900">Use Official SVGs Without Modification</h4>
         <p class="text-xs text-slate-400 leading-relaxed">
           Always render Ollie using original vector assets with correct proportional scaling and verified gradients.
@@ -32,16 +32,16 @@ import { Check, X } from 'lucide-react';
     </div>
 
     {/* DON'T 1 */}
-    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-red-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
-      <div class="h-44 bg-[#080D1E] flex items-center justify-center relative p-4 preserve-dark">
-        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-red-500/20 text-red-400 border border-red-500/40 text-[11px] font-bold uppercase tracking-wider">
-          <X className="w-3.5 h-3.5" /> DON'T
+    <div class="glass-panel overflow-hidden rounded-xl border-t-4 border-t-red-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
+      <div class="h-36 sm:h-40 bg-[#080D1E] flex items-center justify-center relative p-3 preserve-dark">
+        <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-red-500/20 text-red-400 border border-red-500/40 text-[10px] font-bold uppercase tracking-wider">
+          <X className="w-3 h-3" /> DON'T
         </span>
-        <div class="w-36 h-16 transform scale-y-50">
+        <div class="w-32 h-14 transform scale-y-50">
           <OllieMascot variant="primary" size="100%" client:load />
         </div>
       </div>
-      <div class="p-5 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
+      <div class="p-3.5 sm:p-4 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
         <h4 class="text-sm font-bold dark:text-white text-navy-900">Never Stretch or Distort Aspect Ratio</h4>
         <p class="text-xs text-slate-400 leading-relaxed">
           Do not skew, squash, or non-uniformly stretch the emblem. Scale with locked 1:1 aspect ratio at all times.
@@ -51,16 +51,16 @@ import { Check, X } from 'lucide-react';
 
     {/* Pair 2: Wordmark & Typography */}
     {/* DO 2 */}
-    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-emerald-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
-      <div class="h-44 bg-[#080D1E] flex items-center justify-center relative p-4 preserve-dark">
-        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider">
-          <Check className="w-3.5 h-3.5" /> DO
+    <div class="glass-panel overflow-hidden rounded-xl border-t-4 border-t-emerald-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
+      <div class="h-36 sm:h-40 bg-[#080D1E] flex items-center justify-center relative p-3 preserve-dark">
+        <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-bold uppercase tracking-wider">
+          <Check className="w-3 h-3" /> DO
         </span>
-        <div class="px-6 py-3 rounded-lg bg-navy-900 border border-slate-800 text-xl font-extrabold tracking-[-0.5px]">
+        <div class="px-5 py-2.5 rounded-lg bg-navy-900 border border-slate-800 text-lg sm:text-xl font-extrabold tracking-[-0.5px]">
           <span class="text-white">BROAD</span><span class="text-amber-500">SAGE</span>
         </div>
       </div>
-      <div class="p-5 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
+      <div class="p-3.5 sm:p-4 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
         <h4 class="text-sm font-bold dark:text-white text-navy-900">Maintain Two-Tone Wordmark Hierarchy</h4>
         <p class="text-xs text-slate-400 leading-relaxed">
           Keep <code class="text-white">BROAD</code> in Crisp White and <code class="text-amber-400">SAGE</code> in Solar Gold Amber to preserve the dual vision-guidance philosophy.
@@ -69,16 +69,16 @@ import { Check, X } from 'lucide-react';
     </div>
 
     {/* DON'T 2 */}
-    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-red-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
-      <div class="h-44 bg-[#080D1E] flex items-center justify-center relative p-4 preserve-dark">
-        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-red-500/20 text-red-400 border border-red-500/40 text-[11px] font-bold uppercase tracking-wider">
-          <X className="w-3.5 h-3.5" /> DON'T
+    <div class="glass-panel overflow-hidden rounded-xl border-t-4 border-t-red-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
+      <div class="h-36 sm:h-40 bg-[#080D1E] flex items-center justify-center relative p-3 preserve-dark">
+        <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-red-500/20 text-red-400 border border-red-500/40 text-[10px] font-bold uppercase tracking-wider">
+          <X className="w-3 h-3" /> DON'T
         </span>
-        <div class="w-24 h-24 filter hue-rotate-180 invert-[0.2]">
+        <div class="w-20 h-20 sm:w-24 sm:h-24 filter hue-rotate-180 invert-[0.2]">
           <OllieMascot variant="primary" size="100%" client:load />
         </div>
       </div>
-      <div class="p-5 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
+      <div class="p-3.5 sm:p-4 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
         <h4 class="text-sm font-bold dark:text-white text-navy-900">Never Recolor with Unapproved Tints</h4>
         <p class="text-xs text-slate-400 leading-relaxed">
           Do not tint Ollie with neon pink, purple, or unapproved gradients. Only official Palette 3 is authorized.
@@ -88,10 +88,10 @@ import { Check, X } from 'lucide-react';
 
     {/* Pair 3: Background Contrast */}
     {/* DO 3 */}
-    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-emerald-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
-      <div class="h-44 bg-navy-950 flex items-center justify-center relative p-4 gap-4 preserve-dark">
-        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[11px] font-bold uppercase tracking-wider">
-          <Check className="w-3.5 h-3.5" /> DO
+    <div class="glass-panel overflow-hidden rounded-xl border-t-4 border-t-emerald-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
+      <div class="h-36 sm:h-40 bg-navy-950 flex items-center justify-center relative p-3 gap-3 preserve-dark">
+        <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-bold uppercase tracking-wider">
+          <Check className="w-3 h-3" /> DO
         </span>
         <span class="px-3 py-1.5 rounded-lg bg-navy-900 border border-slate-800 text-xs text-slate-300 font-semibold">
           Native Dark Mode
@@ -100,7 +100,7 @@ import { Check, X } from 'lucide-react';
           Clean Pure White
         </span>
       </div>
-      <div class="p-5 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
+      <div class="p-3.5 sm:p-4 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
         <h4 class="text-sm font-bold dark:text-white text-navy-900">Ensure High Background Contrast</h4>
         <p class="text-xs text-slate-400 leading-relaxed">
           Place Ollie on Midnight Navy, solid dark surfaces (#0A1128 / #050814), or pure Crisp White for maximum contrast.
@@ -109,16 +109,16 @@ import { Check, X } from 'lucide-react';
     </div>
 
     {/* DON'T 3 */}
-    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-red-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
-      <div class="h-44 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 flex items-center justify-center relative p-4 preserve-dark">
-        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-red-950/80 text-red-300 border border-red-500/40 text-[11px] font-bold uppercase tracking-wider">
-          <X className="w-3.5 h-3.5" /> DON'T
+    <div class="glass-panel overflow-hidden rounded-xl border-t-4 border-t-red-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
+      <div class="h-36 sm:h-40 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 flex items-center justify-center relative p-3 preserve-dark">
+        <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-red-950/80 text-red-300 border border-red-500/40 text-[10px] font-bold uppercase tracking-wider">
+          <X className="w-3 h-3" /> DON'T
         </span>
-        <div class="w-20 h-20 opacity-70">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 opacity-70">
           <OllieMascot variant="primary" size="100%" client:load />
         </div>
       </div>
-      <div class="p-5 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
+      <div class="p-3.5 sm:p-4 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
         <h4 class="text-sm font-bold dark:text-white text-navy-900">Never Place on Busy or Clashing Surfaces</h4>
         <p class="text-xs text-slate-400 leading-relaxed">
           Never superimpose the mark over cluttered photography, low-contrast yellow backgrounds, or vibrating patterns.
@@ -128,17 +128,17 @@ import { Check, X } from 'lucide-react';
 
     {/* Pair 4: Solid Accent Grounds (Amber & Azure) */}
     {/* DO 4 */}
-    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-emerald-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
-      <div class="h-44 bg-[#F59E0B] flex items-center justify-center relative p-4 preserve-dark">
-        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950/90 text-emerald-400 border border-slate-900 text-[11px] font-bold uppercase tracking-wider shadow">
-          <Check className="w-3.5 h-3.5" /> DO
+    <div class="glass-panel overflow-hidden rounded-xl border-t-4 border-t-emerald-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
+      <div class="h-36 sm:h-40 bg-[#F59E0B] flex items-center justify-center relative p-3 preserve-dark">
+        <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-950/90 text-emerald-400 border border-slate-900 text-[10px] font-bold uppercase tracking-wider shadow">
+          <Check className="w-3 h-3" /> DO
         </span>
-        <div class="px-5 py-2.5 rounded-xl bg-navy-900 text-white flex items-center gap-2.5 shadow-xl border border-slate-900">
-          <span class="font-black text-base sm:text-lg tracking-tight">BROADSAGE</span>
-          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">MONOCHROME NAVY</span>
+        <div class="px-4 py-2 rounded-xl bg-navy-900 text-white flex items-center gap-2 shadow-xl border border-slate-900">
+          <span class="font-black text-sm sm:text-base tracking-tight">BROADSAGE</span>
+          <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">MONOCHROME NAVY</span>
         </div>
       </div>
-      <div class="p-5 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
+      <div class="p-3.5 sm:p-4 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
         <h4 class="text-sm font-bold dark:text-white text-navy-900">Use Reversed Solid Navy on Accent Grounds</h4>
         <p class="text-xs text-slate-400 leading-relaxed">
           When printing on solid Solar Gold Amber (#F59E0B) or vibrant merchandise, render the lockup in solid Midnight Navy (#0A1128) for maximum contrast.
@@ -147,17 +147,17 @@ import { Check, X } from 'lucide-react';
     </div>
 
     {/* DON'T 4 */}
-    <div class="glass-panel overflow-hidden rounded-2xl border-t-4 border-t-red-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
-      <div class="h-44 bg-[#F59E0B] flex items-center justify-center relative p-4 preserve-dark">
-        <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950/90 text-red-400 border border-slate-900 text-[11px] font-bold uppercase tracking-wider shadow">
-          <X className="w-3.5 h-3.5" /> DON'T
+    <div class="glass-panel overflow-hidden rounded-xl border-t-4 border-t-red-500 dark:border-slate-800 border-ivory-border flex flex-col justify-between">
+      <div class="h-36 sm:h-40 bg-[#F59E0B] flex items-center justify-center relative p-3 preserve-dark">
+        <span class="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-950/90 text-red-400 border border-slate-900 text-[10px] font-bold uppercase tracking-wider shadow">
+          <X className="w-3 h-3" /> DON'T
         </span>
-        <div class="px-5 py-2.5 rounded-xl bg-amber-500/40 border border-amber-600/50 flex items-center gap-2">
-          <span class="font-black text-base sm:text-lg tracking-tight text-white/50">BROAD<span class="text-amber-200/60">SAGE</span></span>
-          <span class="text-[10px] font-mono text-amber-950 bg-amber-400/80 px-1.5 py-0.5 rounded font-bold">ZERO CONTRAST</span>
+        <div class="px-4 py-2 rounded-xl bg-amber-500/40 border border-amber-600/50 flex items-center gap-2">
+          <span class="font-black text-sm sm:text-base tracking-tight text-white/50">BROAD<span class="text-amber-200/60">SAGE</span></span>
+          <span class="text-[9px] font-mono text-amber-950 bg-amber-400/80 px-1.5 py-0.5 rounded font-bold">ZERO CONTRAST</span>
         </div>
       </div>
-      <div class="p-5 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
+      <div class="p-3.5 sm:p-4 space-y-1 dark:bg-navy-900/95 bg-white border-t dark:border-slate-800/80 border-ivory-border">
         <h4 class="text-sm font-bold dark:text-white text-navy-900">Never Use Multi-Color Mark on Brand Amber</h4>
         <p class="text-xs text-slate-400 leading-relaxed">
           Never place the standard two-tone mark on solid amber backgrounds. The amber "SAGE" and Ollie's shield dissolve into the background.

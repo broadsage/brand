@@ -4,7 +4,7 @@ import PressBoilerplate from '../islands/PressBoilerplate';
 import { Shield, Cpu, Activity, Wrench } from 'lucide-react';
 ---
 
-<section id="about" class="space-y-8 scroll-mt-24">
+<section id="about" class="space-y-5 scroll-mt-24">
   <SectionHeader
     title="Brand Foundation, Mission & Press Kit"
     subtitle="Official press boilerplate, naming rules, and Broadsage's architectural foundation"
@@ -15,9 +15,9 @@ import { Shield, Cpu, Activity, Wrench } from 'lucide-react';
   <PressBoilerplate client:visible />
 
   {/* Architectural Mission & Enterprise Open Source Card */}
-  <div class="glass-panel theme-card-gradient p-6 sm:p-8 rounded-2xl border border-amber-500/20 shadow-xl space-y-6">
+  <div class="glass-panel theme-card-gradient p-4 sm:p-6 rounded-2xl border border-amber-500/20 shadow-xl space-y-4">
     <div class="flex items-center justify-between flex-wrap gap-2">
-      <h3 class="text-lg sm:text-xl font-bold text-amber-500 dark:text-amber-400">
+      <h3 class="text-base sm:text-lg font-bold text-amber-500 dark:text-amber-400">
         Enterprise Mission &amp; Application Architecture
       </h3>
       <span class="text-xs font-mono font-bold px-2.5 py-1 rounded dark:bg-sky-950/60 bg-sky-50 dark:text-sky-400 text-sky-800 border dark:border-sky-800 border-sky-300">
@@ -26,8 +26,8 @@ import { Shield, Cpu, Activity, Wrench } from 'lucide-react';
     </div>
 
     {/* Mission & Vision Side-by-Side */}
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="p-4 rounded-xl dark:bg-slate-950/60 bg-white border-l-4 border-amber-400 shadow-sm space-y-1">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="p-3.5 sm:p-4 rounded-xl dark:bg-slate-950/60 bg-white border-l-4 border-amber-400 shadow-sm space-y-1">
         <span class="text-xs font-mono font-bold text-amber-500 dark:text-amber-400 uppercase tracking-wider block">
           Mission
         </span>
@@ -36,7 +36,7 @@ import { Shield, Cpu, Activity, Wrench } from 'lucide-react';
         </p>
       </div>
 
-      <div class="p-4 rounded-xl dark:bg-slate-950/60 bg-white border-l-4 border-sky-400 shadow-sm space-y-1">
+      <div class="p-3.5 sm:p-4 rounded-xl dark:bg-slate-950/60 bg-white border-l-4 border-sky-400 shadow-sm space-y-1">
         <span class="text-xs font-mono font-bold text-sky-500 dark:text-sky-400 uppercase tracking-wider block">
           Vision
         </span>
@@ -51,8 +51,8 @@ import { Shield, Cpu, Activity, Wrench } from 'lucide-react';
     </p>
 
     {/* 4 Architectural Pillars Grid */}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-      <div class="p-4 rounded-xl dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-2 shadow-xs">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 pt-1">
+      <div class="p-3 rounded-lg dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-1.5 shadow-2xs">
         <div class="flex items-center gap-2 text-amber-500 dark:text-amber-400">
           <Shield className="w-4 h-4" />
           <h4 class="text-xs font-bold dark:text-white text-navy-900">Open-Source Hardening</h4>
@@ -62,7 +62,7 @@ import { Shield, Cpu, Activity, Wrench } from 'lucide-react';
         </p>
       </div>
 
-      <div class="p-4 rounded-xl dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-2 shadow-xs">
+      <div class="p-3 rounded-lg dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-1.5 shadow-2xs">
         <div class="flex items-center gap-2 text-sky-500 dark:text-sky-400">
           <Cpu className="w-4 h-4" />
           <h4 class="text-xs font-bold dark:text-white text-navy-900">Autonomous Agentic Mesh</h4>
@@ -72,7 +72,7 @@ import { Shield, Cpu, Activity, Wrench } from 'lucide-react';
         </p>
       </div>
 
-      <div class="p-4 rounded-xl dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-2 shadow-xs">
+      <div class="p-3 rounded-lg dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-1.5 shadow-2xs">
         <div class="flex items-center gap-2 text-emerald-500 dark:text-emerald-400">
           <Activity className="w-4 h-4" />
           <h4 class="text-xs font-bold dark:text-white text-navy-900">Unified Telemetry</h4>
@@ -82,7 +82,7 @@ import { Shield, Cpu, Activity, Wrench } from 'lucide-react';
         </p>
       </div>
 
-      <div class="p-4 rounded-xl dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-2 shadow-xs">
+      <div class="p-3 rounded-lg dark:bg-slate-900/60 bg-white border dark:border-slate-800/80 border-ivory-400 space-y-1.5 shadow-2xs">
         <div class="flex items-center gap-2 text-purple-500 dark:text-purple-400">
           <Wrench className="w-4 h-4" />
           <h4 class="text-xs font-bold dark:text-white text-navy-900">Paved Roads &amp; CLI</h4>
