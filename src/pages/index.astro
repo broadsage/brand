@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import AssetStudio from '../islands/AssetStudio';
+import AppSubBrandStudio from '../islands/AppSubBrandStudio';
 import ColorPaletteMatrix from '../islands/ColorPaletteMatrix';
 import GovernanceRules from '../components/GovernanceRules.astro';
 import ClearspaceGuide from '../components/ClearspaceGuide.astro';
@@ -24,11 +25,14 @@ import Footer from '../components/Footer.astro';
     <section id="emblems" class="space-y-8 scroll-mt-24">
       <SectionHeader
         title="Official Production Marks"
-        subtitle="Master vector emblems, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds"
+        subtitle="Master vector emblems, OS app launchers, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds"
         badge="Official Marks"
       />
 
       <AssetStudio client:visible />
+
+      {/* Enterprise Application Sub-Brand Lockup Studio */}
+      <AppSubBrandStudio client:visible />
     </section>
 
     {/* 3. Official Color System & Copyable Code Tokens */}

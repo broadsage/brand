@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Broadsage 1-Color Monochrome White: Master Vector for Light Backgrounds, Invoices & Single-Ink Print -->
+  <rect width="200" height="200" rx="44" fill="#FFFFFF" stroke="#0A1128" stroke-width="3"/>
+  <g transform="translate(100, 100)">
+    <!-- Ear Crests -->
+    <polygon points="-48,-66 -22,-32 -54,-32" fill="#0A1128"/>
+    <polygon points="48,-66 22,-32 54,-32" fill="#0A1128"/>
+
+    <!-- Main Body Outline & Wings -->
+    <ellipse cx="0" cy="8" rx="56" ry="62" fill="none" stroke="#0A1128" stroke-width="4"/>
+    <path d="M-56,2 C-66,24 -52,58 -32,66 C-42,44 -46,20 -56,2 Z" fill="#0A1128"/>
+    <path d="M56,2 C66,24 52,58 32,66 C42,44 46,20 56,2 Z" fill="#0A1128"/>
+
+    <!-- Belly Shield & Code Chevrons -->
+    <ellipse cx="0" cy="22" rx="32" ry="40" fill="none" stroke="#0A1128" stroke-width="3"/>
+    <path d="M-12,12 L0,20 L12,12" stroke="#0A1128" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M-14,26 L0,34 L14,26" stroke="#0A1128" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M-12,40 L0,48 L12,40" stroke="#0A1128" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+    <!-- High-Contrast Eyeglasses & Wisdom Lenses -->
+    <circle cx="-22" cy="-18" r="19" fill="#FFFFFF" stroke="#0A1128" stroke-width="4"/>
+    <circle cx="-22" cy="-18" r="10" fill="#0A1128"/>
+    <circle cx="-25" cy="-21" r="3.5" fill="#FFFFFF"/>
+
+    <circle cx="22" cy="-18" r="19" fill="#FFFFFF" stroke="#0A1128" stroke-width="4"/>
+    <circle cx="22" cy="-18" r="10" fill="#0A1128"/>
+    <circle cx="19" cy="-21" r="3.5" fill="#FFFFFF"/>
+
+    <!-- Frame Bridge -->
+    <rect x="-6" y="-20" width="12" height="4" rx="2" fill="#0A1128"/>
+
+    <!-- Beak -->
+    <polygon points="0,-6 7,8 0,14 -7,8" fill="#0A1128"/>
+
+    <!-- Platform Perch Claws -->
+    <ellipse cx="-16" cy="70" rx="7" ry="4" fill="#0A1128"/>
+    <ellipse cx="16" cy="70" rx="7" ry="4" fill="#0A1128"/>
+  </g>
+</svg>

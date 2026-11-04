@@ -108,10 +108,10 @@ https://brand.broadsage.com
 
 2. OFFICIAL PRESS BOILERPLATE (PRE-APPROVED COPY)
    [One-Sentence Elevator Pitch]
-   "Broadsage unites open-source innovation with hardened enterprise platform engineering — Broad Vision, Sage Guidance, Open to Everyone."
+   "Broadsage is an enterprise open-source software company developing cloud-native applications and developer platforms — Broad Vision, Sage Guidance, Open to Everyone."
 
    [50-Word Standard Boilerplate]
-   "Broadsage is an open-source enterprise platform bridging cloud-native innovation and agentic AI with hardened, production-grade architectures. Featuring Ollie the Sage Owl, Broadsage champions the open enterprise foundation with calm, authoritative architectural guidance and zero vendor lock-in."
+   "Broadsage is an enterprise open-source software company developing production applications, cloud-native developer platforms, and agentic engineering tools. Modeled on proven enterprise open-source principles, Broadsage delivers hardened application architectures and sovereign developer runtimes featuring Ollie the Sage Owl, empowering organizations with mission-critical stability and zero vendor lock-in."
 
 3. CORE COLOR PALETTE (Palette 3)
    - Midnight Navy (Canvas Base):     #0A1128  | rgb(10, 17, 40)

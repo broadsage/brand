@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <!-- Broadsage Master OS Application Icon (1024x1024): macOS, Linux & Windows Desktop/Mobile Runtimes -->
+  <defs>
+    <!-- Background Canvas Depth Gradient -->
+    <linearGradient id="appIconBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="40%" stop-color="#0A1128"/>
+      <stop offset="100%" stop-color="#050814"/>
+    </linearGradient>
+
+    <!-- Ambient Solar Brand Glow -->
+    <radialGradient id="appIconGlow" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#0284C7" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#050814" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Character Body Gradients -->
+    <linearGradient id="appBodyNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="45%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0A1128"/>
+    </linearGradient>
+    <linearGradient id="appSolarGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="appGoldEyes" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#FDE68A"/>
+      <stop offset="85%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+
+    <!-- Depth Drop Shadow -->
+    <filter id="appIconShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#F59E0B" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Continuous Curvature Master Squircle Container (Apple HIG & Linux freedesktop compliant) -->
+  <rect width="1024" height="1024" rx="224" fill="url(#appIconBg)"/>
+
+  <!-- Subtle Top Rim Highlight -->
+  <rect width="1020" height="1020" x="2" y="2" rx="222" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
+
+  <!-- Ambient Radial Glow Floor -->
+  <rect width="1024" height="1024" rx="224" fill="url(#appIconGlow)"/>
+
+  <!-- Centered Ollie Mascot Emblem with Dimensional Drop Shadow -->
+  <g transform="translate(512, 516) scale(4.4)" filter="url(#appIconShadow)">
+    <!-- Ear Crests -->
+    <polygon points="-48,-66 -22,-32 -54,-32" fill="#0284C7"/>
+    <polygon points="48,-66 22,-32 54,-32" fill="#F59E0B"/>
+
+    <!-- Main Owl Body (Midnight Navy) -->
+    <ellipse cx="0" cy="8" rx="56" ry="62" fill="url(#appBodyNavy)" stroke="#1E293B" stroke-width="1.5"/>
+
+    <!-- Broad Wings -->
+    <path d="M-56,2 C-66,24 -52,58 -32,66 C-42,44 -46,20 -56,2 Z" fill="#0369A1"/>
+    <path d="M56,2 C66,24 52,58 32,66 C42,44 46,20 56,2 Z" fill="#B45309"/>
+
+    <!-- Solar Gold Belly Shield -->
+    <ellipse cx="0" cy="22" rx="32" ry="40" fill="url(#appSolarGold)"/>
+    <!-- Code Chevron Plumage Marks -->
+    <path d="M-12,12 L0,20 L12,12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.95"/>
+    <path d="M-14,26 L0,34 L14,26" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.95"/>
+    <path d="M-12,40 L0,48 L12,40" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.95"/>
+
+    <!-- High-Contrast Eyeglasses & Wisdom Lenses -->
+    <circle cx="-22" cy="-18" r="19" fill="#082F49" stroke="#0284C7" stroke-width="4"/>
+    <circle cx="-22" cy="-18" r="12" fill="url(#appGoldEyes)"/>
+    <circle cx="-25" cy="-21" r="4.5" fill="#FFFFFF"/>
+
+    <circle cx="22" cy="-18" r="19" fill="#451A03" stroke="#F59E0B" stroke-width="4"/>
+    <circle cx="22" cy="-18" r="12" fill="url(#appGoldEyes)"/>
+    <circle cx="19" cy="-21" r="4.5" fill="#FFFFFF"/>
+
+    <!-- Frame Bridge -->
+    <rect x="-6" y="-20" width="12" height="4" rx="2" fill="#FFFFFF"/>
+
+    <!-- Solar Gold Beak -->
+    <polygon points="0,-6 7,8 0,14 -7,8" fill="#FDE68A"/>
+    <polygon points="0,-6 0,14 7,8" fill="#F59E0B"/>
+
+    <!-- Platform Perch Claws -->
+    <ellipse cx="-16" cy="70" rx="7" ry="4" fill="#FBBF24"/>
+    <ellipse cx="16" cy="70" rx="7" ry="4" fill="#FBBF24"/>
+  </g>
+</svg>
