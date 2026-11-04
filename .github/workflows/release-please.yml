@@ -23,12 +23,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v7
         if: ${{ steps.release.outputs.releases_created }}
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
         if: ${{ steps.release.outputs.releases_created }}
         with:
           node-version: 24
+          cache: 'npm'
 
       - name: Build Brand Asset Pack
         if: ${{ steps.release.outputs.releases_created }}
@@ -40,5 +43,31 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ steps.release.outputs['.--tag_name'] || steps.release.outputs.tag_name }}
         run: |
-          gh release upload ${{ steps.release.outputs.tag_name }} public/broadsage-brand-assets.zip --clobber
+          TAG="${TAG_NAME}"
+          if [ -z "$TAG" ]; then
+            echo "Direct tag output not found, querying latest release tag via GitHub CLI..."
+            TAG=$(gh release view --json tagName -q '.tagName' 2>/dev/null || gh release list --limit 1 --json tagName -q '.[0].tagName')
+          fi
+
+          if [ -z "$TAG" ]; then
+            VERSION=$(node -p "require('./package.json').version" 2>/dev/null)
+            if [ -n "$VERSION" ]; then
+              TAG="v${VERSION}"
+            fi
+          fi
+
+          echo "Target release tag: ${TAG}"
+          if [ -z "$TAG" ]; then
+            echo "Error: Unable to resolve release tag for asset upload." >&2
+            exit 1
+          fi
+
+          if [ ! -f "public/broadsage-brand-assets.zip" ]; then
+            echo "Error: public/broadsage-brand-assets.zip does not exist." >&2
+            exit 1
+          fi
+
+          echo "Uploading public/broadsage-brand-assets.zip to release ${TAG}..."
+          gh release upload "${TAG}" public/broadsage-brand-assets.zip --clobber
