@@ -280,7 +280,7 @@ export const AssetStudio: React.FC = () => {
           <div>
             <h4 className="text-sm font-bold dark:text-white text-navy-900">Need the Entire Brand Kit at Once?</h4>
             <p className="text-xs dark:text-slate-400 text-slate-600">
-              Download all 4 production marks, status banners, tokens, and press guidelines in a single archive.
+              Download all 8 production marks, status banners, tokens, and press guidelines in a single archive.
             </p>
           </div>
         </div>
@@ -291,7 +291,7 @@ export const AssetStudio: React.FC = () => {
           className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all hover:scale-105 whitespace-nowrap"
         >
           <span>Download Brand Kit (ZIP)</span>
-          <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-950/20">1.10 MB</span>
+          <span className="font-mono text-[10px] px-1.5 py-0.5 rounded bg-slate-950/20">1.69 MB</span>
         </a>
       </div>
     </div>

@@ -22,14 +22,16 @@ import Footer from '../components/Footer.astro';
     <Hero />
 
     {/* 2. Official Marks & Brand Assets (Asset-First) */}
-    <section id="emblems" class="space-y-8 scroll-mt-24">
-      <SectionHeader
-        title="Official Production Marks"
-        subtitle="Master vector emblems, OS app launchers, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds"
-        badge="Official Marks"
-      />
+    <section id="emblems" class="space-y-12 sm:space-y-16 scroll-mt-24">
+      <div class="space-y-8">
+        <SectionHeader
+          title="Official Production Marks"
+          subtitle="Master vector emblems, OS app launchers, circular avatars, and horizontal wordmarks pre-optimized across native dark and light grounds"
+          badge="Official Marks"
+        />
 
-      <AssetStudio client:visible />
+        <AssetStudio client:visible />
+      </div>
 
       {/* Enterprise Application Sub-Brand Lockup Studio */}
       <AppSubBrandStudio client:visible />
