@@ -1,4 +1,7 @@
 ---
+import OllieMascot from '../islands/OllieMascot';
+import { Download, ArrowUp, ShieldCheck } from 'lucide-react';
+
 const socialLinks = [
   {
     name: 'Website',
@@ -49,100 +52,208 @@ const socialLinks = [
 ];
 ---
 
-<footer class="mt-20 border-t dark:border-slate-800 border-ivory-400 dark:bg-navy-950 bg-ivory-200 py-14 px-4 sm:px-8 text-center text-xs dark:text-slate-500 text-slate-600">
-  <div class="max-w-7xl mx-auto space-y-6">
-    <div class="flex items-center justify-center gap-2">
-      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-      <p class="font-semibold dark:text-slate-300 text-navy-900">
-        Brand Identity &amp; System Guidelines • Version 1.0 (Officially Sealed)
-      </p>
-    </div>
+<footer class="mt-20 border-t dark:border-slate-800 border-ivory-400 dark:bg-navy-950 bg-ivory-200 pt-12 pb-8 px-4 sm:px-8 text-xs dark:text-slate-400 text-slate-600 transition-colors">
+  <div class="max-w-7xl mx-auto space-y-10">
 
-    <p class="text-amber-500 dark:text-amber-400/90 font-medium italic">
-      “Broad Vision, Sage Guidance — Open to Everyone”
-    </p>
-
-    <p class="text-xs text-slate-400">
-      Brand &amp; Media Permissions: <a href="mailto:brand@broadsage.com" class="font-mono text-amber-500 dark:text-amber-400 hover:underline">brand@broadsage.com</a>
-    </p>
-
-    {/* Digital Touchpoints (Website & Social Media) */}
-    <div class="flex items-center justify-center gap-3 pt-2">
-      {socialLinks.map((link) => (
-        <a
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={link.title}
-          title={link.title}
-          class="w-10 h-10 rounded-xl dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-amber-500/50 flex items-center justify-center dark:text-slate-400 text-slate-700 hover:text-amber-500 dark:hover:text-amber-400 dark:hover:bg-slate-800/90 hover:bg-ivory-50 transition-all hover:scale-110 shadow-xs outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
-        >
-          {link.type === 'globe' ? (
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="2" y1="12" x2="22" y2="12" />
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
-          ) : (
-            <svg class="w-4 h-4" viewBox={link.viewBox} fill="currentColor" aria-hidden="true">
-              <path d={link.path} />
-            </svg>
-          )}
-        </a>
-      ))}
-    </div>
-
-    {/* Open Source Colophon & Gratitude Bar */}
-    <div class="pt-6 border-t dark:border-slate-800/80 border-ivory-400 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-      <p class="text-[11px] text-slate-500 order-2 sm:order-1">
-        Copyright &copy; 2026 Broadsage. All rights reserved.
-      </p>
-
-      <div class="flex items-center gap-2 flex-wrap justify-center order-1 sm:order-2">
-        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500 mr-0.5">
-          ENGINEERED WITH OPEN SOURCE
+    {/* Top Utility Bar: Brand Seal & Back to Top */}
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b dark:border-slate-800/80 border-ivory-300">
+      <a
+        href="#"
+        onclick="event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); this.blur();"
+        class="inline-flex items-center gap-3 group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 rounded-xl transition-all"
+        aria-label="Broadsage Brand Portal - Return to Top"
+      >
+        <div class="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+          <OllieMascot variant="primary" size={32} client:load />
+        </div>
+        <span class="text-base font-black tracking-tight dark:text-white text-navy-900">
+          BROAD<span class="text-amber-500">SAGE</span>
         </span>
+      </a>
 
-        {/* Astro Badge */}
-        <a
-          href="https://astro.build"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Astro — Next-Gen Island Architecture Web Framework"
-          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-orange-500/50 dark:text-slate-400 text-slate-700 hover:text-orange-500 hover:bg-orange-500/10 transition-all text-[11px] font-semibold group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/40 shadow-xs"
-        >
-          <svg class="w-3.5 h-3.5 transition-transform group-hover:scale-110" viewBox="0 0 85 107" fill="none" aria-hidden="true">
-            <path fill="url(#astro-flame-footer)" d="M27.6 91.1c-4.8-4.4-6.3-13.7-4.2-20.4 3.5 4.2 8.3 5.6 13.3 6.3 7.7 1.2 15.3.8 22.5-2.8l2.5-1.4c.7 2 .9 3.9.6 5.9-.6 4.9-3 8.7-6.9 11.5-1.5 1.2-3.2 2.2-4.8 3.3-4.9 3.3-6.2 7.2-4.4 12.9l.2.6a13 13 0 0 1-5.7-5 13.8 13.8 0 0 1-2.2-7.4c0-1.3 0-2.7-.2-4-.5-3.1-2-4.6-4.8-4.7a5.5 5.5 0 0 0-5.7 4.6l-.2.6Z" />
-            <path fill="currentColor" d="M0 69.6s14.3-7 28.7-7l10.8-33.5c.4-1.6 1.6-2.7 3-2.7 1.2 0 2.4 1.1 2.8 2.7l10.9 33.5c17 0 28.6 7 28.6 7L60.5 3.2c-.7-2-2-3.2-3.5-3.2H27.8c-1.6 0-2.7 1.3-3.4 3.2L0 69.6Z" />
-            <defs>
-              <linearGradient id="astro-flame-footer" x1="22.5" x2="69.1" y1="107" y2="84.9" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#D83333" />
-                <stop offset="1" stop-color="#FF5D01" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <span>Astro</span>
-        </a>
+      <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+        {/* Release Status Badge */}
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full dark:bg-emerald-500/10 bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 dark:text-emerald-300 text-[11px] font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Official v1.0 Locked</span>
+        </div>
 
-        {/* React Badge */}
-        <a
-          href="https://react.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="React — The Library for Web and Native User Interfaces"
-          class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-sky-400/50 dark:text-slate-400 text-slate-700 hover:text-sky-500 hover:bg-sky-400/10 transition-all text-[11px] font-semibold group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40 shadow-xs"
+        {/* Back to Top Quick Action */}
+        <button
+          type="button"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-amber-500/50 dark:text-slate-300 text-slate-700 hover:text-amber-500 dark:hover:text-amber-400 text-xs font-semibold shadow-xs transition-all outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
+          aria-label="Scroll smoothly back to top"
         >
-          <svg class="w-3.5 h-3.5 transition-transform group-hover:scale-110" viewBox="-11.5 -10.23174 23 20.46348" fill="none" aria-hidden="true">
-            <circle cx="0" cy="0" r="2.05" fill="currentColor" />
-            <g stroke="currentColor" stroke-width="1" fill="none">
-              <ellipse rx="11" ry="4.2" />
-              <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-              <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-            </g>
-          </svg>
-          <span>React</span>
-        </a>
+          <ArrowUp className="w-3.5 h-3.5" />
+          <span>Top</span>
+        </button>
       </div>
     </div>
+
+    {/* Middle Main Zone: Brand Hub on Left + Ollie Mascot Stage on Right */}
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+
+      {/* Left Column: Brand Governance, Ecosystem & Actions (8 cols on lg) */}
+      <div class="lg:col-span-7 xl:col-span-8 flex flex-col justify-between space-y-7">
+        {/* Mission & Stewardship Block */}
+        <div class="space-y-3">
+          <p class="text-sm sm:text-base font-bold text-amber-500 dark:text-amber-400/95 italic">
+            “Broad Vision, Sage Guidance — Open to Everyone”
+          </p>
+          <p class="text-xs dark:text-slate-400 text-slate-600 leading-relaxed max-w-2xl">
+            Broadsage is an open-source initiative stewarded by the <strong class="dark:text-slate-200 text-navy-900 font-semibold">Open Enterprise Foundation</strong>. We build open cloud-native platforms, agentic engineering tools, and sovereign developer frameworks designed to empower teams worldwide.
+          </p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5 pt-0.5">
+            <ShieldCheck className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
+            <span>Brand Permissions &amp; Media Inquiries:</span>
+            <a href="mailto:brand@broadsage.com" class="font-mono text-amber-500 dark:text-amber-400 hover:underline">brand@broadsage.com</a>
+          </p>
+        </div>
+
+        {/* Quick Brand Kit Download Bar */}
+        <div class="p-3.5 rounded-xl dark:bg-slate-900/60 bg-white/70 border dark:border-slate-800 border-ivory-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+          <div>
+            <p class="text-xs font-bold dark:text-white text-navy-900">Official Brand Assets Pack</p>
+            <p class="text-[11px] dark:text-slate-400 text-slate-500">Vector SVG marks, lockups, palette specs, and copy guidelines.</p>
+          </div>
+          <a
+            href="/broadsage-brand-assets.zip"
+            download="broadsage-brand-assets.zip"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition-all shadow-xs hover:shadow-md hover:scale-[1.02] flex-shrink-0 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Download ZIP</span>
+            <span class="text-[10px] font-mono px-1 py-0.2 rounded bg-slate-950/20 text-slate-950">1.10 MB</span>
+          </a>
+        </div>
+
+        {/* Digital Touchpoints & Open-Source Colophon */}
+        <div class="space-y-4 pt-2">
+          {/* Outbound Social Channels */}
+          <div>
+            <p class="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2.5 font-bold">
+              Digital Touchpoints &amp; Community
+            </p>
+            <div class="flex items-center gap-2.5 flex-wrap">
+              {socialLinks.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.title}
+                  title={link.title}
+                  class="w-9 h-9 rounded-xl dark:bg-slate-900/90 bg-white border dark:border-slate-800 border-ivory-400 hover:border-amber-500/50 flex items-center justify-center dark:text-slate-400 text-slate-700 hover:text-amber-500 dark:hover:text-amber-400 dark:hover:bg-slate-800/90 hover:bg-ivory-50 transition-all hover:scale-105 shadow-xs outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40"
+                >
+                  {link.type === 'globe' ? (
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="2" y1="12" x2="22" y2="12" />
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                  ) : (
+                    <svg class="w-4 h-4" viewBox={link.viewBox} fill="currentColor" aria-hidden="true">
+                      <path d={link.path} />
+                    </svg>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Open Source Badges */}
+          <div class="flex items-center gap-2 flex-wrap pt-1">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 mr-1 font-bold">
+              Engineered With Open Source:
+            </span>
+
+            {/* Astro Badge */}
+            <a
+              href="https://astro.build"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Astro — Next-Gen Island Architecture Web Framework"
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-orange-500/50 dark:text-slate-400 text-slate-700 hover:text-orange-500 hover:bg-orange-500/10 transition-all text-[11px] font-semibold group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/40 shadow-xs"
+            >
+              <svg class="w-3.5 h-3.5 transition-transform group-hover:scale-110" viewBox="0 0 85 107" fill="none" aria-hidden="true">
+                <path fill="url(#astro-flame-footer-new)" d="M27.6 91.1c-4.8-4.4-6.3-13.7-4.2-20.4 3.5 4.2 8.3 5.6 13.3 6.3 7.7 1.2 15.3.8 22.5-2.8l2.5-1.4c.7 2 .9 3.9.6 5.9-.6 4.9-3 8.7-6.9 11.5-1.5 1.2-3.2 2.2-4.8 3.3-4.9 3.3-6.2 7.2-4.4 12.9l.2.6a13 13 0 0 1-5.7-5 13.8 13.8 0 0 1-2.2-7.4c0-1.3 0-2.7-.2-4-.5-3.1-2-4.6-4.8-4.7a5.5 5.5 0 0 0-5.7 4.6l-.2.6Z" />
+                <path fill="currentColor" d="M0 69.6s14.3-7 28.7-7l10.8-33.5c.4-1.6 1.6-2.7 3-2.7 1.2 0 2.4 1.1 2.8 2.7l10.9 33.5c17 0 28.6 7 28.6 7L60.5 3.2c-.7-2-2-3.2-3.5-3.2H27.8c-1.6 0-2.7 1.3-3.4 3.2L0 69.6Z" />
+                <defs>
+                  <linearGradient id="astro-flame-footer-new" x1="22.5" x2="69.1" y1="107" y2="84.9" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#D83333" />
+                    <stop offset="1" stop-color="#FF5D01" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span>Astro</span>
+            </a>
+
+            {/* React Badge */}
+            <a
+              href="https://react.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="React — The Library for Web and Native User Interfaces"
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg dark:bg-slate-900/80 bg-white border dark:border-slate-800 border-ivory-400 hover:border-sky-400/50 dark:text-slate-400 text-slate-700 hover:text-sky-500 hover:bg-sky-400/10 transition-all text-[11px] font-semibold group outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/40 shadow-xs"
+            >
+              <svg class="w-3.5 h-3.5 transition-transform group-hover:scale-110" viewBox="-11.5 -10.23174 23 20.46348" fill="none" aria-hidden="true">
+                <circle cx="0" cy="0" r="2.05" fill="currentColor" />
+                <g stroke="currentColor" stroke-width="1" fill="none">
+                  <ellipse rx="11" ry="4.2" />
+                  <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+                  <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+                </g>
+              </svg>
+              <span>React</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Column: Ollie Mascot Stage (5 cols on lg, 4 cols on xl) */}
+      <div class="lg:col-span-5 xl:col-span-4 flex flex-col justify-center">
+        <div class="relative overflow-hidden rounded-2xl dark:bg-slate-900/70 bg-ivory-100/90 border dark:border-slate-800 border-ivory-300 p-6 sm:p-7 flex flex-col items-center text-center shadow-xs group transition-all duration-300 hover:border-amber-500/40">
+
+          {/* Ambient Radial Brand Glow */}
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(245,158,11,0.14),transparent_70%)] pointer-events-none"
+            aria-hidden="true"
+          ></div>
+
+          {/* Ollie Mascot Emblem with subtle hover lift */}
+          <div class="w-28 h-28 sm:w-32 sm:h-32 mb-4 relative z-10 transition-transform duration-300 group-hover:scale-105 group-hover:-translate-y-1">
+            <OllieMascot variant="primary" size="100%" client:load />
+          </div>
+
+          {/* Mascot Identity Block */}
+          <div class="relative z-10 space-y-1.5">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full dark:bg-amber-500/10 bg-amber-500/15 border border-amber-500/30 text-amber-500 dark:text-amber-400 text-[10px] font-mono font-bold uppercase tracking-wider">
+              <span>Ollie the Sage Owl</span>
+            </div>
+            <h3 class="text-sm font-bold dark:text-white text-navy-900">
+              Official Mascot &amp; Brand Guardian
+            </h3>
+            <p class="text-xs dark:text-slate-400 text-slate-600 max-w-[240px] leading-relaxed">
+              Symbolizing wisdom, clarity, and guidance across sovereign platforms and developer tools.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    {/* Bottom Legal & Colophon Bar */}
+    <div class="pt-6 border-t dark:border-slate-800/80 border-ivory-300 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <p class="text-[11px] text-slate-500 dark:text-slate-400 order-2 sm:order-1 text-center sm:text-left">
+        Copyright &copy; 2026 Broadsage. All rights reserved. Brand marks &amp; guidelines licensed under <span class="font-medium dark:text-slate-300 text-slate-700">Creative Commons CC BY-ND 4.0</span>.
+      </p>
+
+      <div class="order-1 sm:order-2 flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        <span>EDITION 2026</span>
+        <span>•</span>
+        <span class="text-amber-500 dark:text-amber-400 font-bold">OFFICIALLY SEALED</span>
+      </div>
+    </div>
+
   </div>
 </footer>
