@@ -7,6 +7,7 @@ import { Resvg } from '@resvg/resvg-js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const pkg = JSON.parse(fs.readFileSync(path.join(rootDir, 'package.json'), 'utf-8'));
 
 const tmpDir = path.join(rootDir, 'dist-zip-tmp');
 const zipOutput = path.join(rootDir, 'public', 'broadsage-brand-assets.zip');
@@ -93,7 +94,7 @@ console.log('✓ Design tokens copied');
 
 // 4. Create README Cheat Sheet
 const readmeContent = `========================================================================
-BROADSAGE OFFICIAL BRAND ASSETS & PRESS KIT (v1.0.0)
+BROADSAGE OFFICIAL BRAND ASSETS & PRESS KIT (v${pkg.version})
 Broad Vision, Sage Guidance — Open to Everyone
 https://brand.broadsage.com
 ========================================================================

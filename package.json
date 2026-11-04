@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "serve": "astro preview",
     "generate:banners": "node scripts/generate-banners.mjs",
-    "build:pack": "node scripts/build-asset-pack.mjs"
+    "build:pack": "node scripts/build-asset-pack.mjs",
+    "postversion": "node scripts/build-asset-pack.mjs"
   },
   "keywords": [
     "broadsage",
