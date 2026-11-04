@@ -20,7 +20,7 @@ export const PressBoilerplate: React.FC = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md dark:bg-sky-500/10 bg-sky-50 dark:text-sky-400 text-sky-800 border dark:border-sky-500/30 border-sky-300 text-xs font-mono font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5" /> 1-Sentence Pitch
+                <Sparkles className="w-3.5 h-3.5" /> Elevator Pitch
               </span>
               <span className="text-[11px] font-mono text-slate-500">18 words</span>
             </div>
