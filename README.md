@@ -8,10 +8,11 @@ Welcome to the official Broadsage brand kit project. This repository contains th
 
 ---
 
-## 🏢 Brand Architecture: The DPE Initiative (Open Source ↔ Enterprise Bridge)
+## 🏢 Brand Architecture: Enterprise Open Source Software Company
 
-Broadsage operates as a specialized **Developer Platform Engineering (DPE)** organization. Rather than fragmenting into artificial commercial silos or fictional product suites, Broadsage serves as the strategic architectural conduit between the fast-moving open-source ecosystem and resilient enterprise engineering:
+Broadsage is an **enterprise open-source software company** developing production applications, cloud-native developer platforms, and agentic engineering tools. Modeled on proven enterprise open-source paradigms (similar to the Red Hat model), Broadsage delivers production-grade application runtimes, hardened architectures, and sovereign developer frameworks:
 
+* **Enterprise Application & Platform Development:** Building production-grade open-source applications and sovereign platforms that give organizations complete technological independence.
 * **Open-Source Hardening & Governance:** Curating, auditing, and hardening distributed open-source stacks (Kubernetes, cloud runtimes, container engines) to eliminate security vulnerabilities and vendor lock-in.
 * **Autonomous Agentic Workflows:** Integrating AI review agents, LLM reasoning meshes, and automated migration assistants directly into developer CI/CD loops to amplify engineering velocity.
 * **Unified Telemetry & Lakehouse:** High-throughput streaming metrics (ClickHouse & OpenTelemetry) tracking DORA metrics, build latencies, and platform health across the entire distributed lifecycle.
@@ -21,8 +22,8 @@ Broadsage operates as a specialized **Developer Platform Engineering (DPE)** org
 
 ## 🌟 Mission & Vision: The Open-Source Way
 
-* **Mission:** Broadsage champions the open-source way by building transparent, community-driven technologies and transforming distributed open-source stacks—from agentic AI to cloud infrastructure—into hardened, enterprise-grade architectures that empower engineering freedom without vendor lock-in.
-* **Vision:** *“Broad Vision, Sage Guidance — Open to Everyone.”* To be the global catalyst and trusted foundation for open enterprise computing. By uniting radical open-source transparency with calm, authoritative architectural guidance, Broadsage ensures that the future of software engineering remains open, sovereign, and accessible to all developers.
+* **Mission:** Broadsage is an enterprise open-source software company building production-grade applications, developer platforms, and cloud infrastructure solutions. Following the enterprise open-source model, Broadsage transforms distributed open-source stacks—from agentic AI to cloud systems—into hardened, production-ready enterprise applications that empower engineering freedom without vendor lock-in.
+* **Vision:** *“Broad Vision, Sage Guidance — Open to Everyone.”* To be the global leader and trusted enterprise open-source software company developing sovereign applications. By uniting radical open-source transparency with calm, authoritative architectural guidance, Broadsage ensures that the future of software engineering remains open, sovereign, and accessible to all developers.
 
 ---
 

@@ -3,10 +3,10 @@ import { Copy, Check, FileText, Sparkles, Mail, Download } from 'lucide-react';
 import { useClipboard } from '../utils/useClipboard';
 
 const PITCH_TEXT =
-  'Broadsage unites open-source innovation with hardened enterprise platform engineering — Broad Vision, Sage Guidance, Open to Everyone.';
+  'Broadsage is an enterprise open-source software company developing cloud-native applications and developer platforms — Broad Vision, Sage Guidance, Open to Everyone.';
 
 const BOILERPLATE_TEXT =
-  'Broadsage is an open-source enterprise platform bridging cloud-native innovation and agentic AI with hardened, production-grade architectures. Featuring Ollie the Sage Owl, Broadsage champions the open enterprise foundation with calm, authoritative architectural guidance and zero vendor lock-in.';
+  'Broadsage is an enterprise open-source software company developing production applications, cloud-native developer platforms, and agentic engineering tools. Modeled on proven enterprise open-source principles, Broadsage delivers hardened application architectures and sovereign developer runtimes featuring Ollie the Sage Owl, empowering organizations with mission-critical stability and zero vendor lock-in.';
 
 export const PressBoilerplate: React.FC = () => {
   const { copiedKey, copy } = useClipboard({ timeoutMs: 2000 });
