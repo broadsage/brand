@@ -77,7 +77,7 @@ export const AppSubBrandStudio: React.FC = () => {
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full dark:bg-sky-500/10 bg-sky-50 dark:text-sky-400 text-sky-800 border dark:border-sky-500/30 border-sky-300 text-[10px] font-mono font-bold uppercase tracking-wider">
-              <Sparkles className="w-3 h-3" /> Red Hat Model Architecture
+              <Sparkles className="w-3 h-3" /> Application Architecture
             </span>
             <span className="text-xs font-mono text-slate-500 dark:text-slate-400">Lockup Spec</span>
           </div>

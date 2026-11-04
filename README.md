@@ -10,7 +10,7 @@ Welcome to the official Broadsage brand kit project. This repository contains th
 
 ## 🏢 Brand Architecture: Enterprise Open Source Software Company
 
-Broadsage is an **enterprise open-source software company** developing production applications, cloud-native developer platforms, and agentic engineering tools. Modeled on proven enterprise open-source paradigms (similar to the Red Hat model), Broadsage delivers production-grade application runtimes, hardened architectures, and sovereign developer frameworks:
+Broadsage is an **enterprise open-source software company** developing production applications, cloud-native developer platforms, and agentic engineering tools. Modeled on proven enterprise open-source paradigms, Broadsage delivers production-grade application runtimes, hardened architectures, and sovereign developer frameworks:
 
 * **Enterprise Application & Platform Development:** Building production-grade open-source applications and sovereign platforms that give organizations complete technological independence.
 * **Open-Source Hardening & Governance:** Curating, auditing, and hardening distributed open-source stacks (Kubernetes, cloud runtimes, container engines) to eliminate security vulnerabilities and vendor lock-in.
