@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import OllieMascot from './OllieMascot';
-import { Copy, Check, Sparkles, Layers, Box, Terminal, Cpu, LayoutGrid } from 'lucide-react';
+import { Copy, Check, Sparkles, Layers, Box, Terminal, Cpu, LayoutGrid, Download } from 'lucide-react';
 import { useClipboard } from '../utils/useClipboard';
+import { downloadSvgElement, exportSvgToPng } from '../utils/svgExport';
 
 interface AppSpec {
   id: string;
@@ -58,16 +59,43 @@ const APPS: AppSpec[] = [
 export const AppSubBrandStudio: React.FC = () => {
   const [selectedApp, setSelectedApp] = useState<AppSpec>(APPS[0]);
   const [customName, setCustomName] = useState<string>('');
+  const [isExportingPng, setIsExportingPng] = useState<boolean>(false);
   const { copiedKey, copy } = useClipboard({ timeoutMs: 2000 });
 
   const activeAppName = customName.trim() ? customName.trim() : selectedApp.name;
+  const safeFilenamePart = activeAppName.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'app';
 
   const handleCopySvg = () => {
-    const svgElem = document.getElementById('app-lockup-preview');
+    const svgElem = document.getElementById('app-lockup-preview') as SVGElement | null;
     if (!svgElem) return;
     const serializer = new XMLSerializer();
     const source = serializer.serializeToString(svgElem);
     copy(source, 'app-lockup');
+  };
+
+  const handleDownloadSvg = () => {
+    const svgElem = document.getElementById('app-lockup-preview') as SVGElement | null;
+    if (!svgElem) return;
+    const filename = `broadsage_${safeFilenamePart}_lockup.svg`;
+    downloadSvgElement(svgElem, filename);
+  };
+
+  const handleDownloadPng = async () => {
+    const svgElem = document.getElementById('app-lockup-preview') as SVGElement | null;
+    if (!svgElem) return;
+    setIsExportingPng(true);
+
+    const targetWidth = 2160;
+    const targetHeight = 400;
+    const filename = `broadsage_${safeFilenamePart}_lockup_${targetWidth}x${targetHeight}.png`;
+
+    try {
+      await exportSvgToPng(svgElem, targetWidth, targetHeight, filename);
+    } catch (err) {
+      console.error('App lockup PNG export failed:', err);
+    } finally {
+      setIsExportingPng(false);
+    }
   };
 
   return (
@@ -95,7 +123,7 @@ export const AppSubBrandStudio: React.FC = () => {
       <div className="p-6 sm:p-8 rounded-2xl bg-[#080D1E] border border-slate-800 flex flex-col items-center justify-center relative overflow-hidden shadow-inner">
         {/* Ambient subtle glow */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-30"
+          className="absolute inset-0 pointer-events-none opacity-30 transition-all duration-500"
           style={{
             background: `radial-gradient(circle at 50% 50%, ${selectedApp.accentColor}25, transparent 70%)`,
           }}
@@ -161,21 +189,44 @@ export const AppSubBrandStudio: React.FC = () => {
           </text>
         </svg>
 
-        {/* Lockup Actions */}
-        <div className="mt-4 flex items-center gap-3 relative z-10">
+        {/* Lockup Actions Bar (Download PNG, Download SVG, Copy SVG) */}
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 relative z-10">
+          {/* Download 2160px High-DPI PNG */}
+          <button
+            onClick={handleDownloadPng}
+            disabled={isExportingPng}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50"
+            title={`Download ${activeAppName} Lockup as 2160×400 High-DPI PNG`}
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>{isExportingPng ? 'Rendering PNG...' : 'Download PNG (2160px)'}</span>
+          </button>
+
+          {/* Download Vector SVG */}
+          <button
+            onClick={handleDownloadSvg}
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl dark:bg-slate-800 dark:hover:bg-slate-700 bg-white hover:bg-ivory-50 text-navy-900 dark:text-slate-200 border dark:border-slate-700 border-ivory-400 text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 shadow-xs"
+            title={`Download ${activeAppName} Vector Lockup (SVG)`}
+          >
+            <Download className="w-3.5 h-3.5 text-sky-500 dark:text-sky-400" />
+            <span>Download SVG</span>
+          </button>
+
+          {/* Copy SVG Markup */}
           <button
             onClick={handleCopySvg}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-all hover:scale-[1.02] shadow-xs"
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl dark:bg-slate-800 dark:hover:bg-slate-700 bg-white hover:bg-ivory-50 text-navy-900 dark:text-slate-200 border dark:border-slate-700 border-ivory-400 text-xs font-semibold transition-all hover:scale-[1.02] active:scale-95 shadow-xs"
+            title="Copy SVG markup to clipboard"
           >
             {copiedKey === 'app-lockup' ? (
               <>
                 <Check className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-emerald-400 font-bold">Copied Lockup SVG!</span>
+                <span className="text-emerald-400 font-bold">Copied SVG!</span>
               </>
             ) : (
               <>
-                <Copy className="w-3.5 h-3.5" />
-                <span>Copy Lockup SVG</span>
+                <Copy className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
+                <span>Copy SVG</span>
               </>
             )}
           </button>
@@ -224,11 +275,13 @@ export const AppSubBrandStudio: React.FC = () => {
         </div>
       </div>
 
-      {/* Custom Application Name Input & Rules */}
+      {/* Custom Application Name Input & Live Dynamic Preview */}
       <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 text-xs dark:text-slate-400 text-slate-600 bg-ivory-100/60 dark:bg-slate-900/40 p-4 rounded-xl border dark:border-slate-800 border-ivory-border">
         <div className="space-y-0.5">
           <p className="font-bold dark:text-slate-200 text-navy-900">Test Custom Application Name:</p>
-          <p className="text-[11px] text-slate-500">Preview how new internal tools and software packages lock up.</p>
+          <p className="text-[11px] text-slate-500">
+            Type any application name to generate a live lockup and export high-resolution PNG or SVG instantly.
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <input
@@ -253,4 +306,3 @@ export const AppSubBrandStudio: React.FC = () => {
 };
 
 export default AppSubBrandStudio;
-
