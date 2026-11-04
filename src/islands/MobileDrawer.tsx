@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ThemeToggle from './ThemeToggle';
+import { BRAND_STATUS_LABEL } from '../config/brand';
 import {
   Menu,
   X,
@@ -63,16 +64,21 @@ export const MobileDrawer: React.FC = () => {
         }`}
       >
         {/* Drawer Header */}
-        <div className="p-5 border-b dark:border-slate-800/80 border-ivory-border flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-amber-400" />
-            <span className="font-extrabold text-sm tracking-wider dark:text-white text-navy-900 uppercase">
-              BROAD<span className="text-amber-500">SAGE</span>
+        <div className="p-4 border-b dark:border-slate-800/80 border-ivory-border flex items-center justify-between">
+          <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-amber-400" />
+              <span className="font-extrabold text-sm tracking-wider dark:text-white text-navy-900 uppercase">
+                BROAD<span className="text-amber-500">SAGE</span>
+              </span>
+            </div>
+            <span className="text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              {BRAND_STATUS_LABEL}
             </span>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-lg dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800/60 text-slate-600 hover:text-navy-900 hover:bg-ivory-200 transition-colors"
+            className="p-1.5 rounded-lg dark:text-slate-400 dark:hover:text-white dark:hover:bg-slate-800/60 text-slate-600 hover:text-navy-900 hover:bg-ivory-200 transition-colors"
             aria-label="Close menu"
           >
             <X className="w-5 h-5" />

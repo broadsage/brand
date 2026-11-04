@@ -2,6 +2,7 @@
 import MobileDrawer from '../islands/MobileDrawer';
 import OllieMascot from '../islands/OllieMascot';
 import ThemeToggle from '../islands/ThemeToggle';
+import { BRAND_STATUS_LABEL } from '../config/brand';
 ---
 
 <header class="sticky top-0 z-40 dark:bg-navy-900/95 bg-ivory-50/95 backdrop-blur-md border-b dark:border-slate-800/80 border-ivory-border px-4 sm:px-8 py-3.5 transition-all">
@@ -21,7 +22,7 @@ import ThemeToggle from '../islands/ThemeToggle';
           BROAD<span class="text-amber-500">SAGE</span>
         </span>
         <span class="hidden sm:inline-flex text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-          Official v1.0 Locked
+          {BRAND_STATUS_LABEL}
         </span>
       </div>
     </a>
