@@ -14,59 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: googleapis/release-please-action@v4
-        id: release
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
-
-      # Checkout repo only if a new release was cut (PR merged)
-      - name: Checkout Code
-        uses: actions/checkout@v7
-        if: ${{ steps.release.outputs.releases_created == 'true' || steps.release.outputs['.--release_created'] == 'true' }}
-        with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        if: ${{ steps.release.outputs.releases_created == 'true' || steps.release.outputs['.--release_created'] == 'true' }}
-        with:
-          node-version: 24
-          cache: 'npm'
-
-      - name: Build Brand Asset Pack
-        if: ${{ steps.release.outputs.releases_created == 'true' || steps.release.outputs['.--release_created'] == 'true' }}
-        run: |
-          npm ci
-          npm run build:pack
-
-      - name: Upload Brand Kit to GitHub Release
-        if: ${{ steps.release.outputs.releases_created == 'true' || steps.release.outputs['.--release_created'] == 'true' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ steps.release.outputs['.--tag_name'] || steps.release.outputs.tag_name }}
-        run: |
-          TAG="${TAG_NAME}"
-          if [ -z "$TAG" ]; then
-            echo "Direct tag output not found, querying latest release tag via GitHub CLI..."
-            TAG=$(gh release view --json tagName -q '.tagName' 2>/dev/null || gh release list --limit 1 --json tagName -q '.[0].tagName')
-          fi
-
-          echo "Target release tag: ${TAG}"
-          if [ -z "$TAG" ]; then
-            echo "No active release tag found. Skipping asset upload."
-            exit 0
-          fi
-
-          # Verify the release actually exists on GitHub before attempting upload
-          if ! gh release view "${TAG}" >/dev/null 2>&1; then
-            echo "Release ${TAG} does not exist on GitHub yet. Skipping asset upload."
-            exit 0
-          fi
-
-          if [ ! -f "public/broadsage-brand-assets.zip" ]; then
-            echo "Error: public/broadsage-brand-assets.zip does not exist." >&2
-            exit 1
-          fi
-
-          echo "Uploading public/broadsage-brand-assets.zip to release ${TAG}..."
-          gh release upload "${TAG}" public/broadsage-brand-assets.zip --clobber
