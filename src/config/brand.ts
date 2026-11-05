@@ -7,18 +7,17 @@ import pkg from '../../package.json';
 export const BRAND_VERSION_RAW: string = pkg.version;
 
 /**
- * Formats semantic version into concise release representation:
+ * Formats semantic version into concise major.minor representation:
+ * - "1.1.1" -> "v1.1"
  * - "1.0.0" -> "v1.0"
- * - "1.2.0" -> "v1.2"
- * - "1.0.4" -> "v1.0.4" (preserves patch versions if non-zero)
+ * - "2.0.4" -> "v2.0"
  */
 export function formatBrandVersion(version: string = pkg.version): string {
   const cleaned = version.replace(/^v/, '');
   const parts = cleaned.split('.');
-  if (parts.length >= 3 && parts[2] === '0') {
-    return `v${parts[0]}.${parts[1]}`;
-  }
-  return `v${cleaned}`;
+  const major = parts[0] || '1';
+  const minor = parts[1] || '0';
+  return `v${major}.${minor}`;
 }
 
 export const BRAND_VERSION: string = formatBrandVersion(pkg.version);
