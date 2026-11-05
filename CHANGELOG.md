@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/broadsage/brand/compare/v1.1.0...v1.1.1) (2026-11-05)
+
+
+### Bug Fixes
+
+* **footer:** align brand marks licensing with trademark guidelines standard ([919d742](https://github.com/broadsage/brand/commit/919d7424617090a53ee33d08d9013bca05135c2e))
+
 ## [1.1.0](https://github.com/broadsage/brand/compare/v1.0.0...v1.1.0) (2026-11-04)
 
 
