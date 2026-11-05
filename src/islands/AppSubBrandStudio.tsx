@@ -60,10 +60,74 @@ export const AppSubBrandStudio: React.FC = () => {
   const [selectedApp, setSelectedApp] = useState<AppSpec>(APPS[0]);
   const [customName, setCustomName] = useState<string>('');
   const [isExportingPng, setIsExportingPng] = useState<boolean>(false);
+  const [measuredTextWidth, setMeasuredTextWidth] = useState<number>(0);
+  const textRef = React.useRef<SVGTextElement | null>(null);
   const { copiedKey, copy } = useClipboard({ timeoutMs: 2000 });
 
-  const activeAppName = customName.trim() ? customName.trim() : selectedApp.name;
+  const activeAppName = customName.trim() ? customName : selectedApp.name;
   const safeFilenamePart = activeAppName.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') || 'app';
+
+  // Fallback heuristic estimator for initial render and SSR
+  const estimateWidth = (text: string): number => {
+    if (!text) return 0;
+    let width = 0;
+    for (const char of text) {
+      if ('MW@%#&'.includes(char)) {
+        width += 22;
+      } else if ('ijl1|!.,:;\'"()[]{}'.includes(char)) {
+        width += 8;
+      } else if ('frtI- '.includes(char)) {
+        width += 10;
+      } else if (char === char.toUpperCase() && char !== char.toLowerCase()) {
+        width += 17;
+      } else {
+        width += 14.5;
+      }
+    }
+    return Math.ceil(width);
+  };
+
+  // Measure rendered text bounding box accurately in SVG DOM
+  React.useLayoutEffect(() => {
+    if (textRef.current) {
+      try {
+        const bbox = textRef.current.getBBox();
+        if (bbox && bbox.width > 0) {
+          setMeasuredTextWidth(Math.ceil(bbox.width));
+        }
+      } catch {
+        // Fallback gracefully if getBBox is not available
+      }
+    }
+  }, [activeAppName]);
+
+  // Re-measure when web fonts finish loading
+  React.useEffect(() => {
+    if (typeof document !== 'undefined' && document.fonts?.ready) {
+      document.fonts.ready.then(() => {
+        if (textRef.current) {
+          try {
+            const bbox = textRef.current.getBBox();
+            if (bbox && bbox.width > 0) {
+              setMeasuredTextWidth(Math.ceil(bbox.width));
+            }
+          } catch {
+            // Ignore
+          }
+        }
+      });
+    }
+  }, [activeAppName]);
+
+  const currentTextWidth = measuredTextWidth > 0 ? measuredTextWidth : estimateWidth(activeAppName);
+  // Base standard card width (540px) maintains optimal proportion for standard suite names
+  const baseWidth = 540;
+  // Starting X coordinate of the right-hand sub-brand text
+  const textStartX = 302;
+  // Balanced right-hand padding inside the squircle frame
+  const rightPadding = 44;
+  // Stretches dynamically to accommodate longer text without trimming
+  const svgWidth = Math.max(baseWidth, Math.ceil(textStartX + currentTextWidth + rightPadding));
 
   const handleCopySvg = () => {
     const svgElem = document.getElementById('app-lockup-preview') as SVGElement | null;
@@ -85,8 +149,8 @@ export const AppSubBrandStudio: React.FC = () => {
     if (!svgElem) return;
     setIsExportingPng(true);
 
-    const targetWidth = 2160;
     const targetHeight = 400;
+    const targetWidth = Math.round((svgWidth / 100) * targetHeight);
     const filename = `broadsage_${safeFilenamePart}_lockup_${targetWidth}x${targetHeight}.png`;
 
     try {
@@ -133,11 +197,12 @@ export const AppSubBrandStudio: React.FC = () => {
         {/* Live SVG Vector Lockup */}
         <svg
           id="app-lockup-preview"
-          viewBox="0 0 540 100"
-          className="w-full max-w-xl h-auto relative z-10"
+          viewBox={`0 0 ${svgWidth} 100`}
+          className="w-full h-auto relative z-10 transition-all duration-150"
+          style={{ maxWidth: `${svgWidth}px` }}
         >
           {/* Subtle Frame */}
-          <rect width="540" height="100" rx="20" fill="#0A1128" stroke="#1E293B" strokeWidth="1.5" />
+          <rect width={svgWidth} height="100" rx="20" fill="#0A1128" stroke="#1E293B" strokeWidth="1.5" />
 
           {/* Ollie Mascot Emblem (Scaled) */}
           <g transform="translate(56, 50) scale(0.38)">
@@ -177,6 +242,7 @@ export const AppSubBrandStudio: React.FC = () => {
 
           {/* Application Name */}
           <text
+            ref={textRef}
             x="302"
             y="59"
             fill="#FFFFFF"
@@ -191,15 +257,15 @@ export const AppSubBrandStudio: React.FC = () => {
 
         {/* Lockup Actions Bar (Download PNG, Download SVG, Copy SVG) */}
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2 relative z-10">
-          {/* Download 2160px High-DPI PNG */}
+          {/* Download High-DPI PNG */}
           <button
             onClick={handleDownloadPng}
             disabled={isExportingPng}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50"
-            title={`Download ${activeAppName} Lockup as 2160×400 High-DPI PNG`}
+            title={`Download ${activeAppName} Lockup as ${Math.round((svgWidth / 100) * 400)}×400 High-DPI PNG`}
           >
             <Download className="w-3.5 h-3.5" />
-            <span>{isExportingPng ? 'Rendering PNG...' : 'Download PNG (2160px)'}</span>
+            <span>{isExportingPng ? 'Rendering PNG...' : `Download PNG (${Math.round((svgWidth / 100) * 400)}px)`}</span>
           </button>
 
           {/* Download Vector SVG */}
