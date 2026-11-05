@@ -1,10 +1,11 @@
 name: Deploy Brand Portal to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
   workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: read
