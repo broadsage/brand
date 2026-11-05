@@ -139,6 +139,11 @@ https://brand.broadsage.com
    /banners/high-dpi-png/ -> Platform-native raster banners and status badges
    /tokens/             -> CSS variables, Tailwind config, and JSON tokens
 
+7. TRADEMARK & USAGE NOTICE
+   Broadsage, the Broadsage logo, and Ollie the Sage Owl are trademarks of Broadsage.
+   Usage is governed by the Broadsage Brand Guidelines.
+   For licensing, partnerships, and press inquiries: brand@broadsage.com
+
 For complete live guidelines, token matrix, and vector canvas tools, visit:
 https://brand.broadsage.com
 `;
