@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/broadsage/brand/compare/v1.1.1...v1.2.0) (2026-11-05)
+
+
+### Features
+
+* **studio:** add sub-brand icon badges and optimize logo-to-wordmark spacing ([8cb6df6](https://github.com/broadsage/brand/commit/8cb6df678fbacf795032d2a6c5d9abcf0afd28f9))
+
+
+### Bug Fixes
+
+* **brand:** format official brand release badge to major and minor version only ([3c391f3](https://github.com/broadsage/brand/commit/3c391f3240de441227eedc6339d15815eb379925))
+* **studio:** dynamically stretch sub-brand lockup card to fit long text without clipping ([5084631](https://github.com/broadsage/brand/commit/50846310b89e7fccc32d7f5be81b6cd7487f08a1))
+
 ## [1.1.1](https://github.com/broadsage/brand/compare/v1.1.0...v1.1.1) (2026-11-05)
 
 
